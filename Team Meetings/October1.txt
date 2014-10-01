@@ -15,8 +15,10 @@ Wednesday, October 1, 2014
 	- Glossary
 	- Requirement specifications
 
-6) Exchange of contact information
+6) Deadlines for each task
 
-7) Miscellaneous/Additional Items
+7) Exchange of contact information
 
-8) Next team meeting (must be before next lab)
+8) Miscellaneous/Additional Items
+
+9) Next team meeting (must be before next lab)
