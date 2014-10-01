@@ -1,0 +1,20 @@
+Wednesday, October 1, 2014
+
+1) Which lab section we should attend as a team
+
+2) Overview of project requirements
+
+3) Which license to use
+
+4) Discussion of how work should be assigned (individually, partners, two groups of three, totally as group of six)
+
+5) Assignment of tasks for next week
+	- User Interface Mockups
+	- Storyboard
+	- UML diagram
+	- Glossary
+	- Requirement specifications
+
+6) Miscellaneous/Additional Items
+
+7) Next team meeting (must be before next lab)
