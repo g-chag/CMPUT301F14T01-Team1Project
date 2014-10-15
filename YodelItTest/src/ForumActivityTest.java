@@ -27,10 +27,12 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		//assert it is not empty
 		
 		Answer a = new Answer("Yeah I see you");
-		AnswerList.postAnswer(q);
+		q.postAnswer(q);
 		assertEquals("Okay", 1, AnswerList.getCount());
 		Answer a2 = new Answer("Yeah I see you again");
 		assertEquals("Okay", 2, AnswerList.getCount());
+		
+		//add answers and make sure the count number goes up
 	}
 	
 	public void testPostReply(){
@@ -38,7 +40,7 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		//assert it is not empty
 		
 		Reply r = new Reply("I am replying now");
-		ReplyList.postReply(r);
+		q.postReply(r);
 		assertEquals("Okay", 1, ReplyList.getCount());
 		Reply r2 = new Reply("I am replying again");
 		assertEquals("Okay", 2, ReplyList.getCount());
@@ -54,6 +56,64 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		} catch(Exception e){
 			assertEquals(e.getMessage(), "Illegal Picture Size Exception");	
 		}
+	}
+	public void testSortView(){
+		//test for view list to be sorted upon user request
+		//assert order is right		
+		
+		
+	}
+	
+	public void testUpvote(){
+		//checking for question upvote now
+		Question q = new Question("Upvote this please?");
+		QuestionList.postQuestion(q);
+		q.upvote();
+		assertEquals("Okay", 1, QuestionList.getVoteCount());
+		
+		//checking for answer upvote now
+		
+		Answer a = new Answer("Upvote me now bro");
+		q.postAnswer(a);
+		a.upvote();
+		assertEquals("Okay", 1, AnswerList.getVoteCount());
+	}
+	
+	public void testGetAnsCount(){
+		Question q = new Question("Upvote this please?");
+		QuestionList.postQuestion(q);
+		Answer a = new Answer("Upvote me now bro");
+		q.postAnswer(a);
+		assertEquals("Okay", 1, QuestionList.getAnsCount());
+		
+	}
+	
+	public void testSearch(){
+		//test for searching
+		//		
+	}
+	
+	public void testVisited(){
+		Question q = new Question("Upvote this please?");
+		QuestionList.postQuestion(q);
+		VisitedList.addQuestion(q);
+		assertEquals("Okay", 1, VisitedList.getVisitedCount());		
+	}
+	
+	public void testFavuorite(){
+		Question q = new Question("Upvote this please?");
+		QuestionList.postQuestion(q);
+		FavouredList.addQuestion(q);
+		assertEquals("Okay", 1, FavouredList.getVisitedCount());		
+		
+	}
+	
+	public void testUserNameChange(){
+		String newUserName = "Mr. Bean";
+		user.UserName = newUserName;
+		main.update();
+		assertEquals("Okay", UserName, newUserName);
+		
 	}
 	
 	public void testQAview(){
