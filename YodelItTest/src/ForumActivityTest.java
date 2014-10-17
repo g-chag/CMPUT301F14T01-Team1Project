@@ -4,12 +4,7 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 	public ForumActivityTest(){
 		super(ForumActivity.class);
 	}
-	
-	public void testCategoryView(){
-		//test for view display
-		//assert not empty and number of items equal 
-		//the number of expected category
-	}
+
 	
 	public void testPostQuestion(){
 		//test for question posting
@@ -68,13 +63,13 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		Reply r = new Reply;
 		r.content("");
 		try{
-			ReplyList.postAnswer(r);
+			ReplyList.postReply(r);
 			fail();
 		} catch (Exception e){
 			assertEquals(e.getMessage(), "Illegal Action: Content is Empty");
 		}
 		r.content("I have a reply now");
-		ReplyList.postAnswer(r);
+		ReplyList.postReply(r);
 		assertEquals("Okay", 1, ReplyList.getCount());
 		//add answers and make sure the count number goes up
 	}
@@ -82,20 +77,92 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 	public void testPictureAttachment(){
 		//test the uploaded picture size
 		//assert error is raised when file bigger than 64kb
-		Picture pic = new Picture(/*picture path*/);
+		Picture pic = new Picture
+		pic.load(/*picture path*/);
 		try{
-			PicUpload.uploadPicture(pic);
+			PicLoad.loadPicture(pic);
 			fail();
 		} catch(Exception e){
 			assertEquals(e.getMessage(), "Illegal Picture Size Exception");	
 		}
 	}
+	
 	public void testSortView(){
 		//test for view list to be sorted upon user request
-		//assert order is right		
+		//assert order is right for date
+		Question q = new Question;
+		q.subject("Zebra");
+		q.content("Black and White")		
+        Calendar date = Calendar.getInstance();
+        date.set(Calendar.MONTH, 10);
+        date.set(Calendar.DATE, 1);
+        date.set(Calendar.YEAR, 2014);
+        Date post;
+        post = date.getTime();
+        q.setDate(post);
 		
 		
+		Question q1 = new Question;
+		q1.subject("Megalodon");
+		q1.content("Scary Grey");
+        Calendar date1 = Calendar.getInstance();
+        date1.set(Calendar.MONTH, 7);
+        date1.set(Calendar.DATE, 1);
+        date1.set(Calendar.YEAR, 2014);
+        Date post1;
+        post1 = date1.getTime();
+        q1.setDate(post1);
+		
+		Question q2 = new Question;
+		q2.subject("Axolotl");
+		q2.content("Weird");		
+        Calendar date2 = Calendar.getInstance();
+        date2.set(Calendar.MONTH, 9);
+        date2.set(Calendar.DATE, 28);
+        date2.set(Calendar.YEAR, 2014);
+        Date post2;
+        post2 = date2.getTime();
+        q2.setDate(post2);
+        
+        QuestionList.postQuestion(q);
+        QuestionList.postQuestion(q1);
+        QuestionList.postQuestion(q2);
+        
+        QuestionList.sortDateLatest();
+        
+        List<Questions> ordered = QuestionList.getQuestions();
+        assertTrue(ordered.get(0).getQuestionDate().after(ordered.get(1).getQuestionDate()));
+        
+        QuestionList.sortDateEarliest();
+        
+        List<Questions> ordered1 = QuestionList.getQuestions();
+        assertTrue(ordered1.get(0).getQuestionDate().after(ordered1.get(1).getQuestionDate()));
+        
+        //then tests for sorting by picture uploaded
+        Question q3 = new Question;
+		q.subject("Godzilla");
+		q.content("Scary and eats buildings");		
+        Calendar date3 = Calendar.getInstance();
+        date3.set(Calendar.MONTH, 6);
+        date3.set(Calendar.DATE, 4);
+        date3.set(Calendar.YEAR, 2014);
+        Date post3;
+        post3 = date3.getTime();
+        q3.setDate(post3);
+        Picture pic = new Picture
+        pic.load(/*picture path*/);
+        q3.upload(pic);
+        
+        QuestionList.postQuestion(q3);
+        assertEquals("Okay", 1, ordered2.get(3).getQuestionPicStatus());
+        
+        QuestionList.sortByPicture();
+        List<Questions> ordered2 = QuestionList.getQuestions();
+        assertEquals("Okay", 1, ordered2.get(0).getQuestionPicStatus());
+       
+  
 	}
+	
 	
 	public void testUpvote(){
 		//checking for question upvote now
