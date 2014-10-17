@@ -151,8 +151,8 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
         
         //then tests for sorting by picture uploaded
         Question q3 = new Question;
-		q.subject("Godzilla");
-		q.content("Scary and eats buildings");		
+		q3.subject("Godzilla");
+		q3.content("Scary and eats buildings");		
         Calendar date3 = Calendar.getInstance();
         date3.set(Calendar.MONTH, 6);
         date3.set(Calendar.DATE, 4);
@@ -177,49 +177,96 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 	
 	public void testUpvote(){
 		//checking for question upvote now
-		Question q = new Question("Upvote this please?");
+		Question q = new Question;
+		q.subject("testing");
+		q.content("testing content");
 		QuestionList.postQuestion(q);
 		q.upvote();
 		assertEquals("Okay", 1, QuestionList.getVoteCount());
 		
 		//checking for answer upvote now
 		
-		Answer a = new Answer("Upvote me now bro");
+		Answer a = new Answer("Upvote me now");
 		q.postAnswer(a);
 		a.upvote();
 		assertEquals("Okay", 1, AnswerList.getVoteCount());
 	}
 	
-	public void testGetAnsCount(){
-		Question q = new Question("Upvote this please?");
+	
+	public void testGetCount(){
+		Question q = new Question;
+		q.subject("testing");
+		q.content("testing content");
 		QuestionList.postQuestion(q);
-		Answer a = new Answer("Upvote me now bro");
+		Answer a = new Answer;
+		a.content("testing answer");
 		q.postAnswer(a);
-		assertEquals("Okay", 1, QuestionList.getAnsCount());
-		
+		assertEquals("Okay", 1, AnswerList.getCount());
+		assertEquals("Okay", 1, QuestionList.getCount());
+		assertEquals("Okay", 1, AnswerList.getVoteCount());
+		assertEquals("Okay", 1, QuestionList.getVoteCount());
 	}
 	
 	public void testSearch(){
 		//test for searching
-		//		
+		
+		Question q1 = new Question;
+		q1.subject("Megalodon");
+		q1.content("Scary Grey")
+		Question q2 = new Question;
+		q2.subject("Megalodon continued");
+		q2.content("Weird");
+		Question q3 = new Question;
+		q3.subject("Godzilla");
+		q3.content("Scary and eats buildings");	
+		Question q4 = new Question;
+		q4.subject("Tyrannosaurus rex vs Megalodon");
+		q4.content("Bloody");	
+	     
+        QuestionList.postQuestion(q1);
+        QuestionList.postQuestion(q2);
+        QuestionList.postQuestion(q3);
+        QuestionList.postQuestion(q4);
+        
+        String searchKey = "Megalodon";
+        QuestionList.search("Megalodon");        
+        List<Questions> searched = QuestionList.getQuestions();
+        
+        for (int i = 0; i < 2; i++) {
+			assertTrue("Megalodon" in searched.get(i).getSubject())
+		}
+		
 	}
 	
 	public void testVisited(){
-		Question q = new Question("Upvote this please?");
+		//testing for adding visited questions
+		// to be added into an "archive" list knowing
+		// he/she has visited
+		Question q = new Question;
+		q.subject("testing");
+		q.content("testing content");
 		QuestionList.postQuestion(q);
 		VisitedList.addQuestion(q);
 		assertEquals("Okay", 1, VisitedList.getVisitedCount());		
 	}
 	
-	public void testFavuorite(){
-		Question q = new Question("Upvote this please?");
+	public void testFavourite(){
+		//tests the favourite feature similar to the visited
+		//except favourite is invoked by the user instead of 
+		//by default
+		
+		Question q = new Question;
+		q.subject("testing");
+		q.content("testing content");
 		QuestionList.postQuestion(q);
 		FavouredList.addQuestion(q);
-		assertEquals("Okay", 1, FavouredList.getVisitedCount());		
+		assertEquals("Okay", 1, FavouredList.getFavouriteCount());		
 		
 	}
 	
 	public void testUserNameChange(){
+		//ensure username/forum name is changeable
+		// and the change actually goes through
 		String newUserName = "Mr. Bean";
 		user.UserName = newUserName;
 		main.update();
@@ -227,18 +274,19 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		
 	}
 	
-	public void testQAview(){
-		//test for view display for questions and answers
-		//assert that question is not empty
-	}
-	
 	public void testReplyView(){
 		//test for view display for replies on questions
 		//assert that replies view is not empty after adding a reply
+		Question q = new Question;
+		q.subject("testing");
+		q.content("testing content");
+		QuestionList.postQuestion(q);
+		Reply r = new Reply;
+		r.subject("reply");
+		r.content("testing reply");
+		ReplyList.postReply(r);
+		assertEquals("okay", "reply", ReplyList.get(0));	
 	}
-	
-	public void testUserTextView(){
-		
-	}
+
 	
 }
