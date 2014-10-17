@@ -5,9 +5,12 @@ public class HomeActivityTest ActivityInstrumentationTestCase2<HomeActivity>{
 		super(HomeActivity.class);
 	}
 	
-	public void testCategoryView(){
+	public void testCategoryViewSearch(){
 		//test for view display
-		//assert not empty and number of items equal 
-		//the number of expected category
+		//Arbitrary search for categories 
+		String searchKey = "Science";
+        CategoryList.search(searchKey);        
+        List<Category> searched = CategoryList.getCategory();
+        assertTrue(searched.get(0).getCate().contains("Science"));
 	}
 }

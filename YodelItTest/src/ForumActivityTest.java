@@ -233,7 +233,7 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
         List<Questions> searched = QuestionList.getQuestions();
         
         for (int i = 0; i < 2; i++) {
-			assertTrue("Megalodon" in searched.get(i).getSubject())
+			assertTrue(searched.get(i).getSubject().contains("Megalodon"));
 		}
 		
 	}
