@@ -100,11 +100,7 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
         Date post;
         post = date.getTime();
         q.setDate(post);
-<<<<<<< HEAD
-		
-=======
->>>>>>> b831b09001c9bd095ceab44c89140d6a63b6d612
-		
+
 		Question q1 = new Question;
 		q1.subject("Megalodon");
 		q1.content("Scary Grey");
@@ -116,8 +112,7 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
         post1 = date1.getTime();
         q1.setDate(post1);
 		
-<<<<<<< HEAD
-=======
+
 		Question q1 = new Question;
 		q1.subject("Megalodon");
 		q1.content("Scary Grey");
@@ -128,8 +123,7 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
         Date post1;
         post1 = date1.getTime();
         q1.setDate(post1);
-		
->>>>>>> b831b09001c9bd095ceab44c89140d6a63b6d612
+
 		Question q2 = new Question;
 		q2.subject("Axolotl");
 		q2.content("Weird");		

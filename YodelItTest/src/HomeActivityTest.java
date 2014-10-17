@@ -9,6 +9,5 @@ public class HomeActivityTest ActivityInstrumentationTestCase2<HomeActivity>{
 		//test for view display
 		//assert not empty and number of items equal 
 		//the number of expected category
-		CategoryList.
 	}
 }
