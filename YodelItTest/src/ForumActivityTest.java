@@ -13,8 +13,8 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 	
 	public void testPostQuestion(){
 		//test for question posting
-		//assert it is not empty
-		
+
+		//make sure to disallow empty subject box
 		Question q = new Question;
 		q.subject("");
 		q.content("Do you see me");
@@ -25,6 +25,7 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 			assertEquals(e.getMessage(), "Illegal Action: Subject is Empty");
 		}
 		
+		//make sure to disallow empty content/question box
 		q.subject("Okay now I have a subject");
 		q.content("");
 		try{
@@ -44,12 +45,18 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		//test for answer posting
 		//assert it is not empty
 		
-		Answer a = new Answer("Yeah I see you");
-		q.postAnswer(q);
+		//make sure to disallow empty content/answer box
+		Answer a = new Answer;
+		a.content("");
+		try{
+			AnswerList.postAnswer(a);
+			fail();
+		} catch (Exception e){
+			assertEquals(e.getMessage(), "Illegal Action: Content is Empty");
+		}
+		a.content("I have an answer now");
+		AnswerList.postAnswer(a);
 		assertEquals("Okay", 1, AnswerList.getCount());
-		Answer a2 = new Answer("Yeah I see you again");
-		assertEquals("Okay", 2, AnswerList.getCount());
-		
 		//add answers and make sure the count number goes up
 	}
 	
@@ -57,11 +64,19 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		//test for question reply
 		//assert it is not empty
 		
-		Reply r = new Reply("I am replying now");
-		q.postReply(r);
+		//make sure to disallow empty content/reply box
+		Reply r = new Reply;
+		r.content("");
+		try{
+			ReplyList.postAnswer(r);
+			fail();
+		} catch (Exception e){
+			assertEquals(e.getMessage(), "Illegal Action: Content is Empty");
+		}
+		r.content("I have a reply now");
+		ReplyList.postAnswer(r);
 		assertEquals("Okay", 1, ReplyList.getCount());
-		Reply r2 = new Reply("I am replying again");
-		assertEquals("Okay", 2, ReplyList.getCount());
+		//add answers and make sure the count number goes up
 	}
 	
 	public void testPictureAttachment(){
