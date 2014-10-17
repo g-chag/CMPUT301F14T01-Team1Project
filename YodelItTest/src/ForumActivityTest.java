@@ -15,11 +15,29 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		//test for question posting
 		//assert it is not empty
 		
-		Question q = new Question("Do you see me?");
-		QuestionList.postQuestion(q);
+		Question q = new Question;
+		q.subject("");
+		q.content("Do you see me");
+		try{
+			QuestionList.postQuestion(q);
+			fail();
+		} catch (Exception e){
+			assertEquals(e.getMessage(), "Illegal Action: Subject is Empty");
+		}
+		
+		q.subject("Okay now I have a subject");
+		q.content("");
+		try{
+			QuestionList.postQuestion(q);
+			fail();
+		} catch (Exception e){
+			assertEquals(e.getMessage(), "Illegal Action: Content is Empty");
+		}
+		
+		q.subject("Okay now I have a subject");
+		q.content("And I have content");		
+		QuestionList.postQuestion(q);		
 		assertEquals("Okay", 1, QuestionList.getCount());
-		Question q2 = new Question("Do you see me now?");
-		assertEquals("Okay", 2, QuestionList.getCount());
 	}
 	
 	public void testPostAnswer(){
