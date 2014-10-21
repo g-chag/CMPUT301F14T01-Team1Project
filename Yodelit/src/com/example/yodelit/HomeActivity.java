@@ -5,14 +5,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MainActivity extends Activity {
+public class HomeActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
     }
 
 
@@ -22,11 +21,5 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
-    
-	public void login(View view) {
-		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
-		Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-		startActivity(intent);
-	}
 }
+    
