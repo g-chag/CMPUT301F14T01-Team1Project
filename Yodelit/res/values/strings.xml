@@ -3,6 +3,16 @@
 
     <string name="app_name">Yodelit</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="yodel_string">Yodel!</string>
+    <string name="Topic_1">Arts</string>
+    <string name="Topic_2">Science</string>
+    <string name="Topic_3">Technology</string>
+    <string name="Topic_4">Life</string>
+    <string name="Topic_5">Laughs</string>
+    <string name="Topic_6">Food</string>
+    <string name="Topic_7">Music</string>
+    <string name="Topic_8">Travel</string>
+    <string name="Topic_9">Health</string>
+    
 
 </resources>
