@@ -29,6 +29,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/userNameEditText"
         android:layout_centerHorizontal="true"
+<<<<<<< HEAD
         android:text="@string/yodel_string" />
+=======
+        android:text="Yodel!" 
+        android:onClick="login"
+        />
+>>>>>>> FETCH_HEAD
 
 </RelativeLayout>

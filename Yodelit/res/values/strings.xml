@@ -3,6 +3,7 @@
 
     <string name="app_name">Yodelit</string>
     <string name="action_settings">Settings</string>
+<<<<<<< HEAD
     <string name="yodel_string">Yodel!</string>
     <string name="Topic_1">Arts</string>
     <string name="Topic_2">Science</string>
@@ -14,5 +15,9 @@
     <string name="Topic_8">Travel</string>
     <string name="Topic_9">Health</string>
     
+=======
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_home">HomeActivity</string>
+>>>>>>> FETCH_HEAD
 
 </resources>

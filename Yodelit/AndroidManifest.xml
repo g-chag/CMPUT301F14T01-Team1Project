@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.yodelit.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +23,13 @@
             </intent-filter>
         </activity>
         <activity
+<<<<<<< HEAD
             android:name="com.example.yodelit.ForumActivity"
             android:label="@string/yodel_string" >
+=======
+            android:name=".HomeActivity"
+            android:label="@string/title_activity_home" >
+>>>>>>> FETCH_HEAD
         </activity>
     </application>
 
