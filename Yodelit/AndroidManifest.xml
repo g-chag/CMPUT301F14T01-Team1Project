@@ -23,13 +23,8 @@
             </intent-filter>
         </activity>
         <activity
-<<<<<<< HEAD
-            android:name="com.example.yodelit.ForumActivity"
-            android:label="@string/yodel_string" >
-=======
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" >
->>>>>>> FETCH_HEAD
         </activity>
     </application>
 
