@@ -34,6 +34,10 @@
             android:name="com.example.yodelit.AddYodelActivity"
             android:label="@string/title_activity_add_yodel" >
         </activity>
+        <activity
+            android:name="com.example.yodelit.YodelMainActivity"
+            android:label="@string/title_activity_yodel_main" >
+        </activity>
     </application>
 
 </manifest>
