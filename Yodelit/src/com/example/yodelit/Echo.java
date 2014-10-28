@@ -3,12 +3,12 @@ package com.example.yodelit;
 import java.sql.Date;
 
 public class Echo {
-	public String text;
-	public String Author;
-	public int YID;
-	public int EID;
-	public Date date;
-	public int upgoats;
+	public String text; //Text of the reply
+	public String Author; //Author/username id
+	public int YID; //ID of the Yodel echo is responding to
+	public int EID; //ID of the Echo
+	public Date date; //Date
+	public int upgoats; //Number of upgoats
 	
 	
 	public String getText() {

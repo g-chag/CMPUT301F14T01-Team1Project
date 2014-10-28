@@ -8,27 +8,36 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
+    <TextView
+        android:id="@+id/textusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/userNameEditText"
+        android:layout_marginRight="14dp"
+        android:layout_toLeftOf="@+id/userNameEditText"
+        android:text="Username"
+        android:textSize="20sp" />
+
     <Button
         android:id="@+id/uNButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/userNameEditText"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp"
+        android:layout_marginBottom="37dp"
         android:onClick="login"
-        android:text="Yodel!" />
+        android:text="Login" />
 
     <EditText
         android:id="@+id/userNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="201dp"
-        android:background="#00000000"
-        android:ems="10"
-        android:hint="User Name"
-        android:inputType="textPersonName"
-        tools:ignore="HardcodedText" />
+        android:layout_above="@+id/uNButton"
+        android:layout_alignLeft="@+id/uNButton"
+        android:layout_marginBottom="36dp"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

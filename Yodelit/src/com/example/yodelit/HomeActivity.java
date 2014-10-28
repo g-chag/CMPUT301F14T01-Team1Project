@@ -1,5 +1,7 @@
 package com.example.yodelit;
 
+//Gives list of topics. Clicking on a topic brings up a list of Yodels under that category
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,7 +21,6 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

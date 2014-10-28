@@ -1,5 +1,7 @@
 package com.example.yodelit;
 
+//Main loading screen. Gives a button for login after user enters a username
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
