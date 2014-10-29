@@ -29,9 +29,11 @@ public class HomeActivity extends Activity {
         return true;
     }
     
-    public void questionDia(View view){
+    public void posting(View view){
     	 // Pressing Yodel A Question button will activate this function
     	// this is supposed to prompt a alert dialog with 2 edittexts
+    	Intent intent = new Intent(HomeActivity.this, AddYodelActivity.class);
+    	startActivity(intent);
     }
 }
     

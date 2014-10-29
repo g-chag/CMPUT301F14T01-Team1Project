@@ -9,9 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Yodel A Question" 
-        android:onClick="questionDia"
-        />
+        android:onClick="posting"
+        android:text="Yodel A Question" />
 
     <ListView
         android:id="@+id/topicView"

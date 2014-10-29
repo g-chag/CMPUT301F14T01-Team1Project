@@ -16,7 +16,8 @@
         android:layout_marginRight="14dp"
         android:layout_toLeftOf="@+id/userNameEditText"
         android:text="Username"
-        android:textSize="20sp" />
+        android:textSize="20sp" 
+        android:background="#00000000"/>
 
     <Button
         android:id="@+id/uNButton"

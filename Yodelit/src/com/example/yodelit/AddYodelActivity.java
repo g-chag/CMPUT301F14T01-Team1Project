@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddYodelActivity extends Activity {
 
@@ -27,12 +28,26 @@ public class AddYodelActivity extends Activity {
 		final EditText add =  (EditText) findViewById(R.id.additional);
 		String qString = question.getText().toString();
 		String addString = add.getText().toString();
-		newYodel.setText(qString);
-		newYodel.setContent(addString);
-		
-		
-		
-		return;
+		if (submissionCheck(qString, addString)){
+			newYodel.setText(qString);
+			newYodel.setContent(addString);		
+			return;
+		} else {
+			Toast.makeText(this, "Please type in your question", Toast.LENGTH_SHORT).show();
+			return;
+		}
+	}
+	
+	
+	public boolean submissionCheck(String question, String add){
+		if (question.isEmpty()){
+			return false;
+		}
+		return true;		
+	}
+	
+	public void cancel(View view){
+		finish();
 	}
 
 }
