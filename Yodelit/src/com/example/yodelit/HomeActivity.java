@@ -1,6 +1,6 @@
 package com.example.yodelit;
 
-//Gives Yodels. Clicking on a Yodel will bring up YodelMainActivity
+//Gives list of topics. Clicking on a topic brings up a list of Yodels under that category
 
 import android.os.Bundle;
 import android.app.Activity;

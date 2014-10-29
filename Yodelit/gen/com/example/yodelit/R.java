@@ -12,6 +12,8 @@ public final class R {
     }
     public static final class color {
         public static final int blue=0x7f060000;
+        public static final int white=0x7f060001;
+        public static final int yellow=0x7f060002;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -41,9 +43,9 @@ public final class R {
         public static final int text1=0x7f090000;
         public static final int text2=0x7f090001;
         public static final int textView1=0x7f09000b;
-        public static final int textusername=0x7f090008;
+        public static final int textusername=0x7f09000a;
         public static final int topicView=0x7f090007;
-        public static final int uNButton=0x7f09000a;
+        public static final int uNButton=0x7f090008;
         public static final int userNameEditText=0x7f090009;
         public static final int yodel=0x7f090002;
     }

@@ -18,18 +18,9 @@
         android:layout_alignRight="@+id/userNameEditText"
         android:layout_marginBottom="37dp"
         android:onClick="login"
-        android:text="Login" />
-
-    <TextView
-        android:id="@+id/textusername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/userNameEditText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:background="#00000000"
-        android:text="Username"
-        android:textSize="20sp" />
+        android:text="Login"
+        android:textStyle="italic"
+        android:typeface="sans" />
 
     <EditText
         android:id="@+id/userNameEditText"
@@ -42,5 +33,19 @@
 
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:id="@+id/textusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/userNameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:background="#00000000"
+        android:text="Username"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
 </RelativeLayout>
