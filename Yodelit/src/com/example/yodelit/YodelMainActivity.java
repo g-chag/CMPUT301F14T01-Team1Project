@@ -1,6 +1,6 @@
 package com.example.yodelit;
 
-//Gives list of Yodels under a certain topic
+//Gives echos for a specific Yodels, gets YID from intent, sets up Echos 
 
 
 import android.os.Bundle;
