@@ -3,16 +3,23 @@ package com.example.yodelit;
 import java.sql.Date;
 
 public class Yodel {
-	public String text;
+	public String question;
+	public String content;
 	public String Author;
 	public int YID;
 	public Date date;
 	public int upgoats;
 	public String getText() {
-		return text;
+		return question;
 	}
 	public void setText(String text) {
-		this.text = text;
+		this.question = question;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String text) {
+		this.content = content;
 	}
 	public String getAuthor() {
 		return Author;

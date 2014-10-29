@@ -22,24 +22,24 @@
         android:id="@+id/text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Yodel"
+        android:layout_below="@+id/yodel"
         android:layout_marginTop="19dp"
         android:text="Additional Info" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/additional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/submit"
         android:layout_alignLeft="@+id/text2"
-        android:layout_alignRight="@+id/Yodel"
+        android:layout_alignRight="@+id/yodel"
         android:layout_below="@+id/text2"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Additional Info" />
 
     <EditText
-        android:id="@+id/Yodel"
+        android:id="@+id/yodel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -50,12 +50,21 @@
         android:hint="Yodel" />
 
     <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/submit"
+        android:layout_alignBottom="@+id/submit"
+        android:layout_alignLeft="@+id/additional"
+        android:text="Cancel" />
+
+    <Button
         android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="29dp"
-        android:layout_toRightOf="@+id/text2"
+        android:layout_alignRight="@+id/additional"
+        android:layout_marginBottom="28dp"
         android:text="YodelIt!" />
 
 </RelativeLayout>
