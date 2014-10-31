@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/blue" >
 
     <Button
         android:id="@+id/postButton"
@@ -10,15 +11,17 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="posting"
-        android:text="Yodel A Question" />
+        android:text="Yodel A Question"
+        android:textStyle="italic"
+        android:typeface="sans" />
 
     <ListView
         android:id="@+id/YodelListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/postButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="36dp" >
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="15dp" >
     </ListView>
 
 </RelativeLayout>

@@ -8,5 +8,8 @@
     <string name="title_activity_yodel">YodelActivity</string>
     <string name="title_activity_add_yodel">AddYodelActivity</string>
     <string name="title_activity_yodel_main">YodelMainActivity</string>
-
+	<color name="blue">#00CCFF</color>
+    <color name="white">#FFFFFF</color>
+	<color name="yellow">#FFFF00</color>
+    
 </resources>

@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,19 +16,12 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="26dp"
+        android:background="#00000000"
         android:text="Q."
-        android:textSize="30sp" 
-        android:background="#00000000"/>
-    
-
-    <TextView
-        android:id="@+id/text2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/yodel"
-        android:layout_marginTop="19dp"
-        android:text="Additional Info" 
-        android:background="#00000000"/>
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
     <EditText
         android:id="@+id/additional"
@@ -39,7 +33,7 @@
         android:layout_below="@+id/text2"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="Additional Info" />
+        android:hint="Additional Information" />
 
     <EditText
         android:id="@+id/yodel"
@@ -60,7 +54,9 @@
         android:layout_alignBottom="@+id/submit"
         android:layout_alignLeft="@+id/additional"
         android:onClick="cancel"
-        android:text="Cancel" />
+        android:text="Cancel"
+        android:textStyle="italic"
+        android:typeface="sans" />
 
     <Button
         android:id="@+id/submit"
@@ -70,6 +66,21 @@
         android:layout_alignRight="@+id/additional"
         android:layout_marginBottom="28dp"
         android:onClick="submitYodel"
-        android:text="YodelIt!" />
+        android:text="YodelIt!"
+        android:textStyle="italic"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/yodel"
+        android:layout_marginTop="20dp"
+        android:background="#00000000"
+        android:text="Additional Information"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
 
 </RelativeLayout>

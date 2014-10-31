@@ -2,43 +2,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TextView
-        android:id="@+id/textusername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/userNameEditText"
-        android:layout_marginRight="14dp"
-        android:layout_toLeftOf="@+id/userNameEditText"
-        android:text="Username"
-        android:textSize="20sp" 
-        android:background="#00000000"/>
-
     <Button
         android:id="@+id/uNButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/userNameEditText"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@+id/userNameEditText"
         android:layout_marginBottom="37dp"
         android:onClick="login"
-        android:text="Login" />
+        android:text="Login"
+        android:textStyle="italic"
+        android:typeface="sans" />
 
     <EditText
         android:id="@+id/userNameEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/uNButton"
-        android:layout_alignLeft="@+id/uNButton"
-        android:layout_marginBottom="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
         android:ems="10" >
 
         <requestFocus />
     </EditText>
+
+    <TextView
+        android:id="@+id/textusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/userNameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:background="#00000000"
+        android:text="Username"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textusername"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="25dp"
+         />
 
 </RelativeLayout>
