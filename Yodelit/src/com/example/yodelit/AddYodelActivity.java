@@ -1,5 +1,8 @@
 package com.example.yodelit;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,14 +26,22 @@ public class AddYodelActivity extends Activity {
 	}
 	
 	public void submitYodel(View view){
-		Yodel newYodel = new Yodel();
+		
 		final EditText question =  (EditText) findViewById(R.id.yodel);
 		final EditText add =  (EditText) findViewById(R.id.additional);
 		String qString = question.getText().toString();
 		String addString = add.getText().toString();
+		
 		if (submissionCheck(qString, addString)){
-			newYodel.setText(qString);
-			newYodel.setContent(addString);		
+			Yodel newYodel = new Yodel(qString);
+			YodelitController.addYodel(newYodel);
+			
+			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+			
+			if (yodels.size() == 0){
+				Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
+			}
+			finish();
 			return;
 		} else {
 			Toast.makeText(this, "Please type in your question", Toast.LENGTH_SHORT).show();
