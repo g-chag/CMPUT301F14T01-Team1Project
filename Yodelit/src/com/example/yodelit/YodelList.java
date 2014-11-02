@@ -51,6 +51,7 @@ public class YodelList {
 	}
 
 	public Yodel getYodel(int index) {
+		Log.i("XXX","I got here");
 		return List.get(index);
 
 	}
