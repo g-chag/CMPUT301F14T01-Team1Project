@@ -52,12 +52,11 @@ public class HomeActivity extends Activity {
 	        ListView listview =  (ListView) findViewById(R.id.YodelListView);
 			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
 			final ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
-			final ArrayAdapter<Yodel> todosAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_2,yodelList);
+			final ArrayAdapter<Yodel> todosAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_1,yodelList);
 			listview.setAdapter(todosAdapter);
 
 			if(yodels.size()==0){
 				Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
-
 			}
 			
 			YodelitController.getYodelList().addListener(new Listener(){
