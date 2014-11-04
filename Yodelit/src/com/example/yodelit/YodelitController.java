@@ -1,5 +1,9 @@
 package com.example.yodelit;
 
+//Description: Controller for the Yodel lists. 
+//
+//Issues:
+
 import android.util.Log;
 
 public class YodelitController {
@@ -23,6 +27,8 @@ public class YodelitController {
 		Log.i("XXX", "Yodels " + yodelList.getYodels());
 		Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
+	
+	
 	
 	
 

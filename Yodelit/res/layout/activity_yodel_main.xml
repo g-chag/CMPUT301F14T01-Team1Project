@@ -9,20 +9,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".YodelMainActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        android:textColor="@color/white" />
-
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/EchoListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="16dp" >
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" >
     </ListView>
+
+    <Button
+        android:id="@+id/AddEchoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Echo" />
 
 </RelativeLayout>

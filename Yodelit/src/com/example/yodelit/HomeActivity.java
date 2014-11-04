@@ -2,7 +2,7 @@ package com.example.yodelit;
 
 //Desciption: This activity gives the list of all the Yodels. 
 //
-//Issues:
+//Issues: Need to send yid through intent when a Yodel is clicked 
 
 import java.util.ArrayList;
 import java.util.Collection;
