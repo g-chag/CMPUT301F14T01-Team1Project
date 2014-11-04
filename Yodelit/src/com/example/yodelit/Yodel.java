@@ -1,5 +1,8 @@
 package com.example.yodelit;
 
+//Description: Class that describes a Yodel (question)
+//
+//Issues:
 
 
 public class Yodel {

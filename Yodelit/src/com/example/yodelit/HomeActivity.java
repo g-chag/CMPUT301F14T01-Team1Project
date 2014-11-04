@@ -1,6 +1,8 @@
 package com.example.yodelit;
 
-//Gives list of topics. Clicking on a topic brings up a list of Yodels under that category
+//Desciption: This activity gives the list of all the Yodels. 
+//
+//Issues:
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -47,7 +49,7 @@ public class HomeActivity extends Activity {
 	@Override
 	public void onResume(){
 		super.onResume();
-	       ListView listview =  (ListView) findViewById(R.id.YodelListView);
+	        ListView listview =  (ListView) findViewById(R.id.YodelListView);
 			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
 			final ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
 			final ArrayAdapter<Yodel> todosAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_2,yodelList);

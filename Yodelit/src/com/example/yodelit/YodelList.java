@@ -1,5 +1,9 @@
 package com.example.yodelit;
 
+//Description: Class for the Yodel lists. Includes listener methods and adding methods to the array.
+//
+//Issues:
+
 import java.util.ArrayList;
 import java.util.Collection;
 

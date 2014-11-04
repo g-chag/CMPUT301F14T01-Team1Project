@@ -1,5 +1,10 @@
 package com.example.yodelit;
 
+//Description: This class defines an Echo (answer to a question)
+//
+//Issues:
+
+
 import java.sql.Date;
 
 public class Echo {

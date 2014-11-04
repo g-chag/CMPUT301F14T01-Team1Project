@@ -1,6 +1,8 @@
 package com.example.yodelit;
 
-//Gives list of Yodels under a certain topic
+//Description: This activity lists the Echos related to a Yodel
+//
+//Issues:
 
 
 import android.os.Bundle;
@@ -14,6 +16,7 @@ public class YodelMainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_yodel_main);
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

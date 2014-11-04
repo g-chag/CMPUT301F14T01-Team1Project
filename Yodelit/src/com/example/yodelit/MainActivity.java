@@ -1,6 +1,7 @@
 package com.example.yodelit;
 
-//Main loading screen. Gives a button for login after user enters a username
+//Description: Main loading screen. Gives a button for login after user enters a username. Does not check for password.
+//Issues: 
 
 import android.app.Activity;
 import android.content.Intent;
