@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AddYodelActivity" >
+    tools:context=".AddEchoActivity" >
 
     <TextView
         android:id="@+id/text1"
@@ -17,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="26dp"
         android:background="#00000000"
-        android:text="Yodel Question"
+        android:text="Echo"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -28,9 +28,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/submit"
-        android:layout_alignLeft="@+id/text2"
-        android:layout_alignRight="@+id/text2"
-        android:layout_below="@+id/text2"
+        android:layout_alignLeft="@+id/echo"
+        android:layout_alignRight="@+id/echo"
+        android:layout_below="@+id/echo"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="Echo" />
@@ -54,7 +54,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/additional"
         android:layout_marginBottom="28dp"
-        android:onClick="submitYodel"
+        android:onClick="submitEcho"
         android:text="Echo"
         android:textStyle="italic"
         android:typeface="sans" />

@@ -22,12 +22,12 @@ public static EchoList echoList = null;
 		}
 	}
 	
-	public static void addEcho(Echo echo){
+	public static void addEchoes(Echo echo){
 		EchoList temp = getEchoList();
 		Log.i("XXX", "Echo List " + temp + (temp == null));
 		getEchoList().addEcho(echo);
-		Log.i("XXX", "Yodels " + echoList.getYodels());
-		Log.i("XXX", "After" + echoList.getYodels().size());
+		Log.i("XXX", "Yodels " + echoList.getEchoes());
+		Log.i("XXX", "After" + echoList.getEchoes().size());
 	}
 
 }

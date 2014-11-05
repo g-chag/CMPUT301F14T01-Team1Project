@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.yodelit.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,20 +23,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.yodelit.HomeActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
         <activity
-            android:name="com.example.yodelit.YodelActivity"
+            android:name=".YodelActivity"
             android:label="@string/title_activity_yodel" >
         </activity>
         <activity
-            android:name="com.example.yodelit.AddYodelActivity"
+            android:name=".AddYodelActivity"
             android:label="@string/title_activity_add_yodel" >
         </activity>
         <activity
-            android:name="com.example.yodelit.YodelMainActivity"
+            android:name=".YodelMainActivity"
             android:label="@string/title_activity_yodel_main" >
+        </activity>
+        <activity
+            android:name=".AddEchoActivity"
+            android:label="@string/title_activity_add_echo" >
         </activity>
     </application>
 

@@ -15,7 +15,6 @@ public class Echo {
 	public Date date; //Date
 	public int upgoats; //Number of upgoats
 	
-	
 	public String getText() {
 		return text;
 	}

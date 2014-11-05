@@ -27,7 +27,7 @@ public class YodelMainActivity extends Activity {
 
         ListView listview =  (ListView) findViewById(R.id.EchoListView);
 
-        Collection<Echo> echos = EchoController.getEchoList().getEchos();
+        Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 		final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
 		final ArrayAdapter<Echo> todosAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
 		listview.setAdapter(todosAdapter);
@@ -37,7 +37,7 @@ public class YodelMainActivity extends Activity {
 			@Override
 			public void update() {
 				echoList.clear();
-				Collection<Echo> todos = EchoController.getEchoList().getEchos();
+				Collection<Echo> todos = EchoController.getEchoList().getEchoes();
 				echoList.addAll(todos);
 				todosAdapter.notifyDataSetChanged();
 			}
@@ -50,7 +50,7 @@ public class YodelMainActivity extends Activity {
 	public void onResume(){
 		super.onResume();
 	        ListView listview =  (ListView) findViewById(R.id.EchoListView);
-	        Collection<Echo> echos = EchoController.getEchoList().getEchos();
+	        Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 			final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
 			final ArrayAdapter<Echo> todosAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
 			listview.setAdapter(todosAdapter);
@@ -64,7 +64,7 @@ public class YodelMainActivity extends Activity {
 				@Override
 				public void update() {
 					echoList.clear();
-					Collection<Echo> todos = EchoController.getEchoList().getEchos();
+					Collection<Echo> todos = EchoController.getEchoList().getEchoes();
 					echoList.addAll(todos);
 					todosAdapter.notifyDataSetChanged();
 				}

@@ -71,14 +71,14 @@ public class EchoList {
 		notifyeveryone();
 	}
 
-	public Echo getEcho(int index) {
+	public Echo getEchoes(int index) {
 		return List.get(index);
 
 	}
 
 	// -----------------------------//
 
-	public Collection<Echo> getYodels() {
+	public Collection<Echo> getEchoes() {
 		Log.i("XXX", "List " + List);
 		if (List == null) {
 			Log.i("XXX", "Empty " + List.size());
@@ -93,18 +93,6 @@ public class EchoList {
 	public void clear() {
 		List = new ArrayList<Echo>();
 		notifyeveryone();
-	}
-
-	public Collection<Echo> getEchos() {
-		Log.i("XXX", "List " + List);
-		if (List == null) {
-			Log.i("XXX", "Empty " + List.size());
-			List = new ArrayList<Echo>();
-			return List;
-		}
-		Log.i("XXX", "Null" + List.size());
-		return List;
-
 	}
 
 }
