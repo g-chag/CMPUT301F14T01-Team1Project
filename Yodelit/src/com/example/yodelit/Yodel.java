@@ -6,15 +6,27 @@ package com.example.yodelit;
 
 
 public class Yodel {
+	protected int yID;
 	public String question;
+	public String info;
+	
 
 	
-	public Yodel(String question){
+	public Yodel(String question, String info){
 		this.question = question;
+		this.info = info;
 	}
 	
-	public String getText() {
+	public String getYodelText() {
 		return question;
 	}
+	
+	public String toString() {
+		return getYodelText();
+	}
 
+	public String getInfoText() {
+		return info;
+	}
+	
 }

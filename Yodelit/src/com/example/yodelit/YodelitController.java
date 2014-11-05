@@ -22,10 +22,10 @@ public class YodelitController {
 	
 	public static void addYodel(Yodel yodel){
 		YodelList temp = getYodelList();
-		Log.i("XXX", "Yodel List " + temp + (temp == null));
-		getYodelList().addYodel(yodel);
-		Log.i("XXX", "Yodels " + yodelList.getYodels());
-		Log.i("XXX", "After" + yodelList.getYodels().size());
+		//Log.i("XXX", "Yodel List " + temp + (temp == null));
+		temp.addYodel(yodel);
+		//Log.i("XXX", "Yodels " + yodelList.getYodels());
+		//Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
 	
 	

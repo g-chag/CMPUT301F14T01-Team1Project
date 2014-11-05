@@ -33,14 +33,8 @@ public class AddYodelActivity extends Activity {
 		String addString = add.getText().toString();
 		
 		if (submissionCheck(qString, addString)){
-			Yodel newYodel = new Yodel(qString);
+			Yodel newYodel = new Yodel(qString, addString);
 			YodelitController.addYodel(newYodel);
-			
-			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
-			
-			if (yodels.size() == 0){
-				Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
-			}
 			finish();
 			return;
 		} else {

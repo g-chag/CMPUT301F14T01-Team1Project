@@ -33,8 +33,8 @@ public class HomeActivity extends Activity {
         ListView listview =  (ListView) findViewById(R.id.YodelListView);
 		Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
 		final ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
-		final ArrayAdapter<Yodel> todosAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_1,yodelList);
-		listview.setAdapter(todosAdapter);
+		final ArrayAdapter<Yodel> yodelsAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_1,yodelList);
+		listview.setAdapter(yodelsAdapter);
 		
 		YodelitController.getYodelList().addListener(new Listener(){
 
@@ -43,7 +43,7 @@ public class HomeActivity extends Activity {
 				yodelList.clear();
 				Collection<Yodel> todos = YodelitController.getYodelList().getYodels();
 				yodelList.addAll(todos);
-				todosAdapter.notifyDataSetChanged();
+				yodelsAdapter.notifyDataSetChanged();
 			}
 		});
         
@@ -59,34 +59,7 @@ public class HomeActivity extends Activity {
 		});
 		
     }
-	@Override
-	public void onResume(){
-		super.onResume();
-	        ListView listview =  (ListView) findViewById(R.id.YodelListView);
-			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
-			final ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
-			final ArrayAdapter<Yodel> todosAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_1,yodelList);
-			listview.setAdapter(todosAdapter);
-
-			if(yodels.size()==0){
-				Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
-			}
-			
-			YodelitController.getYodelList().addListener(new Listener(){
-				
-				@Override
-				public void update() {
-					yodelList.clear();
-					Collection<Yodel> todos = YodelitController.getYodelList().getYodels();
-					yodelList.addAll(todos);
-					todosAdapter.notifyDataSetChanged();
-				}
-			});
-        
-        
-        
-    }
-
+	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
