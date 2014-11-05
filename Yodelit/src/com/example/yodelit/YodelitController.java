@@ -22,6 +22,10 @@ public class YodelitController {
 	
 	public static void addYodel(Yodel yodel){
 		YodelList temp = getYodelList();
+		
+		//set yodel id (len of yodels + 1)
+		int id = temp.getYodels().size();
+		yodel.setyID(id);
 		//Log.i("XXX", "Yodel List " + temp + (temp == null));
 		temp.addYodel(yodel);
 		//Log.i("XXX", "Yodels " + yodelList.getYodels());
