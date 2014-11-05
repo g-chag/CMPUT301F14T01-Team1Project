@@ -28,7 +28,7 @@ public class AddYodelActivity extends Activity {
 	public void submitYodel(View view){
 		
 		final EditText question =  (EditText) findViewById(R.id.yodel);
-		final EditText add =  (EditText) findViewById(R.id.additional);
+		final EditText add =  (EditText) findViewById(R.id.echotext);
 		String qString = question.getText().toString();
 		String addString = add.getText().toString();
 		

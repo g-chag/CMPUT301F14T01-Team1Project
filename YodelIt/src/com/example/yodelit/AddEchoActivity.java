@@ -15,7 +15,7 @@ public class AddEchoActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.menu.add_echo);
+		setContentView(R.layout.activity_add_echo);
 	}
 
 	@Override
@@ -27,11 +27,12 @@ public class AddEchoActivity extends Activity {
 	
 	public void submitEcho(View view){
 		
-		final EditText question =  (EditText) findViewById(R.id.echo);
-		String qString = question.getText().toString();
+		final EditText reply =  (EditText) findViewById(R.id.echotext);
+		String rString = reply.getText().toString();
 		
-		if (submissionCheck(qString)){
+		if (submissionCheck(rString)){
 			Echo newEcho = new Echo();
+			newEcho.text = rString;
 			EchoController.addEchoes(newEcho);
 			
 			Collection<Echo> echoes = EchoController.getEchoList().getEchoes();
@@ -48,8 +49,8 @@ public class AddEchoActivity extends Activity {
 	}
 	
 	
-	public boolean submissionCheck(String question){
-		if (question.isEmpty()){
+	public boolean submissionCheck(String reply){
+		if (reply.isEmpty()){
 			return false;
 		}
 		return true;		

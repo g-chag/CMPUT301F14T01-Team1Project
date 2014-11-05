@@ -24,7 +24,7 @@
         android:typeface="sans" />
 
     <EditText
-        android:id="@+id/additional"
+        android:id="@+id/echotext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/submit"
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/submit"
         android:layout_alignBottom="@+id/submit"
-        android:layout_alignLeft="@+id/additional"
+        android:layout_alignLeft="@+id/echotext"
         android:onClick="cancel"
         android:text="Cancel"
         android:textStyle="italic"
@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/additional"
+        android:layout_alignRight="@+id/echotext"
         android:layout_marginBottom="28dp"
         android:onClick="submitYodel"
         android:text="YodelIt!"

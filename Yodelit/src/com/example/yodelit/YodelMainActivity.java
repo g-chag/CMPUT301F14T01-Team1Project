@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,7 +27,8 @@ public class YodelMainActivity extends Activity {
 		setContentView(R.layout.activity_yodel_main);
 
         ListView listview =  (ListView) findViewById(R.id.EchoListView);
-
+        Button echobutton = (Button) findViewById(R.id.AddEchoButton);
+        
         Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 		final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
 		final ArrayAdapter<Echo> todosAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
@@ -43,9 +45,13 @@ public class YodelMainActivity extends Activity {
 			}
 		});
 		
-		
-        
+		echobutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	posting(v);
+            }
+        });
     }
+        
 	@Override
 	public void onResume(){
 		super.onResume();
@@ -79,9 +85,8 @@ public class YodelMainActivity extends Activity {
 	}
 
 	public void posting(View view){
-    	// Pressing Yodel A Question button will activate this function
-    	// this is supposed to prompt a alert dialog with 2 edittexts
-    	Intent intent = new Intent(YodelMainActivity.this, AddYodelActivity.class);
+    	// Pressing Echo. Brings up a new activity to add a Echo/reply to a Yodel
+    	Intent intent = new Intent(YodelMainActivity.this, AddEchoActivity.class);
     	startActivity(intent);
     }
 }
