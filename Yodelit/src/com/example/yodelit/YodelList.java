@@ -48,9 +48,9 @@ public class YodelList {
 	// ------YodelList Methods-------//
 
 	public void addYodel(Yodel yodel) {
-		Log.i("XXX", yodel.toString() + " " + List.size());
+		//Log.i("XXX", yodel.toString() + " " + List.size());
 		List.add(yodel);
-		Log.i("XXX", yodel + " " + List.size());
+		//Log.i("XXX", yodel + " " + List.size());
 		notifyeveryone();
 	}
 
@@ -62,13 +62,13 @@ public class YodelList {
 	// -----------------------------//
 
 	public Collection<Yodel> getYodels() {
-		Log.i("XXX", "List " + List);
+		//Log.i("XXX", "List " + List);
 		if (List == null) {
-			Log.i("XXX", "Empty " + List.size());
+			//Log.i("XXX", "Empty " + List.size());
 			List = new ArrayList<Yodel>();
 			return List;
 		}
-		Log.i("XXX", "Null" + List.size());
+		//Log.i("XXX", "Null" + List.size());
 		return List;
 
 	}

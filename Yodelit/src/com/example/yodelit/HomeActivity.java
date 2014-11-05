@@ -4,6 +4,7 @@ package com.example.yodelit;
 //
 //Issues: Need to send yid through intent when a Yodel is clicked 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -41,8 +42,8 @@ public class HomeActivity extends Activity {
 			@Override
 			public void update() {
 				yodelList.clear();
-				Collection<Yodel> todos = YodelitController.getYodelList().getYodels();
-				yodelList.addAll(todos);
+				Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+				yodelList.addAll(yodels);
 				yodelsAdapter.notifyDataSetChanged();
 			}
 		});
@@ -52,12 +53,13 @@ public class HomeActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				//NEEDS TO PASS YID THROUGH INTENT
 				//List.get(position)
+				final int finalPosition = position;
+				Yodel yodel = yodelList.get(finalPosition);
 				Intent intent = new Intent(HomeActivity.this, YodelMainActivity.class);
 		    	startActivity(intent);
-				
+
 			}
 		});
-		
     }
 	
     @Override

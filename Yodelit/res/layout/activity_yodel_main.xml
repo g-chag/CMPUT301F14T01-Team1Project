@@ -12,17 +12,34 @@
     <ListView
         android:id="@+id/EchoListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" >
+        android:layout_height="260dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="34dp" >
     </ListView>
 
     <Button
         android:id="@+id/AddEchoButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:text="Echo" />
+
+    <TextView
+        android:id="@+id/yodelView"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/EchoListView"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/infoView"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/yodelView"
+        android:layout_below="@+id/yodelView"
+        android:text="TextView" />
 
 </RelativeLayout>

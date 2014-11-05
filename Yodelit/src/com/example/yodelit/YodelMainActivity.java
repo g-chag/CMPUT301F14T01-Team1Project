@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class YodelMainActivity extends Activity {
@@ -25,14 +26,17 @@ public class YodelMainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_yodel_main);
-
         ListView listview =  (ListView) findViewById(R.id.EchoListView);
         Button echobutton = (Button) findViewById(R.id.AddEchoButton);
         
+        TextView yodelView = (TextView) findViewById(R.id.yodelView);
+        TextView infoView = (TextView) findViewById(R.id.infoView);
+        //text.setText(yodel.getYodelText());
+        
         Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 		final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
-		final ArrayAdapter<Echo> todosAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
-		listview.setAdapter(todosAdapter);
+		final ArrayAdapter<Echo> yodelAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
+		listview.setAdapter(yodelAdapter);
 		
 		EchoController.getEchoList().addListener(new Listener(){
 
@@ -41,7 +45,7 @@ public class YodelMainActivity extends Activity {
 				echoList.clear();
 				Collection<Echo> todos = EchoController.getEchoList().getEchoes();
 				echoList.addAll(todos);
-				todosAdapter.notifyDataSetChanged();
+				yodelAdapter.notifyDataSetChanged();
 			}
 		});
 		
@@ -52,19 +56,14 @@ public class YodelMainActivity extends Activity {
         });
     }
         
-	@Override
+	/*@Override
 	public void onResume(){
 		super.onResume();
 	        ListView listview =  (ListView) findViewById(R.id.EchoListView);
 	        Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 			final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
-			final ArrayAdapter<Echo> todosAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
-			listview.setAdapter(todosAdapter);
-
-			if(echos.size()==0){
-				Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
-			}
-			
+			final ArrayAdapter<Echo> yodelAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
+			listview.setAdapter(yodelAdapter);
 			YodelitController.getYodelList().addListener(new Listener(){
 				
 				@Override
@@ -72,11 +71,11 @@ public class YodelMainActivity extends Activity {
 					echoList.clear();
 					Collection<Echo> todos = EchoController.getEchoList().getEchoes();
 					echoList.addAll(todos);
-					todosAdapter.notifyDataSetChanged();
+					yodelAdapter.notifyDataSetChanged();
 				}
 			});   
     }
-
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

@@ -21,6 +21,9 @@ public class Echo {
 	public void setText(String text) {
 		this.text = text;
 	}
+	public String toString(){
+		return getText();
+	}
 	public String getAuthor() {
 		return Author;
 	}
