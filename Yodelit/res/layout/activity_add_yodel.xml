@@ -19,7 +19,7 @@
         android:background="#00000000"
         android:text="Q."
         android:textColor="@color/white"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -32,18 +32,22 @@
         android:layout_alignRight="@+id/yodel"
         android:layout_below="@+id/text2"
         android:layout_marginBottom="16dp"
+        android:background="@color/white"
         android:ems="10"
-        android:hint="Additional Information" />
+        android:gravity="center_vertical|center_horizontal"
+        android:hint="More Information To Yodel" />
 
     <EditText
         android:id="@+id/yodel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/text1"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/text1"
         android:layout_marginRight="14dp"
-        android:layout_toRightOf="@+id/text1"
+        android:background="@color/white"
         android:ems="10"
+        android:gravity="center_vertical|center_horizontal"
         android:hint="Yodel" />
 
     <Button
@@ -55,6 +59,7 @@
         android:layout_alignLeft="@+id/echotext"
         android:onClick="cancel"
         android:text="Cancel"
+        android:textColor="@color/white"
         android:textStyle="italic"
         android:typeface="sans" />
 
@@ -67,6 +72,7 @@
         android:layout_marginBottom="28dp"
         android:onClick="submitYodel"
         android:text="YodelIt!"
+        android:textColor="@color/white"
         android:textStyle="italic"
         android:typeface="sans" />
 
@@ -74,9 +80,11 @@
         android:id="@+id/text2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/yodel"
         android:layout_below="@+id/yodel"
         android:layout_marginTop="20dp"
         android:background="#00000000"
+        android:gravity="center_horizontal"
         android:text="Additional Information"
         android:textColor="@color/white"
         android:textSize="20sp"
