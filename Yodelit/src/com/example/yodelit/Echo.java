@@ -10,8 +10,8 @@ import java.sql.Date;
 public class Echo {
 	public String text; //Text of the reply
 	public String Author; //Author/username id
-	public int YID; //ID of the Yodel echo is responding to
-	public int EID; //ID of the Echo
+	protected int YID; //ID of the Yodel echo is responding to
+	protected int EID; //ID of the Echo
 	public Date date; //Date
 	public int upgoats; //Number of upgoats
 	
