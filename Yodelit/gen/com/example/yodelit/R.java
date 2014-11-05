@@ -12,6 +12,7 @@ public final class R {
     }
     public static final class color {
         public static final int blue=0x7f060000;
+        public static final int grey=0x7f060003;
         public static final int white=0x7f060001;
         public static final int yellow=0x7f060002;
     }
@@ -38,12 +39,12 @@ public final class R {
         public static final int EchoListView=0x7f09000c;
         public static final int YodelListView=0x7f090007;
         public static final int action_settings=0x7f090010;
-        public static final int cancel=0x7f090002;
-        public static final int echotext=0x7f090001;
+        public static final int cancel=0x7f090003;
+        public static final int echotext=0x7f090002;
         public static final int imageView1=0x7f09000b;
         public static final int infoView=0x7f09000f;
         public static final int postButton=0x7f090006;
-        public static final int submit=0x7f090003;
+        public static final int submit=0x7f090001;
         public static final int text1=0x7f090000;
         public static final int text2=0x7f090004;
         public static final int textusername=0x7f09000a;
