@@ -25,13 +25,15 @@ public class YodelMainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Yodel viewYodel = YodelitController.getViewYodel();
 		setContentView(R.layout.activity_yodel_main);
         ListView listview =  (ListView) findViewById(R.id.EchoListView);
         Button echobutton = (Button) findViewById(R.id.AddEchoButton);
         
         TextView yodelView = (TextView) findViewById(R.id.yodelView);
         TextView infoView = (TextView) findViewById(R.id.infoView);
-        //text.setText(yodel.getYodelText());
+        yodelView.setText(viewYodel.getYodelText());
+        infoView.setText(viewYodel.getInfoText());
         
         Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 		final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);

@@ -9,6 +9,7 @@ import android.util.Log;
 public class YodelitController {
 	
 	public static YodelList yodelList = null;
+	public static Yodel viewYodel;
 	
 	public static YodelList getYodelList(){
 		if( yodelList == null ){
@@ -32,7 +33,13 @@ public class YodelitController {
 		//Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
 	
-	
+	public static void setViewYodel(Yodel id){
+		viewYodel = id;
+		return;
+	}
+	public static Yodel getViewYodel(){
+		return viewYodel;
+	}
 	
 	
 

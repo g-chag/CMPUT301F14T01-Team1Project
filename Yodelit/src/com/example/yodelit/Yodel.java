@@ -35,5 +35,9 @@ public class Yodel {
 		yID = id;
 		return;
 	}
+
+	public int getYid() {
+		return yID;
+	}
 	
 }

@@ -56,6 +56,7 @@ public class HomeActivity extends Activity {
 				final int finalPosition = position;
 				Yodel yodel = yodelList.get(finalPosition);
 				Intent intent = new Intent(HomeActivity.this, YodelMainActivity.class);
+				YodelitController.setViewYodel(yodel);
 		    	startActivity(intent);
 
 			}
