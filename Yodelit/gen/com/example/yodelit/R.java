@@ -31,7 +31,8 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int apppic=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
         public static final int AddEchoButton=0x7f09000d;
@@ -39,7 +40,7 @@ public final class R {
         public static final int YodelListView=0x7f090007;
         public static final int action_settings=0x7f09000e;
         public static final int additional=0x7f090001;
-        public static final int cancel=0x7f090005;
+        public static final int cancel=0x7f090004;
         public static final int imageView1=0x7f09000b;
         public static final int postButton=0x7f090006;
         public static final int submit=0x7f090002;
@@ -48,13 +49,14 @@ public final class R {
         public static final int textusername=0x7f09000a;
         public static final int uNButton=0x7f090008;
         public static final int userNameEditText=0x7f090009;
-        public static final int yodel=0x7f090004;
+        public static final int yodel=0x7f090005;
     }
     public static final class layout {
-        public static final int activity_add_yodel=0x7f030000;
-        public static final int activity_home=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int activity_yodel_main=0x7f030003;
+        public static final int activity_add_echo=0x7f030000;
+        public static final int activity_add_yodel=0x7f030001;
+        public static final int activity_home=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int activity_yodel_main=0x7f030004;
     }
     public static final class menu {
         public static final int add_yodel=0x7f080000;

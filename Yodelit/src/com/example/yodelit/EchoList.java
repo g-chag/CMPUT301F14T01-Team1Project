@@ -7,6 +7,7 @@ package com.example.yodelit;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import android.util.Log;
 
 
@@ -21,9 +22,13 @@ public class EchoList {
 
 	}
 
-	public ArrayList<Echo> toArray() {
-		return this.toArray();
-	}
+//	public ArrayList<Echo> toArray() {
+//		if (this != null){
+//			return this.toArray();}
+//		else {
+//			return new ArrayList<Echo>;
+//		}
+//	}
 	
 	
 	public ArrayList<Echo> addAll(EchoList echos){
@@ -88,6 +93,18 @@ public class EchoList {
 	public void clear() {
 		List = new ArrayList<Echo>();
 		notifyeveryone();
+	}
+
+	public Collection<Echo> getEchos() {
+		Log.i("XXX", "List " + List);
+		if (List == null) {
+			Log.i("XXX", "Empty " + List.size());
+			List = new ArrayList<Echo>();
+			return List;
+		}
+		Log.i("XXX", "Null" + List.size());
+		return List;
+
 	}
 
 }

@@ -11,9 +11,12 @@ import java.util.Collection;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class YodelMainActivity extends Activity {
 
@@ -23,26 +26,50 @@ public class YodelMainActivity extends Activity {
 		setContentView(R.layout.activity_yodel_main);
 
         ListView listview =  (ListView) findViewById(R.id.EchoListView);
-		//EchoList echosList = EchoController.getEchoList();
-		//EchoList echoList = new EchoList;
-		final EchoList echoList = EchoController.getEchoList();
+
+        Collection<Echo> echos = EchoController.getEchoList().getEchos();
+		final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
+		final ArrayAdapter<Echo> todosAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
+		listview.setAdapter(todosAdapter);
 		
-		final ArrayAdapter<Echo> echoAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1,echoList.toArray());
-		listview.setAdapter(echoAdapter);
-		
-		YodelitController.getYodelList().addListener(new Listener(){
+		EchoController.getEchoList().addListener(new Listener(){
 
 			@Override
 			public void update() {
-				//echoList.clear();
-				EchoList echos = EchoController.getEchoList();
-				echoList.addAll(echos);
-				echoAdapter.notifyDataSetChanged();
+				echoList.clear();
+				Collection<Echo> todos = EchoController.getEchoList().getEchos();
+				echoList.addAll(todos);
+				todosAdapter.notifyDataSetChanged();
 			}
 		});
+		
+		
         
     }
-	
+	@Override
+	public void onResume(){
+		super.onResume();
+	        ListView listview =  (ListView) findViewById(R.id.EchoListView);
+	        Collection<Echo> echos = EchoController.getEchoList().getEchos();
+			final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
+			final ArrayAdapter<Echo> todosAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, echoList);
+			listview.setAdapter(todosAdapter);
+
+			if(echos.size()==0){
+				Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
+			}
+			
+			YodelitController.getYodelList().addListener(new Listener(){
+				
+				@Override
+				public void update() {
+					echoList.clear();
+					Collection<Echo> todos = EchoController.getEchoList().getEchos();
+					echoList.addAll(todos);
+					todosAdapter.notifyDataSetChanged();
+				}
+			});   
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -51,4 +78,10 @@ public class YodelMainActivity extends Activity {
 		return true;
 	}
 
+	public void posting(View view){
+    	// Pressing Yodel A Question button will activate this function
+    	// this is supposed to prompt a alert dialog with 2 edittexts
+    	Intent intent = new Intent(YodelMainActivity.this, AddYodelActivity.class);
+    	startActivity(intent);
+    }
 }

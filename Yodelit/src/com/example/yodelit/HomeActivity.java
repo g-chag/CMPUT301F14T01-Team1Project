@@ -16,6 +16,8 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -45,6 +47,17 @@ public class HomeActivity extends Activity {
 			}
 		});
         
+		//listens for a short click on a Yodel to bring up related Echos
+		listview.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				//NEEDS TO PASS YID THROUGH INTENT
+				//List.get(position)
+				Intent intent = new Intent(HomeActivity.this, YodelMainActivity.class);
+		    	startActivity(intent);
+				
+			}
+		});
+		
     }
 	@Override
 	public void onResume(){
@@ -82,7 +95,7 @@ public class HomeActivity extends Activity {
     }
     
     public void posting(View view){
-    	 // Pressing Yodel A Question button will activate this function
+    	// Pressing Yodel A Question button will activate this function
     	// this is supposed to prompt a alert dialog with 2 edittexts
     	Intent intent = new Intent(HomeActivity.this, AddYodelActivity.class);
     	startActivity(intent);
