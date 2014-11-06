@@ -1,5 +1,11 @@
 package com.example.yodelit;
 
+//Description: This is the activity for the user profile. Here users can see their favourite yodels listed.
+//Issues: Needs to get user name, and fetch yodels.
+
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,7 +15,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class UserActivity extends Activity {
@@ -22,8 +33,18 @@ public class UserActivity extends Activity {
 		TextView displayUser = (TextView) findViewById(R.id.username);
 		TextView changeUsername = (TextView) findViewById(R.id.changeuser);
 
-		displayUser.setText("satodd");
-	
+		displayUser.setText("holder name");
+		
+		ArrayList<String> favlist = new ArrayList<String>();
+		favlist.add("Yodel1");
+		//SET YODLES HERE INTO FAVLIST
+		ListView favView = (ListView) findViewById(R.id.listView);
+		ArrayAdapter<String> favAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favlist);
+		favView.setAdapter(favAdapter);
+		
+		
+		
+		
 		changeUsername.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
@@ -31,6 +52,7 @@ public class UserActivity extends Activity {
 				
 			}
 		});
+		
 	
 	}
 
@@ -53,14 +75,12 @@ public class UserActivity extends Activity {
 	
 	
 	public void changeUser() {
-		//http://stackoverflow.com/questions/10903754/input-text-dialog-android
+		//http://stackoverflow.com/questions/10903754/input-text-dialog-android 11/06/14
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Change Username");
 
-		// Set up the input
 		final EditText input = new EditText(this);
-		// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
 		builder.setView(input);
 
 		// Set up the buttons

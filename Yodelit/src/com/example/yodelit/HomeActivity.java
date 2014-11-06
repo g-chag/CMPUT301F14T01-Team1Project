@@ -2,7 +2,7 @@ package com.example.yodelit;
 
 //Desciption: This activity gives the list of all the Yodels. 
 //
-//Issues: Need to send yid through intent when a Yodel is clicked 
+//Issues: Need to add favourites to username
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,12 +17,15 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
@@ -61,6 +64,15 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
+		listview.setOnItemLongClickListener(new OnItemLongClickListener(){
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				favouriteDialog();
+				return false;
+			}
+			});
+			
+		
     }
 	
     @Override
@@ -82,6 +94,28 @@ public class HomeActivity extends Activity {
     	//Needs to pass username through intent
     	Intent intent = new Intent(HomeActivity.this, UserActivity.class);
     	startActivity(intent);
+    }
+    
+    public void favouriteDialog(){
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Add to Favourites?");
+
+		// Set up the buttons
+		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		    	//NEED TO ADD TO FAVOURITE LIST
+		    	Toast toast = Toast.makeText(getApplicationContext(), "Added to Favourites!", Toast.LENGTH_SHORT);
+		    	toast.show();
+		    }
+		});
+		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		        dialog.cancel();
+		    }
+		});
+		builder.show();
     }
 }
     

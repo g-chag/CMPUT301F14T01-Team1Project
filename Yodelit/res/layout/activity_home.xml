@@ -5,6 +5,7 @@
     android:background="@color/blue" >
 
     <ListView
+        android:descendantFocusability="blocksDescendants" 
         android:id="@+id/YodelListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,7 +25,9 @@
         android:layout_marginRight="20dp"
         android:layout_marginStart="20dp"
         android:background="@color/white"
-        android:cacheColorHint="@color/grey" />
+        android:cacheColorHint="@color/grey"
+        android:clickable="true"
+        android:longClickable="true" />
 
     <Button
         android:id="@+id/postButton"

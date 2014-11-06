@@ -24,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/textView2"
-        android:layout_alignRight="@+id/listview"
         android:layout_alignTop="@+id/textView2"
         android:layout_toRightOf="@+id/textView2"
         android:onClick="userSettings"
@@ -41,26 +40,6 @@
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/spacer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/changeuser"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:text="__________________________________________"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-
-    <ExpandableListView
-        android:id="@+id/listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/spacer"
-        android:layout_below="@+id/spacer" >
-
-    </ExpandableListView>
-
-    <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,13 +49,51 @@
         android:text="Username: "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spacer"
+        android:layout_below="@+id/textFav" >
+
+    </ListView>
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/changeuser"
-        android:layout_alignLeft="@+id/spacer"
-        android:layout_marginLeft="14dp"
+        android:layout_above="@+id/spacer"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="26dp"
         android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/spacer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/changeuser"
+        android:layout_marginTop="38dp"
+        android:text="__________________________________________"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/spacer"
+        android:layout_alignBottom="@+id/spacer"
+        android:layout_alignLeft="@+id/spacer"
+        android:text="__________________________________________"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/textFav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/spacer"
+        android:layout_alignBottom="@+id/spacer"
+        android:layout_alignLeft="@+id/listView"
+        android:text="Favourites:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>
