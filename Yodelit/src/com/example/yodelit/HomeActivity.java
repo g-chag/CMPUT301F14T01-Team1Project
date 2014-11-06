@@ -68,7 +68,7 @@ public class HomeActivity extends Activity {
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				favouriteDialog();
-				return false;
+				return true;
 			}
 			});
 			
