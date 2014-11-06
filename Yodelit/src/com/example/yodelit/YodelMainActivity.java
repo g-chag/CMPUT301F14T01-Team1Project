@@ -51,7 +51,37 @@ public class YodelMainActivity extends Activity {
             }
             });
     }
+	@Override
+	public void onResume(){
+		super.onResume();
+			//Yodel viewYodel = YodelitController.getViewYodel();
+			setContentView(R.layout.activity_yodel_main);
+	        final ListView listview =  (ListView) findViewById(R.id.EchoListView);
+	        Button echobutton = (Button) findViewById(R.id.AddEchoButton);
+	        
+	        TextView yodelView = (TextView) findViewById(R.id.yodelView);
+	        TextView infoView = (TextView) findViewById(R.id.infoView);
+	        final int yID = getIntent().getIntExtra("YID", -1);
+	        
+	        final Yodel yodel = YodelitController.getYodelList().getYodel(yID); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
+	        yodelView.setText(yodel.getYodelText());
+	        infoView.setText(yodel.getInfoText());
+	        
+	        //Collection<Echo> echos = EchoController.getEchoList().getEchoes();
+			//final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
+			final ArrayAdapter<Echo> echoAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, yodel.getEchoList());
+			listview.setAdapter(echoAdapter);
 
+			echobutton.setOnClickListener(new View.OnClickListener() {
+	            public void onClick(View v) {
+	            	posting(v, yID);
+	            	echoAdapter.notifyDataSetChanged();
+	            }
+	            });
+	    }
+	
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
