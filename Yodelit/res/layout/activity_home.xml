@@ -4,18 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/blue" >
 
-    <Button
-        android:id="@+id/postButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="posting"
-        android:text="Yodel A Question"
-        android:textColor="@color/white"
-        android:textStyle="italic"
-        android:typeface="sans" />
-
     <ListView
         android:id="@+id/YodelListView"
         android:layout_width="match_parent"
@@ -41,6 +29,20 @@
         android:cacheColorHint="@color/grey"
          />
 
-
+    <Button
+        android:id="@+id/postButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/YodelListView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/YodelListView"
+        android:layout_marginBottom="14dp"
+        android:background="@color/grey"
+        android:onClick="posting"
+        android:padding="10dp"
+        android:text="Yodel A Question"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        android:typeface="sans" />
 
 </RelativeLayout>
