@@ -60,6 +60,7 @@ public class HomeActivity extends Activity {
 
 			}
 		});
+		
     }
 	
     @Override
@@ -73,6 +74,13 @@ public class HomeActivity extends Activity {
     	// Pressing Yodel A Question button will activate this function
     	// this is supposed to prompt a alert dialog with 2 edittexts
     	Intent intent = new Intent(HomeActivity.this, AddYodelActivity.class);
+    	startActivity(intent);
+    }
+    
+    public void userSettings(View view){
+    	//Pressing user settings brings users to profile page
+    	//Needs to pass username through intent
+    	Intent intent = new Intent(HomeActivity.this, UserActivity.class);
     	startActivity(intent);
     }
 }

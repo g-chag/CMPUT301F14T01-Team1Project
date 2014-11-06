@@ -36,40 +36,49 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int AddEchoButton=0x7f09000e;
-        public static final int EchoListView=0x7f090010;
+        public static final int AddEchoButton=0x7f090015;
+        public static final int EchoListView=0x7f090017;
         public static final int YodelListView=0x7f090007;
-        public static final int action_settings=0x7f090012;
+        public static final int action_settings=0x7f090019;
         public static final int cancel=0x7f090002;
+        public static final int changeuser=0x7f090013;
         public static final int echoText=0x7f090004;
         public static final int echotext=0x7f090003;
-        public static final int imageView1=0x7f09000c;
-        public static final int imageView2=0x7f09000d;
+        public static final int imageView1=0x7f09000d;
+        public static final int imageView2=0x7f09000e;
         public static final int infoText=0x7f090006;
-        public static final int infoView=0x7f090011;
+        public static final int infoView=0x7f090018;
+        public static final int listview=0x7f090012;
         public static final int postButton=0x7f090008;
+        public static final int spacer=0x7f090014;
         public static final int submit=0x7f090001;
         public static final int text1=0x7f090000;
-        public static final int textusername=0x7f09000b;
-        public static final int uNButton=0x7f090009;
-        public static final int userNameEditText=0x7f09000a;
+        public static final int textView1=0x7f09000f;
+        public static final int textView2=0x7f090011;
+        public static final int textusername=0x7f09000c;
+        public static final int uNButton=0x7f09000a;
+        public static final int userNameEditText=0x7f09000b;
+        public static final int userSettings=0x7f090009;
+        public static final int username=0x7f090010;
         public static final int yodelText=0x7f090005;
-        public static final int yodelView=0x7f09000f;
+        public static final int yodelView=0x7f090016;
     }
     public static final class layout {
         public static final int activity_add_echo=0x7f030000;
         public static final int activity_add_yodel=0x7f030001;
         public static final int activity_home=0x7f030002;
         public static final int activity_main=0x7f030003;
-        public static final int activity_yodel_main=0x7f030004;
+        public static final int activity_user=0x7f030004;
+        public static final int activity_yodel_main=0x7f030005;
     }
     public static final class menu {
         public static final int add_echo=0x7f080000;
         public static final int add_yodel=0x7f080001;
         public static final int home=0x7f080002;
         public static final int main=0x7f080003;
-        public static final int yodel=0x7f080004;
-        public static final int yodel_main=0x7f080005;
+        public static final int user=0x7f080004;
+        public static final int yodel=0x7f080005;
+        public static final int yodel_main=0x7f080006;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -78,6 +87,7 @@ public final class R {
         public static final int title_activity_add_echo=0x7f050007;
         public static final int title_activity_add_yodel=0x7f050005;
         public static final int title_activity_home=0x7f050003;
+        public static final int title_activity_user=0x7f050008;
         public static final int title_activity_yodel=0x7f050004;
         public static final int title_activity_yodel_main=0x7f050006;
     }

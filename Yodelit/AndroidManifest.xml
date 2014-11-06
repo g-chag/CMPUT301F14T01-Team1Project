@@ -42,6 +42,14 @@
             android:name=".AddEchoActivity"
             android:label="@string/title_activity_add_echo" >
         </activity>
+        <activity
+            android:name=".UserActivity"
+            android:label="@string/title_activity_user"
+            android:parentActivityName=".HomeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.yodelit.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>
