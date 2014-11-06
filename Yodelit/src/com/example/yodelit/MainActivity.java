@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -29,6 +31,11 @@ public class MainActivity extends Activity {
     
 	public void login(View view) {
 		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
+		EditText userEditText = (EditText) findViewById(R.id.userNameEditText);
+		String username = userEditText.getText().toString();
+		User user = new User();
+		user.setUname(username);
+		YodelitController.setActiveUser(user);
 		Intent intent = new Intent(MainActivity.this, HomeActivity.class);
 		startActivity(intent);
 	}

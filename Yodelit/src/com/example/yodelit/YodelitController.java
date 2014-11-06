@@ -10,6 +10,7 @@ public class YodelitController {
 	
 	public static YodelList yodelList = null;
 	public static Yodel viewYodel;
+	public static User activeuser;
 	
 	public static YodelList getYodelList(){
 		if( yodelList == null ){
@@ -30,6 +31,13 @@ public class YodelitController {
 		temp.addYodel(yodel);
 		//Log.i("XXX", "Yodels " + yodelList.getYodels());
 		//Log.i("XXX", "After" + yodelList.getYodels().size());
+	}
+	
+	public static void setActiveUser(User user){
+		activeuser = user;
+	}
+	public static User getActiveUser(){
+		return activeuser;
 	}
 
 }

@@ -5,9 +5,12 @@ public class User {
 	private int UID;
 	public int[] YodelHist;
 	public int[] YodelFavs;
+	
+	
 	public String getUname() {
 		return Uname;
 	}
+	
 	public void setUname(String uname) {
 		Uname = uname;
 	}

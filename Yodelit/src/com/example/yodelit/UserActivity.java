@@ -32,8 +32,9 @@ public class UserActivity extends Activity {
 		
 		TextView displayUser = (TextView) findViewById(R.id.username);
 		TextView changeUsername = (TextView) findViewById(R.id.changeuser);
-
-		displayUser.setText("holder name");
+		User user = YodelitController.getActiveUser();
+		String name = user.getUname();
+		displayUser.setText(name);
 		
 		ArrayList<String> favlist = new ArrayList<String>();
 		favlist.add("Yodel1");
