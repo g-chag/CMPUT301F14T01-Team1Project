@@ -1,6 +1,7 @@
 package com.example.yodelit;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 //Description: Class that describes a Yodel (question)
 //
@@ -13,6 +14,7 @@ public class Yodel {
 	public String info;
 	public String Author;
 	public Date date;
+	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
 	
 	public Yodel(String question, String info){
 		this.question = question;
@@ -31,13 +33,20 @@ public class Yodel {
 		return info;
 	}
 	
-	public void setyID(int id){
-		yID = id;
-		return;
+	public void setYid(int index){
+		yID = index;
 	}
 
 	public int getYid() {
 		return yID;
+	}
+	
+	public void addEcho(Echo echo){
+		echoList.add(echo);
+	}
+	
+	public ArrayList<Echo> getEchoList(){
+		return echoList;
 	}
 	
 }

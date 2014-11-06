@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.LogPrinter;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -26,20 +29,14 @@ public class AddEchoActivity extends Activity {
 	}
 	
 	public void submitEcho(View view){
-		
-		final EditText reply =  (EditText) findViewById(R.id.echotext);
+		final EditText reply =  (EditText) findViewById(R.id.echoText);
 		String rString = reply.getText().toString();
+		final int yID = getIntent().getIntExtra("YID", -1);
 		
 		if (submissionCheck(rString)){
-			Echo newEcho = new Echo();
-			newEcho.text = rString;
-			EchoController.addEchoes(newEcho);
-			
-			Collection<Echo> echoes = EchoController.getEchoList().getEchoes();
-			
-			if (echoes.size() == 0){
-				Toast.makeText(this, "empty", Toast.LENGTH_SHORT).show();
-			}
+			Echo newEcho = new Echo(rString);
+			Yodel yodel = YodelitController.getYodelList().getYodel(yID);
+			yodel.addEcho(newEcho);
 			finish();
 			return;
 		} else {

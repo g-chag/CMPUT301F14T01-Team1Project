@@ -15,11 +15,11 @@ public class Echo {
 	public Date date; //Date
 	public int upgoats; //Number of upgoats
 	
+	public Echo(String text){
+		this.text = text;
+	}
 	public String getText() {
 		return text;
-	}
-	public void setText(String text) {
-		this.text = text;
 	}
 	public String toString(){
 		return getText();

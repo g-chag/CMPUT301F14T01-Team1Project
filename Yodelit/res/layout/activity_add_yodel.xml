@@ -24,12 +24,12 @@
         android:typeface="sans" />
 
     <EditText
-        android:id="@+id/echotext"
+        android:id="@+id/infoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/submit"
         android:layout_alignLeft="@+id/text2"
-        android:layout_alignRight="@+id/yodel"
+        android:layout_alignRight="@+id/yodelText"
         android:layout_below="@+id/text2"
         android:layout_marginBottom="16dp"
         android:background="@color/white"
@@ -38,7 +38,7 @@
         android:hint="More Information To Yodel" />
 
     <EditText
-        android:id="@+id/yodel"
+        android:id="@+id/yodelText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/text1"
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/submit"
         android:layout_alignBottom="@+id/submit"
-        android:layout_alignLeft="@+id/echotext"
+        android:layout_alignLeft="@+id/infoText"
         android:onClick="cancel"
         android:text="Cancel"
         android:textColor="@color/white"
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/echotext"
+        android:layout_alignRight="@+id/infoText"
         android:layout_marginBottom="28dp"
         android:onClick="submitYodel"
         android:text="YodelIt!"
@@ -80,8 +80,8 @@
         android:id="@+id/text2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/yodel"
-        android:layout_below="@+id/yodel"
+        android:layout_alignRight="@+id/yodelText"
+        android:layout_below="@+id/yodelText"
         android:layout_marginTop="20dp"
         android:background="#00000000"
         android:gravity="center_horizontal"

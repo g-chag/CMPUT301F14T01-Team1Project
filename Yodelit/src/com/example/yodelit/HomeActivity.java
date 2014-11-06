@@ -48,7 +48,6 @@ public class HomeActivity extends Activity {
 			}
 		});
         
-		//listens for a short click on a Yodel to bring up related Echos
 		listview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				//NEEDS TO PASS YID THROUGH INTENT
@@ -56,7 +55,7 @@ public class HomeActivity extends Activity {
 				final int finalPosition = position;
 				Yodel yodel = yodelList.get(finalPosition);
 				Intent intent = new Intent(HomeActivity.this, YodelMainActivity.class);
-				YodelitController.setViewYodel(yodel);
+				intent.putExtra("YID", (int)yodel.getYid());
 		    	startActivity(intent);
 
 			}

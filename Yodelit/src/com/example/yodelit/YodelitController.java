@@ -23,24 +23,13 @@ public class YodelitController {
 	
 	public static void addYodel(Yodel yodel){
 		YodelList temp = getYodelList();
-		
 		//set yodel id (len of yodels + 1)
-		int id = temp.getYodels().size();
-		yodel.setyID(id);
+		int index = temp.getYodels().size();
+		yodel.setYid(index);
 		//Log.i("XXX", "Yodel List " + temp + (temp == null));
 		temp.addYodel(yodel);
 		//Log.i("XXX", "Yodels " + yodelList.getYodels());
 		//Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
-	
-	public static void setViewYodel(Yodel id){
-		viewYodel = id;
-		return;
-	}
-	public static Yodel getViewYodel(){
-		return viewYodel;
-	}
-	
-	
 
 }
