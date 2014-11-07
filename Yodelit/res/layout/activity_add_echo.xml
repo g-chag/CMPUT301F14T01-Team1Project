@@ -47,6 +47,7 @@
         android:text="Cancel"
         android:textColor="@color/darkgrey"
         android:textColorLink="@color/white"
+        android:textSize="15dp"
         android:typeface="normal" />
 
     <EditText
@@ -80,6 +81,7 @@
         android:text="Echo"
         android:textColor="@color/darkgrey"
         android:textColorHint="@color/grey"
+        android:textSize="15dp"
         android:typeface="normal" />
 
 =======

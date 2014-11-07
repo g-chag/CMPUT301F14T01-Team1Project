@@ -65,7 +65,9 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
         android:textSize="35sp"
-        android:typeface="normal" />
+        android:typeface="normal"
+        android:textStyle="bold"
+         />
 
     <ImageView
         android:id="@+id/imageView1"
