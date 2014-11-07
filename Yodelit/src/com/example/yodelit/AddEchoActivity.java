@@ -59,7 +59,9 @@ public class AddEchoActivity extends Activity {
 		}
 	}
 	
-	
+	/**
+	 * Verifies that an Echo submission is not empty.
+	 */
 	public boolean submissionCheck(String reply){
 		if (reply.isEmpty()){
 			return false;
