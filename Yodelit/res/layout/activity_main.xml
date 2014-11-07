@@ -37,7 +37,7 @@
         android:layout_alignWithParentIfMissing="true"
         android:layout_centerInParent="false"
         android:scaleType="fitCenter"
-        android:src="@drawable/Final_App_Pic" />
+        android:src="@drawable/final_app_pic" />
 
     <Button
         android:id="@+id/uNButton"
