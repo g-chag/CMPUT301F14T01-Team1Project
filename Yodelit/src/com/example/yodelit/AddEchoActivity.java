@@ -37,6 +37,11 @@ public class AddEchoActivity extends Activity {
 		return true;
 	}
 	
+	/**
+	 * Constructs a string based on the reply text and creates an Echo from it.
+	 * It then appends this Echo to the relevant Yodel. Echo text cannot be empty or the
+	 * submission fails with a toast reminder.
+	 */
 	public void submitEcho(View view){
 		final EditText reply =  (EditText) findViewById(R.id.echoText);
 		String rString = reply.getText().toString();
