@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textFav"
         android:background="@color/white" >
+
     </ListView>
 
     <TextView
@@ -65,9 +66,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
         android:textSize="35sp"
-        android:typeface="normal"
         android:textStyle="bold"
-         />
+        android:typeface="normal" />
 
     <ImageView
         android:id="@+id/imageView1"

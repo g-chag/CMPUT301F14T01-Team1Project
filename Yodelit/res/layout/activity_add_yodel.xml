@@ -19,7 +19,7 @@
         android:background="#00000000"
         android:text="Q "
         android:textColor="@color/white"
-        android:textSize="50sp"
+        android:textSize="60dp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -54,30 +54,14 @@
         android:textSize="15dp"
         android:typeface="normal" />
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/infoText"
-        android:layout_marginBottom="28dp"
-        android:background="@color/white"
-        android:onClick="submitYodel"
-        android:padding="7dp"
-        android:text="YodelIt!"
-        android:textColor="@color/darkgrey"
-        android:textSize="15dp"
-        android:typeface="normal" />
-
     <EditText
         android:id="@+id/infoText"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/cancel"
         android:layout_alignLeft="@+id/text1"
         android:layout_alignParentEnd="true"
-        android:layout_alignRight="@+id/yodelText"
-        android:layout_below="@+id/text1"
-        android:layout_marginTop="36dp"
+        android:layout_marginBottom="21dp"
         android:background="@color/white"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
@@ -88,5 +72,28 @@
 
         <requestFocus />
     </EditText>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/infoText"
+        android:layout_marginBottom="17dp"
+        android:background="@color/white"
+        android:onClick="submitYodel"
+        android:padding="7dp"
+        android:text="YodelIt!"
+        android:textColor="@color/darkgrey"
+        android:textSize="15dp"
+        android:typeface="normal" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/text1"
+        android:layout_below="@+id/yodelText"
+        android:src="@drawable/White_Bar" />
 
 </RelativeLayout>
