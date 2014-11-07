@@ -18,6 +18,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,7 +39,7 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        ListView listview =  (ListView) findViewById(R.id.YodelListView);
+        final ListView listview =  (ListView) findViewById(R.id.YodelListView);
 		Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
 		final ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
 		final ArrayAdapter<Yodel> yodelsAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_1,yodelList);
@@ -55,6 +56,7 @@ public class HomeActivity extends Activity {
 			}
 		});
         
+		//Opens Yodel with Echo listed
 		listview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				//NEEDS TO PASS YID THROUGH INTENT
@@ -68,10 +70,11 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
+		//Sets favourites
 		listview.setOnItemLongClickListener(new OnItemLongClickListener(){
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				favouriteDialog(position, yodelList);
+				favouriteDialog(position, yodelList, listview);
 				return true;
 			}
 			});
@@ -101,33 +104,65 @@ public class HomeActivity extends Activity {
     }
     
     //Prompts user to add to favourites list. 
-    public void favouriteDialog(final int position, final ArrayList<Yodel> yodelList){
-    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle("Add to Favourites?");
-
-		// Set up the buttons
-		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
-		    @Override
-		    public void onClick(DialogInterface dialog, int which) {
-		    	//ADD TO FAVOURITE LIST
-		    	User user = YodelitController.getActiveUser();
-		    	ArrayList<Integer> list = user.getYodelFavs();
-				Yodel yodel = yodelList.get(position);
-				int id = yodel.getYid();
-				list.add(id);
-				user.setYodelFavs(list);
-				
-		    	Toast toast = Toast.makeText(getApplicationContext(), "Added to Favourites!", Toast.LENGTH_SHORT);
-		    	toast.show();
-		    }
-		});
-		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-		    @Override
-		    public void onClick(DialogInterface dialog, int which) {
-		        dialog.cancel();
-		    }
-		});
-		builder.show();
+    public void favouriteDialog(final int position, final ArrayList<Yodel> yodelList, final ListView listView){
+    	final User user = YodelitController.getActiveUser();
+    	final ArrayList<Integer> list = user.getYodelFavs();
+		Yodel yodel = yodelList.get(position);
+		final int id = yodel.getYid();
+    	
+		//Checks if id is already listed
+    	if (list.contains(id) == false){
+	    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Add to Favourites?");
+	
+			// Set up the buttons
+			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
+			    @Override
+			    public void onClick(DialogInterface dialog, int which) {
+			    	//ADD TO FAVOURITE LIST
+					list.add(id);
+					user.setYodelFavs(list);
+					listView.getChildAt(position).setBackgroundColor(Color.rgb(179, 179, 179));
+			    	Toast toast = Toast.makeText(getApplicationContext(), "Added to Favourites!", Toast.LENGTH_SHORT);
+			    	toast.show();
+			    }
+			});
+			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			    @Override
+			    public void onClick(DialogInterface dialog, int which) {
+			        dialog.cancel();
+			    }
+			});
+			builder.show();
+			
+	    } else {
+	    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Remove from Favourites?");
+	
+			// Set up the buttons
+			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
+			    @Override
+			    public void onClick(DialogInterface dialog, int which) {
+			    	//ADD TO FAVOURITE LIST
+					list.remove(id);
+					user.setYodelFavs(list);
+					listView.getChildAt(position).setBackgroundColor(Color.WHITE);
+			    	Toast toast = Toast.makeText(getApplicationContext(), "Removed from Favourites!", Toast.LENGTH_SHORT);
+			    	toast.show();
+			    }
+			});
+			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			    @Override
+			    public void onClick(DialogInterface dialog, int which) {
+			        dialog.cancel();
+			    }
+			});
+			builder.show();
+			
+	    }
+    	
+    	
+    	
     }
 }
     
