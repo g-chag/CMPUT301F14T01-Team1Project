@@ -9,21 +9,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="25dp"
-        android:src="@drawable/White_Bar" />
-
     <Button
         android:id="@+id/uNButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/userNameEditText"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="57dp"
+        android:layout_marginTop="28dp"
         android:background="@color/white"
         android:onClick="login"
         android:padding="7dp"
@@ -33,22 +25,14 @@
         android:textSize="15dp"
         android:typeface="normal" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_centerVertical="true"
-        android:src="@drawable/White_Bar" />
-
     <EditText
         android:id="@+id/userNameEditText"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/uNButton"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="216dp"
         android:background="@color/white"
         android:ems="10"
         android:hint="Username"
@@ -58,12 +42,12 @@
         android:textSize="16sp" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_alignTop="@+id/imageView1"
-        android:layout_marginTop="34dp"
-        android:src="@drawable/Final_App_Pic" />
+        android:layout_alignBottom="@+id/userNameEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:src="@drawable/final_app_pic" />
 
 </RelativeLayout>
