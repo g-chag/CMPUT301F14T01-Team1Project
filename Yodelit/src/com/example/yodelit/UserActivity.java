@@ -41,11 +41,17 @@ public class UserActivity extends Activity {
 		String name = user.getUname();
 		displayUser.setText(name);
 		
-		ArrayList<String> favlist = new ArrayList<String>();
-		favlist.add("Yodel1");
+		ArrayList<String> list = new ArrayList<String>();
+		//favlist.add("Yodel1");
+		ArrayList<Integer> favlist = user.getYodelFavs();
+		
 		//SET YODLES HERE INTO FAVLIST
+		for (int x = 0; x < favlist.size(); x++){
+			list.add(YodelitController.getYodelList().getYodel(favlist.get(x)).getYodelText()); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
+		}
+    	
 		ListView favView = (ListView) findViewById(R.id.listView);
-		ArrayAdapter<String> favAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, favlist);
+		ArrayAdapter<String> favAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 		favView.setAdapter(favAdapter);
 		
 		
@@ -54,11 +60,9 @@ public class UserActivity extends Activity {
 		changeUsername.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v) {
-				changeUser();
-				
+				changeUser();	
 			}
 		});
-		
 	
 	}
 

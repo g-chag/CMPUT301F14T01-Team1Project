@@ -8,11 +8,13 @@
 
 package com.example.yodelit;
 
+import java.util.ArrayList;
+
 public class User {
 	public String Uname;
 	private int UID;
-	public int[] YodelHist;
-	public int[] YodelFavs;
+	public ArrayList<Integer> YodelHist = new ArrayList<Integer>();
+	public ArrayList<Integer> YodelFavs = new ArrayList<Integer>();
 	
 	
 	public String getUname() {
@@ -22,16 +24,16 @@ public class User {
 	public void setUname(String uname) {
 		Uname = uname;
 	}
-	public int[] getYodelHist() {
+	public ArrayList<Integer> getYodelHist() {
 		return YodelHist;
 	}
-	public void setYodelHist(int[] yodelHist) {
+	public void setYodelHist(ArrayList<Integer> yodelHist) {
 		YodelHist = yodelHist;
 	}
-	public int[] getYodelFavs() {
+	public ArrayList<Integer> getYodelFavs() {
 		return YodelFavs;
 	}
-	public void setYodelFavs(int[] yodelFavs) {
+	public void setYodelFavs(ArrayList<Integer> yodelFavs) {
 		YodelFavs = yodelFavs;
 	}
 	
