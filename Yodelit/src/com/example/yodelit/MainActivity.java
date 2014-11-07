@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -33,10 +34,14 @@ public class MainActivity extends Activity {
 		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
 		EditText userEditText = (EditText) findViewById(R.id.userNameEditText);
 		String username = userEditText.getText().toString();
-		User user = new User();
-		user.setUname(username);
-		YodelitController.setActiveUser(user);
-		Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-		startActivity(intent);
+		if (username != ""){
+			User user = new User();
+			user.setUname(username);
+			YodelitController.setActiveUser(user);
+			Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+			startActivity(intent);
+		} else {
+			throw new IllegalArgumentException("Please enter a proper user name");
+		}
 	}
 }
