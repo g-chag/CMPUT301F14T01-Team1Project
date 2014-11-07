@@ -1,7 +1,12 @@
-package com.example.yodelit;
+/**
+ * Activity for fetching user profile information. Here users can see their favorite Yodels listed.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
 
-//Description: This is the activity for the user profile. Here users can see their favourite yodels listed.
-//Issues: Needs to get user name, and fetch yodels.
+package com.example.yodelit;
 
 import java.util.ArrayList;
 import java.util.List;

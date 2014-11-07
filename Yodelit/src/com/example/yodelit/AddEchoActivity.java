@@ -1,6 +1,15 @@
+/**
+ * Activity for adding "Echos" our equivalent of replies to a Yodel Thread.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
+
 package com.example.yodelit;
 
 import java.util.ArrayList;
+
 import java.util.Collection;
 
 import android.app.Activity;

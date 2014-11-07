@@ -1,3 +1,11 @@
+/**
+ * Object class for "Yodel", our equivalent of forum questions.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
+
 package com.example.yodelit;
 
 import java.sql.Date;

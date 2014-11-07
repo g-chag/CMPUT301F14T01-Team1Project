@@ -1,8 +1,12 @@
-package com.example.yodelit;
+/**
+ * Activity that handles the main loading screen. Gives a button for login, and setting username.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
 
-//Description: Main loading screen. Gives a button for login after user enters a username. Does not check for password.
-//
-//Issues:
+package com.example.yodelit;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -1,8 +1,12 @@
-package com.example.yodelit;
+/**
+ * Activity that gives the list of all Yodels, and access to user settings.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
 
-//Desciption: This activity gives the list of all the Yodels. 
-//
-//Issues: Need to add favourites to username
+package com.example.yodelit;
 
 import java.io.Serializable;
 import java.util.ArrayList;

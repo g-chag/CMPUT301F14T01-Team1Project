@@ -1,8 +1,12 @@
-package com.example.yodelit;
+/**
+ * Controller class for Echoes, our equivalent of replies.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
 
-//Description: Controller for the Echo lists.
-//
-//Issues:
+package com.example.yodelit;
 
 import java.util.ArrayList;
 

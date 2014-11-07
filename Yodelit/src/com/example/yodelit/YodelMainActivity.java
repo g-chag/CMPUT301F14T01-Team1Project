@@ -1,9 +1,13 @@
+/**
+ * This activity lists the Echoes related to a Yodel and is used for viewing Yodels individually.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
+
+
 package com.example.yodelit;
-
-//Description: This activity lists the Echos related to a Yodel
-//
-//Issues: Need to get yid from Intent
-
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

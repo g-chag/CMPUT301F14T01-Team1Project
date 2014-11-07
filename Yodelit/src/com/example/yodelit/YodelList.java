@@ -1,8 +1,12 @@
-package com.example.yodelit;
+/**
+ * Class for storing a list of Yodels.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
 
-//Description: Class for the Yodel lists. Includes listener methods and adding methods to the array.
-//
-//Issues:
+package com.example.yodelit;
 
 import java.util.ArrayList;
 import java.util.Collection;

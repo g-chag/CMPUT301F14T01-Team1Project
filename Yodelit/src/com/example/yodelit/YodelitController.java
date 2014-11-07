@@ -1,8 +1,12 @@
-package com.example.yodelit;
+/**
+ * Controller class for Yodels, our equivalent of forum questions.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
 
-//Description: Controller for the Yodel lists. 
-//
-//Issues:
+package com.example.yodelit;
 
 import android.util.Log;
 

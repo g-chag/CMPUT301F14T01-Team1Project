@@ -1,3 +1,11 @@
+/**
+ * Object class for "Echo", our equivalent of replies.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
+
 package com.example.yodelit;
 
 //Description: This class defines an Echo (answer to a question)

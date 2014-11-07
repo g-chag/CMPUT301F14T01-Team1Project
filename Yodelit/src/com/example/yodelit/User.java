@@ -1,3 +1,11 @@
+/**
+ * Object class for users. Stores information such as their Yodel history, user name and favorites.
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
+
 package com.example.yodelit;
 
 public class User {
