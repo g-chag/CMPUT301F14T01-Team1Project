@@ -14,12 +14,14 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ExpandableListAdapter;
@@ -27,6 +29,7 @@ import android.widget.ExpandableListView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class UserActivity extends Activity {
 
@@ -42,8 +45,7 @@ public class UserActivity extends Activity {
 		displayUser.setText(name);
 		
 		ArrayList<String> list = new ArrayList<String>();
-		//favlist.add("Yodel1");
-		ArrayList<Integer> favlist = user.getYodelFavs();
+		final ArrayList<Integer> favlist = user.getYodelFavs();
 		
 		//SET YODLES HERE INTO FAVLIST
 		for (int x = 0; x < favlist.size(); x++){
@@ -63,6 +65,19 @@ public class UserActivity extends Activity {
 				changeUser();	
 			}
 		});
+		
+		favView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//				final int finalPosition = position;
+//				Yodel yodel = yodelList.get(finalPosition);
+				Intent intent = new Intent(UserActivity.this, YodelMainActivity.class);
+				intent.putExtra("YID", favlist.get(position));
+		    	startActivity(intent);
+
+			}
+		});
+		
+		
 	
 	}
 
