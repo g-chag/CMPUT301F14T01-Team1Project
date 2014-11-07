@@ -6,13 +6,6 @@
  * @since 1.0
  */
 
-<<<<<<< HEAD
-=======
-//Description: This activity lists the Echos related to a Yodel, including the yodel itself. You can from there add an echo, which launches the AddEchoActivity. 
-//
-//Issues: Fav system only prompts, does not save. Upgoating has no functionality yet
-
->>>>>>> 5c33cebb54aea252d5a1eadb09f7291d6a09117c
 
 package com.example.yodelit;
 
