@@ -1,12 +1,9 @@
 package com.example.yodelit.test;
 
-import javax.security.auth.login.LoginException;
-
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.yodelit.HomeActivity;
 import com.example.yodelit.MainActivity;
 import com.example.yodelit.R;
 
