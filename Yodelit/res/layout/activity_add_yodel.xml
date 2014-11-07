@@ -94,6 +94,6 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/text1"
         android:layout_below="@+id/yodelText"
-        android:src="@drawable/White_Bar" />
+        android:src="@drawable/whitebar" />
 
 </RelativeLayout>

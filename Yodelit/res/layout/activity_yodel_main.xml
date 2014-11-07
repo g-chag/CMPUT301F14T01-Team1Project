@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/EchoListView"
         android:layout_alignParentBottom="true"
-        android:src="@drawable/Star" />
+        android:src="@drawable/star" />
 
     <ListView
         android:id="@+id/EchoListView"
@@ -68,6 +68,6 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/imageButton1"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/Up_Goat" />
+        android:src="@drawable/upgoat" />
 
 </RelativeLayout>

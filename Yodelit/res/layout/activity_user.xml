@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:scaleType="matrix"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/iclauncher" />
 
     <TextView
         android:id="@+id/textView2"

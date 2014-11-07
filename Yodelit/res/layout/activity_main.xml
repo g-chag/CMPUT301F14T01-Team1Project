@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/imageView1"
         android:layout_alignLeft="@+id/imageView1"
-        android:src="@drawable/White_Bar" />
+        android:src="@drawable/whitebar" />
 
     <ImageView
         android:id="@+id/imageView1"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/imageView3"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/final_app_pic" />
+        android:src="@drawable/finalapppic" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/userNameEditText"
         android:layout_alignLeft="@+id/imageView1"
-        android:src="@drawable/White_Bar" />
+        android:src="@drawable/whitebar" />
 
     <Button
         android:id="@+id/uNButton"
