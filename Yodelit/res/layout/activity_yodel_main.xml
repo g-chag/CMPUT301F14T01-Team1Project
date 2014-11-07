@@ -32,7 +32,7 @@
         android:textColor="@color/grey" />
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/favButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/EchoListView"
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/EchoListView"
-        android:layout_alignTop="@+id/imageButton1"
+        android:layout_alignTop="@+id/favButton"
         android:background="@color/white"
         android:padding="12dp"
         android:text="Echo"
@@ -66,7 +66,7 @@
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageButton1"
+        android:layout_alignTop="@+id/favButton"
         android:layout_centerHorizontal="true"
         android:src="@drawable/upgoat" />
 

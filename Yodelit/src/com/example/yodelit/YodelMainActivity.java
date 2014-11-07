@@ -1,22 +1,25 @@
 package com.example.yodelit;
 
-//Description: This activity lists the Echos related to a Yodel
+//Description: This activity lists the Echos related to a Yodel, including the yodel itself. You can from there add an echo, which launches the AddEchoActivity. 
 //
-//Issues: Need to get yid from Intent
+//Issues: Fav system only prompts, does not save. Upgoating has no functionality yet
+
 
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,11 +29,12 @@ public class YodelMainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//Yodel viewYodel = YodelitController.getViewYodel();
+		//sets buttons
 		setContentView(R.layout.activity_yodel_main);
         final ListView listview =  (ListView) findViewById(R.id.EchoListView);
         Button echobutton = (Button) findViewById(R.id.AddEchoButton);
-        
+        ImageButton favbutton = (ImageButton) findViewById(R.id.favButton);
+        //sets views, gets user id
         TextView yodelView = (TextView) findViewById(R.id.yodelView);
         TextView infoView = (TextView) findViewById(R.id.infoView);
         final int yID = getIntent().getIntExtra("YID", -1);
@@ -49,7 +53,13 @@ public class YodelMainActivity extends Activity {
             	posting(v, yID);
             	echoAdapter.notifyDataSetChanged();
             }
-            });
+            });            
+		
+		favbutton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				favouriteDialog();
+			}
+		});
     }
 	@Override
 	public void onResume(){
@@ -58,6 +68,7 @@ public class YodelMainActivity extends Activity {
 			setContentView(R.layout.activity_yodel_main);
 	        final ListView listview =  (ListView) findViewById(R.id.EchoListView);
 	        Button echobutton = (Button) findViewById(R.id.AddEchoButton);
+	        ImageButton favbutton = (ImageButton) findViewById(R.id.favButton);
 	        
 	        TextView yodelView = (TextView) findViewById(R.id.yodelView);
 	        TextView infoView = (TextView) findViewById(R.id.infoView);
@@ -78,6 +89,12 @@ public class YodelMainActivity extends Activity {
 	            	echoAdapter.notifyDataSetChanged();
 	            }
 	            });
+			
+			favbutton.setOnClickListener(new View.OnClickListener() {
+				public void onClick(View v) {
+					favouriteDialog();
+				}
+			});
 	    }
 	
 	
@@ -94,6 +111,27 @@ public class YodelMainActivity extends Activity {
     	Intent intent = new Intent(YodelMainActivity.this, AddEchoActivity.class);
     	intent.putExtra("YID", (int)id);
     	startActivity(intent);
-    	
     }
+	 public void favouriteDialog(){
+	    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("Add to Favourites?");
+
+			// Set up the buttons
+			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
+			    @Override
+			    public void onClick(DialogInterface dialog, int which) {
+			    	//NEED TO ADD TO FAVOURITE LIST
+			    	Toast toast = Toast.makeText(getApplicationContext(), "Added to Favourites!", Toast.LENGTH_SHORT);
+			    	toast.show();
+			    }
+			});
+			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			    @Override
+			    public void onClick(DialogInterface dialog, int which) {
+			        dialog.cancel();
+			    }
+			});
+			builder.show();
+	    }
+	
 }

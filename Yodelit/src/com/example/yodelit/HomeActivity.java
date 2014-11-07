@@ -67,7 +67,7 @@ public class HomeActivity extends Activity {
 		listview.setOnItemLongClickListener(new OnItemLongClickListener(){
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				favouriteDialog();
+				favouriteDialog(position, yodelList);
 				return true;
 			}
 			});
@@ -96,7 +96,8 @@ public class HomeActivity extends Activity {
     	startActivity(intent);
     }
     
-    public void favouriteDialog(){
+    //Prompts user to add to favourites list. 
+    public void favouriteDialog(final int position, final ArrayList<Yodel> yodelList){
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Add to Favourites?");
 
@@ -104,7 +105,14 @@ public class HomeActivity extends Activity {
 		builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
 		    @Override
 		    public void onClick(DialogInterface dialog, int which) {
-		    	//NEED TO ADD TO FAVOURITE LIST
+		    	//ADD TO FAVOURITE LIST
+		    	User user = YodelitController.getActiveUser();
+		    	ArrayList<Integer> list = user.getYodelFavs();
+				Yodel yodel = yodelList.get(position);
+				int id = yodel.getYid();
+				list.add(id);
+				user.setYodelFavs(list);
+				
 		    	Toast toast = Toast.makeText(getApplicationContext(), "Added to Favourites!", Toast.LENGTH_SHORT);
 		    	toast.show();
 		    }

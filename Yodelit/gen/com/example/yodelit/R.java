@@ -50,7 +50,7 @@ public final class R {
         public static final int changeuser=0x7f090011;
         public static final int echoText=0x7f090004;
         public static final int echotext=0x7f090003;
-        public static final int imageButton1=0x7f090017;
+        public static final int favButton=0x7f090017;
         public static final int imageButton2=0x7f090019;
         public static final int imageView1=0x7f090005;
         public static final int imageView2=0x7f090006;
