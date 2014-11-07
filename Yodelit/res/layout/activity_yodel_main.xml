@@ -15,41 +15,43 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@color/grey"
-        android:padding="10dp"
+        android:background="@color/white"
+        android:padding="7dp"
         android:text="Echo"
-        android:textColor="@color/white" />
+        android:textColor="@color/darkgrey"
+        android:textSize="15sp"
+        android:textStyle="normal" />
 
     <TextView
         android:id="@+id/yodelView"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="40dp"
         android:layout_alignLeft="@+id/EchoListView"
         android:background="@color/white"
         android:gravity="center_horizontal"
         android:text="TextView"
         android:textColor="@color/grey"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/infoView"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_alignLeft="@+id/yodelView"
-        android:layout_below="@+id/yodelView"
-        android:layout_marginTop="16dp"
-        android:background="@color/white"
-        android:text="TextView"
-        android:textColor="@color/grey" />
+        android:textSize="20dp" />
 
     <ListView
         android:id="@+id/EchoListView"
         android:layout_width="match_parent"
         android:layout_height="230dp"
-        android:layout_below="@+id/infoView"
+        android:layout_above="@+id/AddEchoButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
+        android:layout_marginBottom="37dp"
         android:background="@color/white" >
     </ListView>
+
+    <TextView
+        android:id="@+id/infoView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_above="@+id/EchoListView"
+        android:layout_alignLeft="@+id/EchoListView"
+        android:layout_marginBottom="34dp"
+        android:background="@color/white"
+        android:text="TextView"
+        android:textColor="@color/grey" />
 
 </RelativeLayout>
