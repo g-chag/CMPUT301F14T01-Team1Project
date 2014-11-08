@@ -51,9 +51,9 @@ public final class R {
         public static final int action_settings=0x7f09001e;
         public static final int cancel=0x7f090002;
         public static final int changeuser=0x7f090011;
-        public static final int dateText=0x7f09001d;
+        public static final int dateText=0x7f09001c;
         public static final int downButton=0x7f090019;
-        public static final int downText=0x7f09001c;
+        public static final int downText=0x7f09001d;
         public static final int echoText=0x7f090004;
         public static final int echotext=0x7f090003;
         public static final int favButton=0x7f090017;

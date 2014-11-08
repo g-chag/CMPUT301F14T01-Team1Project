@@ -11,27 +11,10 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="false"
         android:layout_toLeftOf="@+id/upButton"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:text="Echo/Yodel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <ImageButton
-        android:id="@+id/downButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/upButton"
-        android:layout_alignParentRight="true"
-        android:background="@android:drawable/btn_default_small"
-        android:src="@drawable/arrowdown" />
-
-    <TextView
-        android:id="@+id/upText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/upButton"
-        android:layout_alignRight="@+id/upButton"
-        android:layout_below="@+id/Header"
-        android:text="0"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/userText"
@@ -41,27 +24,9 @@
         android:layout_alignBottom="@+id/upText"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:text="user                 " />
-
-    <ImageButton
-        android:id="@+id/upButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/userText"
-        android:layout_toLeftOf="@+id/downButton"
-        android:adjustViewBounds="false"
-        android:background="@android:drawable/btn_default_small"
-        android:cropToPadding="false"
-        android:src="@drawable/arrowup" />
-
-    <TextView
-        android:id="@+id/downText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/downButton"
-        android:layout_below="@+id/downButton"
-        android:text="0"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
         android:id="@+id/dateText"
@@ -69,6 +34,33 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/Header"
         android:layout_centerHorizontal="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:text="Date                    " />
+
+    <TextView
+        android:id="@+id/downText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/Header"
+        android:layout_marginRight="42dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/upText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/downText"
+        android:layout_alignBottom="@+id/downText"
+        android:layout_marginRight="17dp"
+        android:layout_toLeftOf="@+id/downText"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:text="0"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

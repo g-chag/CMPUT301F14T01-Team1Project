@@ -6,6 +6,7 @@ import android.R.color;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -45,15 +46,17 @@ public class newYodelAdapter extends BaseAdapter{
         View vi = convertView;
         if (vi == null)
             vi = inflater.inflate(R.layout.row, null);
+        
+        vi.setSelected(true);
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
         TextView date = (TextView) vi.findViewById(R.id.dateText);
         TextView upcount = (TextView) vi.findViewById(R.id.upText);
         TextView downcount = (TextView) vi.findViewById(R.id.downText);
-        ImageButton upbutton = (ImageButton) vi.findViewById(R.id.upButton);
-        upbutton.setBackgroundColor(color.white);
-        ImageButton downbutton = (ImageButton) vi.findViewById(R.id.downButton);
-        downbutton.setBackgroundColor(color.white);
+//        Button upbutton = (Button) vi.findViewById(R.id.upButton);
+//        upbutton.setBackgroundColor(color.white);
+//        Button downbutton = (Button) vi.findViewById(R.id.downButton);
+//        downbutton.setBackgroundColor(color.white);
         
         if (data != null){
         	Yodel yodel = data.get(position);

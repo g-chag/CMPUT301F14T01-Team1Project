@@ -65,10 +65,10 @@ public class newAdapter extends BaseAdapter{
         TextView date = (TextView) vi.findViewById(R.id.dateText);
         TextView upcount = (TextView) vi.findViewById(R.id.upText);
         TextView downcount = (TextView) vi.findViewById(R.id.downText);
-        ImageButton upbutton = (ImageButton) vi.findViewById(R.id.upButton);
-        upbutton.setBackgroundColor(color.white);
-        ImageButton downbutton = (ImageButton) vi.findViewById(R.id.downButton);
-        downbutton.setBackgroundColor(color.white);
+//        ImageButton upbutton = (ImageButton) vi.findViewById(R.id.upButton);
+//        upbutton.setBackgroundColor(color.white);
+//        ImageButton downbutton = (ImageButton) vi.findViewById(R.id.downButton);
+//        downbutton.setBackgroundColor(color.white);
         
         
         if (data != null){
