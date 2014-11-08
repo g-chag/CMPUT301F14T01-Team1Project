@@ -34,26 +34,29 @@ public final class R {
     }
     public static final class drawable {
         public static final int apppic=0x7f020000;
-        public static final int echosymbol=0x7f020001;
-        public static final int finalapppic=0x7f020002;
-        public static final int iclauncher=0x7f020003;
-        public static final int star=0x7f020004;
-        public static final int upgoat=0x7f020005;
-        public static final int whitebar=0x7f020006;
+        public static final int arrowdown=0x7f020001;
+        public static final int arrowup=0x7f020002;
+        public static final int echosymbol=0x7f020003;
+        public static final int finalapppic=0x7f020004;
+        public static final int iclauncher=0x7f020005;
+        public static final int star=0x7f020006;
+        public static final int upgoat=0x7f020007;
+        public static final int whitebar=0x7f020008;
     }
     public static final class id {
         public static final int AddEchoButton=0x7f090018;
         public static final int EchoListView=0x7f090015;
         public static final int Header=0x7f09000b;
         public static final int YodelListView=0x7f090009;
-        public static final int action_settings=0x7f09001c;
+        public static final int action_settings=0x7f09001e;
         public static final int cancel=0x7f090002;
         public static final int changeuser=0x7f090011;
-        public static final int downButton=0x7f09001b;
+        public static final int dateText=0x7f09001d;
+        public static final int downButton=0x7f090019;
+        public static final int downText=0x7f09001c;
         public static final int echoText=0x7f090004;
         public static final int echotext=0x7f090003;
         public static final int favButton=0x7f090017;
-        public static final int imageButton2=0x7f090019;
         public static final int imageView1=0x7f090005;
         public static final int imageView2=0x7f090006;
         public static final int infoText=0x7f090008;
@@ -61,13 +64,14 @@ public final class R {
         public static final int listView=0x7f090012;
         public static final int postButton=0x7f09000a;
         public static final int submit=0x7f090001;
-        public static final int text=0x7f090010;
         public static final int text1=0x7f090000;
         public static final int textFav=0x7f090013;
         public static final int uNButton=0x7f09000e;
         public static final int upButton=0x7f09001a;
+        public static final int upText=0x7f09001b;
         public static final int userNameEditText=0x7f09000d;
         public static final int userSettings=0x7f09000c;
+        public static final int userText=0x7f090010;
         public static final int username=0x7f09000f;
         public static final int yodelText=0x7f090007;
         public static final int yodelView=0x7f090014;

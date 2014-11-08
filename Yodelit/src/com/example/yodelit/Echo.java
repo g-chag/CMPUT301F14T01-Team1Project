@@ -22,9 +22,14 @@ public class Echo {
 	protected int EID; //ID of the Echo
 	public Date date; //Date
 	public int upgoats; //Number of upgoats
+	public int downgoats; //Number of downgoats
 	
 	public Echo(String text){
 		this.text = text;
+		this.Author = YodelitController.activeuser.getUname();
+		//NEEDS TO SET DATE
+		this.upgoats = 0;
+		this.downgoats = 0;
 	}
 	public String getText() {
 		return text;
@@ -61,5 +66,11 @@ public class Echo {
 	}
 	public void setUpgoats(int upgoats) {
 		this.upgoats = upgoats;
+	}
+	public int getDowngoats() {
+		return downgoats;
+	}
+	public void setDowngoats(int downgoats) {
+		this.downgoats = downgoats;
 	}
 }

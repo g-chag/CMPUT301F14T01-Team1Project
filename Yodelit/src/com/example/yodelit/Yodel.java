@@ -22,11 +22,17 @@ public class Yodel {
 	public String info;
 	public String Author;
 	public Date date;
+	public int upgoats; //Number of upgoats
+	public int downgoats; //Number of downgoats
 	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
 	
 	public Yodel(String question, String info){
 		this.question = question;
 		this.info = info;
+		this.Author = YodelitController.getActiveUser().getUname();
+		//NEEDS TO SET DATE
+		this.upgoats = 0;
+		this.downgoats = 0;
 	}
 	
 	public String getYodelText() {
@@ -49,10 +55,36 @@ public class Yodel {
 		return yID;
 	}
 	
+	public String getAuthor() {
+		return Author;
+	}
+
+	public void setAuthor(String author) {
+		Author = author;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 	public void addEcho(Echo echo){
 		echoList.add(echo);
 	}
 	
+	public int getUpgoats() {
+		return upgoats;
+	}
+	public void setUpgoats(int upgoats) {
+		this.upgoats = upgoats;
+	}
+	public int getDowngoats() {
+		return downgoats;
+	}
+	public void setDowngoats(int downgoats) {
+		this.downgoats = downgoats;
+	}
 	public ArrayList<Echo> getEchoList(){
 		return echoList;
 	}
