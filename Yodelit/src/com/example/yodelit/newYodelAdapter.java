@@ -1,3 +1,12 @@
+/**
+ * Custom adapter for Yodels in HomeActivity. Allows buttons for up and down goating. Has text views for Yodel text, user and date (still needs to be implemented).
+ * 
+ * @author Yodelit!
+ * @version 3.0
+ * @since 1.0
+ */
+
+
 package com.example.yodelit;
 
 import java.util.ArrayList;
@@ -19,6 +28,7 @@ public class newYodelAdapter extends BaseAdapter{
     ArrayList<Yodel> data;
     private LayoutInflater inflater = null;
 
+    //creation of a new adapter
     public newYodelAdapter(Context context, ArrayList<Yodel> arrayList) {
         // TODO Auto-generated constructor stub
         this.context = context;
@@ -69,7 +79,7 @@ public class newYodelAdapter extends BaseAdapter{
         	
         }
         
-        
+        //upgoating
         upgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
 			@Override
@@ -77,12 +87,10 @@ public class newYodelAdapter extends BaseAdapter{
 				int hold = yodel.getUpgoats();
 				hold = hold + 1;
 				YodelitController.yodelList.getYodel(position).setUpgoats(hold);
-		    	upcount.setText("" + yodel.getUpgoats());
-		    	
-				
+
 			}
 		});
-        
+        //downgoating
         downgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
 			@Override

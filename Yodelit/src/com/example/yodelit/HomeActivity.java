@@ -1,5 +1,5 @@
 /**
- * Activity that gives the list of all Yodels, and access to user settings.
+ * Activity that gives the list of all Yodels, and access to user settings. Each yodel displays upgoats, downgoats and user that created it.
  * 
  * @author Yodelit!
  * @version 3.0

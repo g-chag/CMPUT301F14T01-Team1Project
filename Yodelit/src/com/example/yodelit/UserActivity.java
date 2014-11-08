@@ -54,22 +54,18 @@ public class UserActivity extends Activity {
     	
 		ListView favView = (ListView) findViewById(R.id.listView);
 		ArrayAdapter<String> favAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-		favView.setAdapter(favAdapter);
+		favView.setAdapter(favAdapter); 
 		
-		
-		
-		
+		//changing username
 		changeUsername.setOnClickListener(new OnClickListener() {
-			
 			public void onClick(View v) {
 				changeUser();	
 			}
 		});
 		
+		//can view Echos of favourite Yodels by clicking on the list
 		favView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//				final int finalPosition = position;
-//				Yodel yodel = yodelList.get(finalPosition);
 				Intent intent = new Intent(UserActivity.this, YodelMainActivity.class);
 				intent.putExtra("YID", favlist.get(position));
 		    	startActivity(intent);
@@ -98,9 +94,9 @@ public class UserActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	
+	//for changing
 	public void changeUser() {
-		//http://stackoverflow.com/questions/10903754/input-text-dialog-android 11/06/14
+		//For getting input from user in a dialogue box: http://stackoverflow.com/questions/10903754/input-text-dialog-android 11/06/14
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle("Change Username");
@@ -125,8 +121,6 @@ public class UserActivity extends Activity {
 		});
 		final String name = input.getText().toString();
 		builder.show();
-		//NEEDS TO RESET SINGLETON USERNAME
-		
 		return;
 		
 	}

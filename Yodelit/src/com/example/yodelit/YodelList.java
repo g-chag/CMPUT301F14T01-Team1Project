@@ -1,5 +1,5 @@
 /**
- * Class for storing a list of Yodels.
+ * Class for storing a list of Yodels. User can add Yodels to the list, as well as notify updated systems
  * 
  * @author Yodelit!
  * @version 3.0

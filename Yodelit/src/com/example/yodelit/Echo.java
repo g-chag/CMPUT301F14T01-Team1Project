@@ -1,5 +1,5 @@
 /**
- * Object class for "Echo", our equivalent of replies.
+ * Object class for "Echo", our equivalent of replies. Contains text, author, Yodel id it belongs to, unique Echo id, date posted and number of up and down goats.
  * 
  * @author Yodelit!
  * @version 3.0

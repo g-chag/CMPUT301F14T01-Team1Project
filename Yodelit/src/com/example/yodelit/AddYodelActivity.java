@@ -33,8 +33,8 @@ public class AddYodelActivity extends Activity {
 		return true;
 	}
 	
+	//gets into from screen. Adds newly created Yodel to controller.
 	public void submitYodel(View view){
-		
 		final EditText question =  (EditText) findViewById(R.id.yodelText);
 		final EditText add =  (EditText) findViewById(R.id.infoText);
 		String qString = question.getText().toString();
@@ -51,7 +51,7 @@ public class AddYodelActivity extends Activity {
 		}
 	}
 	
-	
+	//checking for valid inputs
 	public boolean submissionCheck(String question, String add){
 		if (question.isEmpty()){
 			return false;

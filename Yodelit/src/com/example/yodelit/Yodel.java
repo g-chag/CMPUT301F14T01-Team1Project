@@ -1,5 +1,5 @@
 /**
- * Object class for "Yodel", our equivalent of forum questions.
+ * Object class for "Yodel", our equivalent of forum questions. Contains a unique id, question, info, author, date, upgoats, downgoats and a list of related echos.
  * 
  * @author Yodelit!
  * @version 3.0
@@ -10,10 +10,6 @@ package com.example.yodelit;
 
 import java.sql.Date;
 import java.util.ArrayList;
-
-//Description: Class that describes a Yodel (question)
-//
-//Issues:
 
 
 public class Yodel {
@@ -26,6 +22,8 @@ public class Yodel {
 	public int downgoats; //Number of downgoats
 	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
 	
+	//creation of a new Yodel and initializes content.
+	//Needs date implemented.
 	public Yodel(String question, String info){
 		this.question = question;
 		this.info = info;
@@ -73,6 +71,7 @@ public class Yodel {
 		echoList.add(echo);
 	}
 	
+	//-----For voting------//
 	public int getUpgoats() {
 		return upgoats;
 	}

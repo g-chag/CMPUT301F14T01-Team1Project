@@ -16,6 +16,7 @@ public class YodelitController {
 	public static Yodel viewYodel;
 	public static User activeuser;
 	
+	//creation of Yodellist
 	public static YodelList getYodelList(){
 		if( yodelList == null ){
 			yodelList = new YodelList();
@@ -26,6 +27,8 @@ public class YodelitController {
 		}
 	}
 	
+	
+	//adding Yodel
 	public static void addYodel(Yodel yodel){
 		YodelList temp = getYodelList();
 		//set yodel id (len of yodels + 1)
@@ -37,6 +40,7 @@ public class YodelitController {
 		//Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
 	
+	//----Getting/setting current user----//
 	public static void setActiveUser(User user){
 		activeuser = user;
 	}

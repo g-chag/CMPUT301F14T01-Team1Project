@@ -1,5 +1,5 @@
 /**
- * Creates custom adapter for Echos in YodelMainActivity. 
+ * Creates custom adapter for Echos in YodelMainActivity. Allows buttons for up and down goating. Has text views for Echo text, user and date (still needs to be implemented).
  * 
  * @author Yodelit!
  * @version 3.0

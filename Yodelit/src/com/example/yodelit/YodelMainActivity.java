@@ -1,5 +1,5 @@
 /**
- * This activity lists the Echoes related to a Yodel and is used for viewing Yodels individually.
+ * This activity lists the Echoes related to a Yodel and is used for viewing Yodels individually along with it's Echos. Users can upgoat and downgoat Echos.
  * 
  * @author Yodelit!
  * @version 3.0
@@ -36,7 +36,6 @@ public class YodelMainActivity extends Activity {
 		setContentView(R.layout.activity_yodel_main);
         final ListView listview =  (ListView) findViewById(R.id.EchoListView);
         Button echobutton = (Button) findViewById(R.id.AddEchoButton);
-        ImageButton favbutton = (ImageButton) findViewById(R.id.favButton);
         //sets views, gets user id
         TextView yodelView = (TextView) findViewById(R.id.yodelView);
         TextView infoView = (TextView) findViewById(R.id.infoView);
@@ -58,11 +57,6 @@ public class YodelMainActivity extends Activity {
             }
             });            
 		
-		favbutton.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				favouriteDialog();
-			}
-		});
     }
 	@Override
 	public void onResume(){
@@ -71,7 +65,6 @@ public class YodelMainActivity extends Activity {
 			setContentView(R.layout.activity_yodel_main);
 	        final ListView listview =  (ListView) findViewById(R.id.EchoListView);
 	        Button echobutton = (Button) findViewById(R.id.AddEchoButton);
-	        ImageButton favbutton = (ImageButton) findViewById(R.id.favButton);
 	        
 	        TextView yodelView = (TextView) findViewById(R.id.yodelView);
 	        TextView infoView = (TextView) findViewById(R.id.infoView);
@@ -92,12 +85,6 @@ public class YodelMainActivity extends Activity {
 	            	echoAdapter.notifyDataSetChanged();
 	            }
 	            });
-			
-			favbutton.setOnClickListener(new View.OnClickListener() {
-				public void onClick(View v) {
-					favouriteDialog();
-				}
-			});
 	    }
 	
 	
@@ -115,26 +102,5 @@ public class YodelMainActivity extends Activity {
     	intent.putExtra("YID", (int)id);
     	startActivity(intent);
     }
-	 public void favouriteDialog(){
-	    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setTitle("Add to Favourites?");
-
-			// Set up the buttons
-			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
-			    @Override
-			    public void onClick(DialogInterface dialog, int which) {
-			    	//NEED TO ADD TO FAVOURITE LIST
-			    	Toast toast = Toast.makeText(getApplicationContext(), "Added to Favourites!", Toast.LENGTH_SHORT);
-			    	toast.show();
-			    }
-			});
-			builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-			    @Override
-			    public void onClick(DialogInterface dialog, int which) {
-			        dialog.cancel();
-			    }
-			});
-			builder.show();
-	    }
 	
 }

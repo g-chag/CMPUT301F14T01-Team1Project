@@ -1,5 +1,5 @@
 /**
- * Activity for adding "Echos" our equivalent of replies to a Yodel Thread.
+ * Activity for adding "Echos" our equivalent of replies to a Yodel Thread. Users can view the Yodel and it's information and reply to it. 
  * 
  * @author Yodelit!
  * @version 3.0
