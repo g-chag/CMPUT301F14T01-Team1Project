@@ -46,9 +46,9 @@ public class YodelMainActivity extends Activity {
         yodelView.setText(yodel.getYodelText());
         infoView.setText(yodel.getInfoText());
         
-        //Collection<Echo> echos = EchoController.getEchoList().getEchoes();
-		//final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
-		final ArrayAdapter<Echo> echoAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, yodel.getEchoList());
+		final newAdapter echoAdapter = new newAdapter(this, yodel.getEchoList());
+		
+		
 		listview.setAdapter(echoAdapter);
 
 		echobutton.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +83,7 @@ public class YodelMainActivity extends Activity {
 	        
 	        //Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 			//final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
-			final ArrayAdapter<Echo> echoAdapter = new ArrayAdapter<Echo>(this, android.R.layout.simple_list_item_1, yodel.getEchoList());
+	        final newAdapter echoAdapter = new newAdapter(this, yodel.getEchoList());
 			listview.setAdapter(echoAdapter);
 
 			echobutton.setOnClickListener(new View.OnClickListener() {

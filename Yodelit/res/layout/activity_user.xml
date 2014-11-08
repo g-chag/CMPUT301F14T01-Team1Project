@@ -14,9 +14,9 @@
         android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_alignTop="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
+        android:layout_alignBottom="@+id/text"
+        android:layout_alignTop="@+id/text"
+        android:layout_toRightOf="@+id/text"
         android:onClick="userSettings"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -24,7 +24,7 @@
         android:id="@+id/changeuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignLeft="@+id/text"
         android:layout_below="@+id/username"
         android:clickable="true"
         android:text="Change username?"
@@ -56,7 +56,7 @@
         android:typeface="normal" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/Header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -73,15 +73,15 @@
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/Header"
         android:scaleType="matrix"
         android:src="@drawable/iclauncher" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/Header"
         android:layout_alignTop="@+id/imageView1"
         android:text="Username: "
         android:textAppearance="?android:attr/textAppearanceMedium"

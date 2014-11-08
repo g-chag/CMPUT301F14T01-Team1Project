@@ -143,7 +143,7 @@ public class HomeActivity extends Activity {
 			builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() { 
 			    @Override
 			    public void onClick(DialogInterface dialog, int which) {
-			    	//ADD TO FAVOURITE LIST
+			    	//Remove From FAVOURITE LIST
 					list.remove(id);
 					user.setYodelFavs(list);
 					listView.getChildAt(position).setBackgroundColor(Color.WHITE);
