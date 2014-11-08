@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class newYodelAdapter extends BaseAdapter{
 	Context context;
@@ -41,7 +42,7 @@ public class newYodelAdapter extends BaseAdapter{
         return position;
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
@@ -51,21 +52,51 @@ public class newYodelAdapter extends BaseAdapter{
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
         TextView date = (TextView) vi.findViewById(R.id.dateText);
-        TextView upcount = (TextView) vi.findViewById(R.id.upText);
-        TextView downcount = (TextView) vi.findViewById(R.id.downText);
-//        Button upbutton = (Button) vi.findViewById(R.id.upButton);
-//        upbutton.setBackgroundColor(color.white);
-//        Button downbutton = (Button) vi.findViewById(R.id.downButton);
-//        downbutton.setBackgroundColor(color.white);
+        TextView total = (TextView) vi.findViewById(R.id.totalText);
+        final TextView upcount = (TextView) vi.findViewById(R.id.upText);
+        final TextView downcount = (TextView) vi.findViewById(R.id.downText);
         
+        Button upgoat = (Button) vi.findViewById(R.id.upB);
+        Button downgoat = (Button) vi.findViewById(R.id.downB);
         if (data != null){
         	Yodel yodel = data.get(position);
         	text.setText(yodel.getYodelText());
-        	user.setText(yodel.getAuthor());
         	//http://stackoverflow.com/questions/3994315/integer-value-in-textview
-        	upcount.setText("" + yodel.getUpgoats());
-        	downcount.setText("" + yodel.getDowngoats());
+        	int plus = yodel.getUpgoats();
+        	upcount.setText("" + plus);
+        	int minus = yodel.getDowngoats();
+        	downcount.setText("" + minus);
+        	
         }
+        
+        
+        upgoat.setOnClickListener(new OnClickListener() {
+			Yodel yodel = data.get(position);
+			@Override
+			public void onClick(View v) {
+				int hold = yodel.getUpgoats();
+				hold = hold + 1;
+				YodelitController.yodelList.getYodel(position).setUpgoats(hold);
+		    	upcount.setText("" + yodel.getUpgoats());
+		    	
+				
+			}
+		});
+        
+        downgoat.setOnClickListener(new OnClickListener() {
+			Yodel yodel = data.get(position);
+			@Override
+			public void onClick(View v) {
+				int hold = yodel.getDowngoats();
+				hold = hold + 1;
+				YodelitController.yodelList.getYodel(position).setDowngoats(hold);
+		    	downcount.setText("" + yodel.getDowngoats());
+		    	
+				
+			}
+		});
+
         return vi;
+        
     }
 }

@@ -15,6 +15,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -54,7 +55,7 @@ public class newAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
@@ -63,13 +64,12 @@ public class newAdapter extends BaseAdapter{
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
         TextView date = (TextView) vi.findViewById(R.id.dateText);
-        TextView upcount = (TextView) vi.findViewById(R.id.upText);
-        TextView downcount = (TextView) vi.findViewById(R.id.downText);
-//        ImageButton upbutton = (ImageButton) vi.findViewById(R.id.upButton);
-//        upbutton.setBackgroundColor(color.white);
-//        ImageButton downbutton = (ImageButton) vi.findViewById(R.id.downButton);
-//        downbutton.setBackgroundColor(color.white);
+        TextView total = (TextView) vi.findViewById(R.id.totalText);
+        final TextView upcount = (TextView) vi.findViewById(R.id.upText);
+        final TextView downcount = (TextView) vi.findViewById(R.id.downText);
         
+        Button upgoat = (Button) vi.findViewById(R.id.upB);
+        Button downgoat = (Button) vi.findViewById(R.id.downB);
         
         if (data != null){
         	Echo echo = data.get(position);
@@ -78,10 +78,37 @@ public class newAdapter extends BaseAdapter{
         	//Need to set date
         	//date.setText(echo.getDate().toString());
         	//http://stackoverflow.com/questions/3994315/integer-value-in-textview
-        	upcount.setText("" + echo.getUpgoats());
-        	downcount.setText("" + echo.getDowngoats());
-        	
+        	int plus = echo.getUpgoats();
+        	upcount.setText("" + plus);
+        	int minus = echo.getDowngoats();
+        	downcount.setText("" + minus);
         }
+        
+        //upgoating
+        upgoat.setOnClickListener(new OnClickListener() {
+			Echo echo = data.get(position);
+			@Override
+			public void onClick(View v) {
+				int hold = echo.getUpgoats();
+				hold = hold + 1;
+				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setUpgoats(hold);
+				upcount.setText("" + echo.getUpgoats());
+			}
+		});
+        
+        //downgoating
+        downgoat.setOnClickListener(new OnClickListener() {
+			Echo echo = data.get(position);
+			@Override
+			public void onClick(View v) {
+				int hold = echo.getDowngoats();
+				hold = hold + 1;
+				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setDowngoats(hold);
+				downcount.setText("" + echo.getDowngoats());
+			}
+		});
+        
+        
         return vi;
     }
 
