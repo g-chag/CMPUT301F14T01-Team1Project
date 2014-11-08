@@ -29,6 +29,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +43,8 @@ public class HomeActivity extends Activity {
         final ListView listview =  (ListView) findViewById(R.id.YodelListView);
 		Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
 		final ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
-		final ArrayAdapter<Yodel> yodelsAdapter = new ArrayAdapter<Yodel>(this, android.R.layout.simple_list_item_1,yodelList);
+		
+		final newYodelAdapter yodelsAdapter = new newYodelAdapter(this, yodelList);
 		listview.setAdapter(yodelsAdapter);
 		
 		YodelitController.getYodelList().addListener(new Listener(){
