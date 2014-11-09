@@ -52,7 +52,8 @@ public class AddYodelActivity extends Activity {
 			return;
 		} else {
 			Toast.makeText(this, "Please type in your question", Toast.LENGTH_SHORT).show();
-			return;
+			throw new IllegalArgumentException("Please type in your question");
+			//return;
 		}
 	}
 	

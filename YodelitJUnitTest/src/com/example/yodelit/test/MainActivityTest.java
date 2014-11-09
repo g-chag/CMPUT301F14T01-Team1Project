@@ -3,7 +3,6 @@ package com.example.yodelit.test;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.yodelit.MainActivity;
 import com.example.yodelit.R;
 import com.example.yodelit.User;
