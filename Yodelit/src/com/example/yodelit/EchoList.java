@@ -34,21 +34,23 @@ public class EchoList {
 //		}
 //	}
 	
-	
+	/**
+ 	* Adds a list of Echos to an EchoList.
+ 	*/
 	public ArrayList<Echo> addAll(EchoList echos){
 		return this.addAll(echos);
 	}
 	
 
 	// ------Listener methods------//
-
+	
 	private ArrayList<Listener> getListeners() {
 		if (listeners == null) {
 			listeners = new ArrayList<Listener>();
 		}
 		return listeners;
 	}
-
+	
 	private void notifyeveryone() {
 		for (Listener listener : listeners) {
 			listener.update();
@@ -67,21 +69,28 @@ public class EchoList {
 	// ------------------------------//
 
 	// ------YodelList Methods-------//
-
+	/**
+ 	* Adds an Echo to an EchoList.
+ 	*/
 	public void addEcho(Echo echo) {
 		Log.i("XXX", echo.toString() + " " + List.size());
 		List.add(echo);
 		Log.i("XXX", echo + " " + List.size());
 		notifyeveryone();
 	}
-
+	/**
+ 	* Returns an Echo at the specified index.
+ 	*/
 	public Echo getEchoes(int index) {
 		return List.get(index);
 
 	}
 
 	// -----------------------------//
-
+	
+	/**
+ 	* Returns all Echo's in an Echo List.
+ 	*/
 	public Collection<Echo> getEchoes() {
 		Log.i("XXX", "List " + List);
 		if (List == null) {

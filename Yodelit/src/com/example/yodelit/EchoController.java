@@ -16,6 +16,9 @@ public class EchoController {
 	
 public static EchoList echoList = null;
 	
+	/**
+ 	* Returns the EchoList in question. Instantiates a new EchoList if one cannot be found.
+ 	*/
 	public static EchoList getEchoList(){
 		if( echoList == null ){
 			echoList = new EchoList();
@@ -26,6 +29,9 @@ public static EchoList echoList = null;
 		}
 	}
 	
+	/**
+ 	* Adds an Echo to the EchoList.
+ 	*/
 	public static void addEchoes(Echo echo){
 		EchoList temp = getEchoList();
 		Log.i("XXX", "Echo List " + temp + (temp == null));

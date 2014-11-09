@@ -20,20 +20,25 @@ import android.widget.Toast;
 
 public class AddYodelActivity extends Activity {
 
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_yodel);
 	}
-
+	
+	/**
+	 * Inflate the menu; this adds items to the action bar if it is present.
+	 */
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.add_yodel, menu);
 		return true;
 	}
 	
-	//gets into from screen. Adds newly created Yodel to controller.
+	/**
+	 * 	Gets into from screen. Adds newly created Yodel to controller.
+	 */
 	public void submitYodel(View view){
 		final EditText question =  (EditText) findViewById(R.id.yodelText);
 		final EditText add =  (EditText) findViewById(R.id.infoText);
@@ -51,7 +56,9 @@ public class AddYodelActivity extends Activity {
 		}
 	}
 	
-	//checking for valid inputs
+	/**
+	 * 	Ensures that a Yodel is not empty.
+	 */
 	public boolean submissionCheck(String question, String add){
 		if (question.isEmpty()){
 			return false;
