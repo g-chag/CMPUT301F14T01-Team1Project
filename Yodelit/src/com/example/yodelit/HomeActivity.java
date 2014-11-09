@@ -68,7 +68,6 @@ public class HomeActivity extends Activity {
 				Intent intent = new Intent(HomeActivity.this, YodelMainActivity.class);
 				intent.putExtra("YID", (int)yodel.getYid());
 		    	startActivity(intent);
-
 			}
 		});
 		
@@ -80,8 +79,6 @@ public class HomeActivity extends Activity {
 				return true;
 			}
 			});
-			
-		
     }
 	
     @Override

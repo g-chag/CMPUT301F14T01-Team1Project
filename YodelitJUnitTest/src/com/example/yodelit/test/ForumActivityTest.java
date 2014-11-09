@@ -5,7 +5,6 @@ public class ForumActivityTest extends ActivityInstrumentationTestCase2<ForumAct
 		super(ForumActivity.class);
 	}
 
-	
 	public void testPostQuestion(){
 		//test for question posting
 
