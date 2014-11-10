@@ -28,32 +28,37 @@ public class newYodelAdapter extends BaseAdapter{
     ArrayList<Yodel> data;
     private LayoutInflater inflater = null;
 
-    //creation of a new adapter
+    /**
+ 	* Creates a new Yodel Adapter.
+ 	*/
     public newYodelAdapter(Context context, ArrayList<Yodel> arrayList) {
-        // TODO Auto-generated constructor stub
         this.context = context;
         this.data = arrayList;
         inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    /**
+ 	* Get item count..
+ 	*/
     public int getCount() {
-        // TODO Auto-generated method stub
         return data.size();
     }
 
+    /**
+ 	* Get item based on its position.
+ 	*/
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
         return data.get(position);
     }
-
+    /**
+ 	* Get item position, based on its position.
+ 	*/
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
         return position;
     }
 
     public View getView(final int position, View convertView, ViewGroup parent) {
-        // TODO Auto-generated method stub
         View vi = convertView;
         if (vi == null)
             vi = inflater.inflate(R.layout.row, null);
@@ -80,7 +85,9 @@ public class newYodelAdapter extends BaseAdapter{
         	
         }
         
-        //upgoating
+        /**
+	 	* Attempts an upgoat.
+	 	*/
         upgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
 			@Override
@@ -92,7 +99,9 @@ public class newYodelAdapter extends BaseAdapter{
 
 			}
 		});
-        //downgoating
+        /**
+	 	* Attempts an downgoat.
+	 	*/
         downgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
 			@Override

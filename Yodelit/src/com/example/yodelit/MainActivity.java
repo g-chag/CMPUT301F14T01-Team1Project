@@ -33,7 +33,9 @@ public class MainActivity extends Activity {
         return true;
     }
   
-    //Sign in function. checks for valid input.
+    /**
+ 	* Sign in function. Checks for valid input.
+ 	*/
 	public void login(View view) {
 		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
 		EditText userEditText = (EditText) findViewById(R.id.userNameEditText);
