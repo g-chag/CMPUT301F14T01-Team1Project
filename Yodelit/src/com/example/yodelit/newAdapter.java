@@ -36,21 +36,27 @@ public class newAdapter extends BaseAdapter{
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    /**
+ 	* Gets Echo count.
+ 	*/
     @Override
     public int getCount() {
-        // TODO Auto-generated method stub
         return data.size();
     }
 
+    /**
+ 	* Gets item based on position.
+ 	*/
     @Override
     public Object getItem(int position) {
-        // TODO Auto-generated method stub
         return data.get(position);
     }
 
+    /**
+ 	* Gets item's position based on its position.
+ 	*/
     @Override
     public long getItemId(int position) {
-        // TODO Auto-generated method stub
         return position;
     }
 
@@ -84,7 +90,9 @@ public class newAdapter extends BaseAdapter{
         	downcount.setText("" + minus);
         }
         
-        //upgoating
+        /**
+	 	* Attempts an upgoat.
+	 	*/
         upgoat.setOnClickListener(new OnClickListener() {
 			Echo echo = data.get(position);
 			@Override
@@ -96,7 +104,9 @@ public class newAdapter extends BaseAdapter{
 			}
 		});
         
-        //downgoating
+        /**
+	 	* Attempts a downgoat.
+	 	*/
         downgoat.setOnClickListener(new OnClickListener() {
 			Echo echo = data.get(position);
 			@Override

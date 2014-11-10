@@ -47,7 +47,9 @@ public class UserActivity extends Activity {
 		ArrayList<String> list = new ArrayList<String>();
 		final ArrayList<Integer> favlist = user.getYodelFavs();
 		
-		//SET YODLES HERE INTO FAVLIST
+		/**
+	 	* Set the Yodels here into the favorites list.
+	 	*/
 		for (int x = 0; x < favlist.size(); x++){
 			list.add(YodelitController.getYodelList().getYodel(favlist.get(x)).getYodelText()); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
 		}
@@ -56,14 +58,18 @@ public class UserActivity extends Activity {
 		ArrayAdapter<String> favAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
 		favView.setAdapter(favAdapter); 
 		
-		//changing username
+		/**
+	 	* Changing username.
+	 	*/
 		changeUsername.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				changeUser();	
 			}
 		});
 		
-		//can view Echos of favourite Yodels by clicking on the list
+		/**
+	 	* Can view Echos of favourite Yodels by clicking on the list.
+	 	*/
 		favView.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				Intent intent = new Intent(UserActivity.this, YodelMainActivity.class);
@@ -77,16 +83,21 @@ public class UserActivity extends Activity {
 	
 	}
 
+	/**
+	* Inflate the menu; this adds items to the action bar if it is present.
+ 	*/
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.user, menu);
 		return true;
 	}
 
+	/**
+	*  Handle action bar item clicks here. The action bar will
+	*  automatically handle clicks on the Home/Up button, so long
+	*  as you specify a parent activity in AndroidManifest.xml.
+ 	*/
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -94,7 +105,9 @@ public class UserActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	//for changing
+	/**
+	* Changes the current user.
+ 	*/
 	public void changeUser() {
 		//For getting input from user in a dialogue box: http://stackoverflow.com/questions/10903754/input-text-dialog-android 11/06/14
 

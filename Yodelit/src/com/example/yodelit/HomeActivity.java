@@ -58,7 +58,9 @@ public class HomeActivity extends Activity {
 			}
 		});
         
-		//Opens Yodel with Echo listed
+		/**
+	 	* Opens Yodel with Echo listed.
+	 	*/
 		listview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				//NEEDS TO PASS YID THROUGH INTENT
@@ -71,7 +73,9 @@ public class HomeActivity extends Activity {
 			}
 		});
 		
-		//Sets favourites
+		/**
+	 	* Sets favourites.
+	 	*/
 		listview.setOnItemLongClickListener(new OnItemLongClickListener(){
 			public boolean onItemLongClick(AdapterView<?> parent, View view,
 					int position, long id) {
@@ -81,35 +85,46 @@ public class HomeActivity extends Activity {
 			});
     }
 	
+    /**
+ 	* Inflate the menu; this adds items to the action bar if it is present.
+ 	*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
     
+    /**
+ 	* Pressing the Yodel A Question button will activate this function.
+    * This is supposed to prompt an alert dialog with 2 edit texts.
+ 	*/
     public void posting(View view){
-    	// Pressing Yodel A Question button will activate this function
-    	// this is supposed to prompt a alert dialog with 2 edittexts
+
     	Intent intent = new Intent(HomeActivity.this, AddYodelActivity.class);
     	startActivity(intent);
     }
     
+    /**
+ 	* Pressing user settings brings users to profile page.
+    * Needs to pass username through intent.
+ 	*/
     public void userSettings(View view){
-    	//Pressing user settings brings users to profile page
-    	//Needs to pass username through intent
     	Intent intent = new Intent(HomeActivity.this, UserActivity.class);
     	startActivity(intent);
     }
     
-    //Prompts user to add to favourites list. 
+    /**
+ 	* Prompts user to add to favorites list.
+ 	*/
     public void favouriteDialog(final int position, final ArrayList<Yodel> yodelList, final ListView listView){
     	final User user = YodelitController.getActiveUser();
     	final ArrayList<Integer> list = user.getYodelFavs();
 		Yodel yodel = yodelList.get(position);
 		final int id = yodel.getYid();
     	
-		//Checks if id is already listed
+		/**
+	 	* Checks if ID is already listed.
+	 	*/
     	if (list.contains(id) == false){
 	    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setTitle("Add to Favourites?");

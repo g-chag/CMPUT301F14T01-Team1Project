@@ -22,8 +22,10 @@ public class Yodel {
 	public int downgoats; //Number of downgoats
 	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
 	
-	//creation of a new Yodel and initializes content.
-	//Needs date implemented.
+	/**
+	* Creates and initializes a new Yodel.
+	* Need to implement getting the date!
+ 	*/
 	public Yodel(String question, String info){
 		this.question = question;
 		this.info = info;
@@ -33,57 +35,107 @@ public class Yodel {
 		this.downgoats = 0;
 	}
 	
+	/**
+	* Returns the Yodel text.
+ 	*/
 	public String getYodelText() {
 		return question;
 	}
 	
+	/**
+	* Calls getYodelText().
+ 	*/
 	public String toString() {
 		return getYodelText();
 	}
 
+	/**
+	* Returns the additional info as a string.
+ 	*/
 	public String getInfoText() {
 		return info;
 	}
 	
+	/**
+	*  Sets the Yodels ID.
+ 	*/
 	public void setYid(int index){
 		yID = index;
 	}
 
+	/**
+	*  Gets the Yodels ID.
+ 	*/
 	public int getYid() {
 		return yID;
 	}
 	
+	/**
+	*  Gets the Yodels author.
+ 	*/
 	public String getAuthor() {
 		return Author;
 	}
 
+	/**
+	*  Sets the Yodels author.
+ 	*/
 	public void setAuthor(String author) {
 		Author = author;
 	}
+	
+	/**
+	*  Gets the Yodels date.
+ 	*/
 	public Date getDate() {
 		return date;
 	}
+	
+	/**
+	*  Sets the Yodels date.
+ 	*/
 	public void setDate(Date date) {
 		this.date = date;
 	}
 	
+	/**
+	*  Appends an Echo to the Yodel.
+ 	*/
 	public void addEcho(Echo echo){
 		echoList.add(echo);
 	}
 	
-	//-----For voting------//
+	/**
+	*  Gets the Upgoats of the Yodel.
+ 	*/
 	public int getUpgoats() {
 		return upgoats;
 	}
+	
+	/**
+	*  Sets the Upgoats of the Yodel.
+ 	*/
 	public void setUpgoats(int upgoats) {
 		this.upgoats = upgoats;
 	}
+	
+	/**
+	*  Gets the Downgoats of the Yodel.
+ 	*/
 	public int getDowngoats() {
 		return downgoats;
 	}
+	
+	/**
+	*  Sets the Downgoats of the Yodel.
+ 	*/
 	public void setDowngoats(int downgoats) {
 		this.downgoats = downgoats;
 	}
+	
+	/**
+	*  Returns the list of Echos attached to the Yodel.
+ 	*/
 	public ArrayList<Echo> getEchoList(){
 		return echoList;
 	}
