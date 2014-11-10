@@ -76,6 +76,7 @@ public class newYodelAdapter extends BaseAdapter{
         	upcount.setText("" + plus);
         	int minus = yodel.getDowngoats();
         	downcount.setText("" + minus);
+        	user.setText(yodel.getAuthor());
         	
         }
         
@@ -87,6 +88,7 @@ public class newYodelAdapter extends BaseAdapter{
 				int hold = yodel.getUpgoats();
 				hold = hold + 1;
 				YodelitController.yodelList.getYodel(position).setUpgoats(hold);
+				upcount.setText("" + yodel.getUpgoats());
 
 			}
 		});
@@ -98,9 +100,7 @@ public class newYodelAdapter extends BaseAdapter{
 				int hold = yodel.getDowngoats();
 				hold = hold + 1;
 				YodelitController.yodelList.getYodel(position).setDowngoats(hold);
-		    	downcount.setText("" + yodel.getDowngoats());
-		    	
-				
+		    	downcount.setText("" + yodel.getDowngoats());	
 			}
 		});
 
