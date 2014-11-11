@@ -22,12 +22,13 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 	
 	public void testGetActive(){
 		User user = new User();
-		user.setUname("testuser2");
+		user.setUname("testuser");
 		YodelitController.setActiveUser(user);
-		assertEquals(user.Uname, YodelitController.getActiveUser().Uname);
+		assertEquals(user.getUname(), YodelitController.getActiveUser().getUname());
 	}
 	
 	public void testUserName() {
+		//Trying to ensure exception is thrown when no user name is entered
 		try {
 			runTestOnUiThread(new Runnable() {
 				@Override
@@ -35,27 +36,29 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 					MainActivity myAct = getActivity();
 					Button button = (Button) myAct.findViewById(R.id.uNButton);
 					EditText userEditText = (EditText) myAct.findViewById(R.id.userNameEditText);
-					String blank = "";
-					userEditText.setText(blank);
-					button.performClick();
-					fail();
+					userEditText.setText("");
+					try{
+						button.performClick();
+						fail();
+					} catch (Exception e){
+						assertEquals("okay", e, "Please enter a proper user name");
+					}
 				}
 			});
-		} catch (IllegalArgumentException e){
-			assertEquals("Please enter a proper user name", e.getMessage());
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		catch (Throwable e){
+			e.printStackTrace();
+			}
 	}
 	
 	public void testInputField(){
+		//Trying to ensure the field has texts in it
 		try {
 			runTestOnUiThread(new Runnable() {
 				@Override
 				public void run() {
 					MainActivity myAct = getActivity();
-					Button button = (Button) myAct.findViewById(R.id.uNButton);
+					//Button button = (Button) myAct.findViewById(R.id.uNButton);
 					EditText userEditText = (EditText) myAct.findViewById(R.id.userNameEditText);
 					userEditText.setText("testuser");
 					assertEquals("testuser", userEditText.getText());
@@ -65,6 +68,28 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 		catch (Throwable e){
 			e.printStackTrace();
 			}
+	}
+	
+	public void testButtonClickSetUsername(){
+		//Testing the set button and making sure user has the name from the getUname function
+		try {
+			runTestOnUiThread(new Runnable() {
+				@Override
+				public void run() {
+					MainActivity myAct = getActivity();
+					Button button = (Button) myAct.findViewById(R.id.uNButton);
+					EditText userEditText = (EditText) myAct.findViewById(R.id.userNameEditText);
+					User user = new User();
+					userEditText.setText("tester");
+					button.performClick();
+					assertEquals(user.getUname(), "tester");								
+				}
+			});
 		}
+		catch (Throwable e){
+			e.printStackTrace();
+			}
+		
+		}		
 }
 

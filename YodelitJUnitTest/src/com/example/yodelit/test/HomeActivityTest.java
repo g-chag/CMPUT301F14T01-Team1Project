@@ -31,7 +31,7 @@ public class HomeActivityTest extends ActivityInstrumentationTestCase2<HomeActiv
 	*/
 	public void testYodels() {
 		try {
-			Yodel tempYodel = new Yodel("Question","Clarification");
+			Yodel tempYodel = new Yodel("Question", "Clarification");
 			YodelList tempYodelList = new YodelList();
 			tempYodelList.addYodel(tempYodel);
 			assertEquals(tempYodelList.getYodel(0),tempYodel);
