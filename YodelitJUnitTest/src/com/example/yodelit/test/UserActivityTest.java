@@ -1,13 +1,12 @@
 package com.example.yodelit.test;
 
-import com.example.yodelit.MainActivity;
+import android.test.ActivityInstrumentationTestCase2;
+import android.widget.TextView;
+
 import com.example.yodelit.R;
 import com.example.yodelit.User;
 import com.example.yodelit.UserActivity;
 import com.example.yodelit.YodelitController;
-
-import android.test.ActivityInstrumentationTestCase2;
-import android.widget.TextView;
 
 public class UserActivityTest extends ActivityInstrumentationTestCase2<UserActivity>{
 
@@ -23,5 +22,21 @@ public class UserActivityTest extends ActivityInstrumentationTestCase2<UserActiv
 		TextView userEditText = (TextView) myAct.findViewById(R.id.usernameText);
 		assertEquals("tester", userEditText.getText());
 	}
-
+	
+	public void testChangeButton() throws Throwable{ //test not fully completed yet ##
+		User user = new User("tester");
+		YodelitController.setActiveUser(user);
+		UserActivity myAct = getActivity();
+		final TextView uText = (TextView) myAct.findViewById(R.id.usernameText);
+		final TextView changeText = (TextView) myAct.findViewById(R.id.changeUser);
+		runTestOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				uText.setText("tester");
+				changeText.performClick();
+			}
+		});
+		
+	}
 }
