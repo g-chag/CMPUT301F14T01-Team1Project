@@ -26,12 +26,14 @@ public class AddYodelActivityTest extends
 					TextView echoText = (TextView) myAct.findViewById(R.id.echoText);
 					String blank = "";
 					echoText.setText(blank);
+					try{
 					button.performClick();
 					fail();
+					} catch (IllegalArgumentException e){
+						assertEquals("Please type in your question", e.getMessage());
+					}
 				}
 			});
-		} catch (IllegalArgumentException e){
-			assertEquals("Please type in your question", e.getMessage());
 		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

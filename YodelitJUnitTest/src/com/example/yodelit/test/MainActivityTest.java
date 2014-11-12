@@ -9,20 +9,19 @@ import com.example.yodelit.User;
 import com.example.yodelit.YodelitController;
 
 public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity>{
+	String username = "testuser";
 	
 	public MainActivityTest(){
 		super(MainActivity.class);
 	}
 	
 	public void testSetUser(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		assertEquals(user.getUname().toString(), "testuser");
 	}
 	
 	public void testGetActive(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		YodelitController.setActiveUser(user);
 		assertEquals(user.getUname(), YodelitController.getActiveUser().getUname());
 	}
@@ -78,9 +77,8 @@ public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActiv
 				public void run() {
 					MainActivity myAct = getActivity();
 					Button button = (Button) myAct.findViewById(R.id.uNButton);
-					EditText userEditText = (EditText) myAct.findViewById(R.id.userNameEditText);
-					User user = new User();
-					userEditText.setText("tester");
+					//EditText userEditText = (EditText) myAct.findViewById(R.id.userNameEditText);
+					User user = new User(username);
 					button.performClick();
 					assertEquals(user.getUname(), "tester");								
 				}

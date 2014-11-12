@@ -16,37 +16,35 @@ import com.example.yodelit.YodelMainActivity;
 public class YodelMainActivityTest extends
 		ActivityInstrumentationTestCase2<YodelMainActivity> {
 
+	String username = "testuser";
+	
 	public YodelMainActivityTest() {
 		super(YodelMainActivity.class);
 	}
 	
 	public void testgetYodelText(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		YodelitController.setActiveUser(user);
 		Yodel y1 = new Yodel("Question","Info");
 		assertEquals("Question", y1.getYodelText());
 	}
 	
 	public void testgetYodelInfo(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		YodelitController.setActiveUser(user);
 		Yodel y1 = new Yodel("Question","Info");
 		assertEquals("Info", y1.getInfoText());	
 	}
 	
 	public void testgetYID(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		YodelitController.setActiveUser(user);
 		Yodel y1 = new Yodel("Question","Info");
 		assertEquals(y1.getYid(),0);
 	}
 	
 	public void testsetYID(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		YodelitController.setActiveUser(user);
 		Yodel y1 = new Yodel("Question","Info");
 		y1.setYid(5);
@@ -54,8 +52,7 @@ public class YodelMainActivityTest extends
 	}
 	
 	public void testgetsetAuthor(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		YodelitController.setActiveUser(user);
 		Yodel y1 = new Yodel("Question","Info");
 		y1.setYid(5);
@@ -65,8 +62,7 @@ public class YodelMainActivityTest extends
 		
 	}
 	public void testAddEcho(){
-		User user = new User();
-		user.setUname("testuser");
+		User user = new User(username);
 		YodelitController.setActiveUser(user);
 		Yodel y1 = new Yodel("Question","Info");
 		Echo e1 = new Echo("reply");

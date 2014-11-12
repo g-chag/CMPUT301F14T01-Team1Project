@@ -38,8 +38,8 @@ public class UserActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_user);
 		
-		TextView displayUser = (TextView) findViewById(R.id.username);
-		TextView changeUsername = (TextView) findViewById(R.id.changeuser);
+		TextView displayUser = (TextView) findViewById(R.id.usernameText);
+		TextView changeUsername = (TextView) findViewById(R.id.changeUser);
 		User user = YodelitController.getActiveUser();
 		String name = user.getUname();
 		displayUser.setText(name);
@@ -132,7 +132,7 @@ public class UserActivity extends Activity {
 		        dialog.cancel();
 		    }
 		});
-		final String name = input.getText().toString();
+		//final String name = input.getText().toString();
 		builder.show();
 		return;
 		

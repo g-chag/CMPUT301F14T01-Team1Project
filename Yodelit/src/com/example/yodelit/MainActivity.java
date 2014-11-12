@@ -41,8 +41,7 @@ public class MainActivity extends Activity {
 		EditText userEditText = (EditText) findViewById(R.id.userNameEditText);
 		String username = userEditText.getText().toString();
 		if (username != ""){
-			User user = new User();
-			user.setUname(username);
+			User user = new User(username);
 			YodelitController.setActiveUser(user);
 			Intent intent = new Intent(MainActivity.this, HomeActivity.class);
 			startActivity(intent);
