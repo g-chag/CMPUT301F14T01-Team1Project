@@ -17,9 +17,9 @@
         android:layout_alignLeft="@+id/EchoListView"
         android:background="@color/white"
         android:gravity="center_horizontal"
-        android:text="TextView"
+        android:text="@string/text_view"
         android:textColor="@color/grey"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <TextView
         android:descendantFocusability="blocksDescendants"
@@ -30,7 +30,7 @@
         android:layout_below="@+id/yodelView"
         android:layout_marginTop="23dp"
         android:background="@color/white"
-        android:text="TextView"
+        android:text="@string/text_view"
         android:textColor="@color/grey" />
 
     <ListView
@@ -55,9 +55,9 @@
         android:background="@color/white"
         android:descendantFocusability="blocksDescendants"
         android:padding="12dp"
-        android:text="Echo"
+        android:text="@string/echo"
         android:textColor="@color/darkgrey"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textStyle="normal" />
 
 </RelativeLayout>

@@ -44,39 +44,36 @@ public final class R {
         public static final int whitebar=0x7f020008;
     }
     public static final class id {
-        public static final int AddEchoButton=0x7f090018;
-        public static final int EchoListView=0x7f090016;
-        public static final int Header=0x7f09000b;
-        public static final int YodelListView=0x7f090009;
-        public static final int action_settings=0x7f090020;
+        public static final int AddEchoButton=0x7f090016;
+        public static final int EchoListView=0x7f090014;
+        public static final int Header=0x7f090009;
+        public static final int YodelListView=0x7f090007;
+        public static final int action_settings=0x7f09001d;
         public static final int cancel=0x7f090002;
-        public static final int changeUser=0x7f090011;
-        public static final int dateText=0x7f09001b;
-        public static final int downB=0x7f09001d;
-        public static final int downText=0x7f09001c;
+        public static final int changeUser=0x7f09000f;
+        public static final int dateText=0x7f090018;
+        public static final int downB=0x7f09001a;
+        public static final int downText=0x7f090019;
         public static final int echoText=0x7f090004;
-        public static final int echotext=0x7f090003;
-        public static final int imageView1=0x7f090005;
-        public static final int imageView2=0x7f090006;
-        public static final int infoText=0x7f090008;
-        public static final int infoView=0x7f090017;
-        public static final int listView=0x7f090012;
-        public static final int postButton=0x7f09000a;
+        public static final int imageView1=0x7f090003;
+        public static final int infoText=0x7f090006;
+        public static final int infoView=0x7f090015;
+        public static final int listView=0x7f090010;
+        public static final int postButton=0x7f090008;
         public static final int submit=0x7f090001;
         public static final int text1=0x7f090000;
-        public static final int textFav=0x7f090013;
-        public static final int totalText=0x7f09001f;
-        public static final int uNButton=0x7f09000e;
-        public static final int upB=0x7f09001e;
-        public static final int upButton=0x7f090019;
-        public static final int upText=0x7f09001a;
-        public static final int userNameEditText=0x7f09000d;
-        public static final int userSettings=0x7f09000c;
-        public static final int userText=0x7f090010;
-        public static final int username=0x7f09000f;
-        public static final int usernameText=0x7f090014;
-        public static final int yodelText=0x7f090007;
-        public static final int yodelView=0x7f090015;
+        public static final int textFav=0x7f090011;
+        public static final int totalText=0x7f09001c;
+        public static final int uNButton=0x7f09000c;
+        public static final int upB=0x7f09001b;
+        public static final int upText=0x7f090017;
+        public static final int userNameEditText=0x7f09000b;
+        public static final int userSettings=0x7f09000a;
+        public static final int userText=0x7f09000e;
+        public static final int username=0x7f09000d;
+        public static final int usernameText=0x7f090012;
+        public static final int yodelText=0x7f090005;
+        public static final int yodelView=0x7f090013;
     }
     public static final class layout {
         public static final int activity_add_echo=0x7f030000;
@@ -99,13 +96,39 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
+        public static final int cancel=0x7f05000a;
+        public static final int change_username=0x7f050019;
+        public static final int d=0x7f050021;
+        public static final int date=0x7f05001f;
+        public static final int echo=0x7f050009;
+        public static final int echo_slash_yodel=0x7f05001d;
+        public static final int echo_symbol=0x7f05000c;
+        public static final int favourites=0x7f050018;
+        public static final int favourites_colon=0x7f05001a;
         public static final int hello_world=0x7f050002;
+        public static final int more_info_to_yodel=0x7f050012;
+        public static final int my_echo_to_your_yodel=0x7f05000b;
+        public static final int q=0x7f050011;
+        public static final int screaming_goat=0x7f05001b;
+        public static final int sing_a_yodel=0x7f050010;
+        public static final int start_yodeling=0x7f050016;
+        public static final int text_view=0x7f050017;
         public static final int title_activity_add_echo=0x7f050007;
         public static final int title_activity_add_yodel=0x7f050005;
         public static final int title_activity_home=0x7f050003;
         public static final int title_activity_user=0x7f050008;
         public static final int title_activity_yodel=0x7f050004;
         public static final int title_activity_yodel_main=0x7f050006;
+        public static final int u=0x7f050022;
+        public static final int user=0x7f05001e;
+        public static final int user_profile=0x7f05000d;
+        public static final int username=0x7f050015;
+        public static final int username_colon=0x7f05001c;
+        public static final int yodel=0x7f05000f;
+        public static final int yodel_image=0x7f050014;
+        public static final int yodel_it=0x7f050013;
+        public static final int yodels=0x7f05000e;
+        public static final int zero=0x7f050020;
     }
     public static final class style {
         /** 

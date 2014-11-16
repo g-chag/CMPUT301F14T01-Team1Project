@@ -19,7 +19,7 @@
         android:layout_marginBottom="28dp"
         android:background="@color/white"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username"
         android:padding="7dp"
         android:textColor="@color/grey"
         android:textColorHint="@color/grey"
@@ -38,13 +38,14 @@
         android:background="@color/white"
         android:onClick="login"
         android:padding="7dp"
-        android:text="Start Yodeling!"
+        android:text="@string/start_yodeling"
         android:textColor="@color/darkgrey"
         android:textColorHint="@color/grey"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:typeface="normal" />
 
     <ImageView
+        android:contentDescription="@string/yodel_image"  
         android:id="@+id/imageView1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"

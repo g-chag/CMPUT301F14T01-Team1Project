@@ -17,9 +17,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="26dp"
         android:background="#00000000"
-        android:text="Q "
+        android:text="@string/q"
         android:textColor="@color/white"
-        android:textSize="60dp"
+        android:textSize="60sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -34,7 +34,7 @@
         android:background="@color/white"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:hint="Yodel"
+        android:hint="@string/yodel"
         android:textColor="@color/darkgrey"
         android:textColorHint="@color/grey" />
 
@@ -46,12 +46,12 @@
         android:layout_alignBottom="@+id/submit"
         android:layout_alignLeft="@+id/infoText"
         android:background="@color/white"
-        android:hint="Yodel"
+        android:hint="@string/yodel"
         android:onClick="cancel"
         android:padding="7dp"
-        android:text="Cancel"
+        android:text="@string/cancel"
         android:textColor="@color/darkgrey"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:typeface="normal" />
 
     <EditText
@@ -65,7 +65,7 @@
         android:background="@color/white"
         android:ems="10"
         android:gravity="center_vertical|center_horizontal"
-        android:hint="More Information To Yodel"
+        android:hint="@string/more_info_to_yodel"
         android:minHeight="250dp"
         android:textColor="@color/darkgrey"
         android:textColorHint="@color/grey" >
@@ -83,12 +83,13 @@
         android:background="@color/white"
         android:onClick="submitYodel"
         android:padding="7dp"
-        android:text="YodelIt!"
+        android:text="@string/yodel_it"
         android:textColor="@color/darkgrey"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:typeface="normal" />
 
     <ImageView
+        android:contentDescription="@string/text_view"
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

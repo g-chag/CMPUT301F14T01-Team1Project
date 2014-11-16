@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    android:contentDescription="Favourites"
+    android:contentDescription="@string/favourites"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -27,7 +27,7 @@
         android:layout_alignLeft="@+id/userText"
         android:layout_below="@+id/username"
         android:clickable="true"
-        android:text="Change username?"
+        android:text="@string/change_username"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/white" />
 
@@ -48,7 +48,7 @@
         android:layout_below="@+id/changeUser"
         android:paddingBottom="10dp"
         android:paddingTop="20dp"
-        android:text="Favourites:"
+        android:text="@string/favourites_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -62,7 +62,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:paddingBottom="10dp"
-        android:text="User Profile"
+        android:text="@string/user_profile"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
         android:textSize="35sp"
@@ -70,6 +70,7 @@
         android:typeface="normal" />
 
     <ImageView
+        android:contentDescription="@string/screaming_goat"
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -83,7 +84,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/Header"
         android:layout_alignTop="@+id/imageView1"
-        android:text="Username: "
+        android:text="@string/username_colon"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -96,6 +97,7 @@
         android:layout_alignBaseline="@+id/userText"
         android:layout_alignBottom="@+id/userText"
         android:layout_toRightOf="@+id/userText"
-        android:text="TextView" />
+        android:text="@string/text_view"
+        android:textColor="@color/white" />
 
 </RelativeLayout>

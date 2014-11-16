@@ -37,9 +37,9 @@
         android:background="@color/white"
         android:onClick="posting"
         android:padding="10dp"
-        android:text="Sing a Yodel!"
+        android:text="@string/sing_a_yodel"
         android:textColor="@color/darkgrey"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:typeface="normal" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/userSettings"
         android:layout_centerHorizontal="true"
-        android:text="Yodels"
+        android:text="@string/yodels"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
         android:textStyle="bold"
@@ -63,7 +63,7 @@
         android:background="@color/white"
         android:onClick="userSettings"
         android:padding="5dp"
-        android:text="User Profile"
+        android:text="@string/user_profile"
         android:textColor="@color/darkgrey"
         android:textSize="13sp"
         android:textStyle="italic"

@@ -10,10 +10,9 @@
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="false"
-        android:layout_toLeftOf="@+id/upButton"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="Echo/Yodel"
+        android:text="@string/echo_slash_yodel"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -26,7 +25,7 @@
         android:layout_marginLeft="15dp"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="user                 " />
+        android:text="@string/user" />
 
     <TextView
         android:id="@+id/dateText"
@@ -36,7 +35,7 @@
         android:layout_centerHorizontal="true"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="Date                    " />
+        android:text="@string/date" />
 
     <TextView
         android:id="@+id/downText"
@@ -47,7 +46,7 @@
         android:layout_marginRight="42dp"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="0"
+        android:text="@string/zero"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
@@ -60,7 +59,7 @@
         android:layout_toLeftOf="@+id/downText"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="0"
+        android:text="@string/zero"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <Button
@@ -71,7 +70,7 @@
         android:layout_alignBottom="@+id/Header"
         android:layout_alignLeft="@+id/downText"
         android:focusable="false"
-        android:text="D" />
+        android:text="@string/d" />
 
     <Button
         android:id="@+id/upB"
@@ -81,7 +80,7 @@
         android:layout_above="@+id/upText"
         android:layout_alignLeft="@+id/upText"
         android:focusable="false"
-        android:text="U" />
+        android:text="@string/u" />
 
     <TextView
         android:id="@+id/totalText"
@@ -91,7 +90,7 @@
         android:layout_toRightOf="@+id/downB"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:text="0"
+        android:text="@string/zero"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
