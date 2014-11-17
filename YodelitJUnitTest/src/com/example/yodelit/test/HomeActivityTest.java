@@ -1,21 +1,16 @@
 package com.example.yodelit.test;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.yodelit.HomeActivity;
-import com.example.yodelit.MainActivity;
 import com.example.yodelit.R;
 import com.example.yodelit.Yodel;
 import com.example.yodelit.YodelList;
 import com.example.yodelit.YodelitController;
-import com.example.yodelit.newYodelAdapter;
 
 public class HomeActivityTest extends ActivityInstrumentationTestCase2<HomeActivity>{
 
@@ -61,7 +56,7 @@ public class HomeActivityTest extends ActivityInstrumentationTestCase2<HomeActiv
 	public void testUpgoat(){
 		try{
 			HomeActivity myAct = getActivity();
-			Button button = (Button) myAct.findViewById(R.id.upButton);
+			Button button = (Button) myAct.findViewById(R.id.upB);
 			TextView upText = (TextView) myAct.findViewById(R.id.upText);
 			String before = upText.toString();
 			button.performClick();
