@@ -8,30 +8,23 @@
 
 package com.example.yodelit;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
@@ -102,6 +95,31 @@ public class HomeActivity extends Activity {
 
     	Intent intent = new Intent(HomeActivity.this, AddYodelActivity.class);
     	startActivity(intent);
+    }
+    
+    
+    public void filter(View view){
+    	EditText filterText = (EditText) findViewById(R.id.filterText);
+    	String filteree = filterText.getText().toString();
+    	final ListView filteredListview =  (ListView) findViewById(R.id.YodelListView);
+		Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+		Collection<Yodel> filteredYodels = null; 
+		
+		Iterator<Yodel> i = yodels.iterator();
+		
+		while (i.hasNext()){
+			Yodel yodel = i.next();
+			String yodelText = yodel.getYodelText();
+			if (yodelText.toLowerCase().contains(filteree.toLowerCase())){
+				filteredYodels.add(yodel);
+			}
+		}
+		
+		final ArrayList<Yodel> filteredYodelList = new ArrayList<Yodel>(filteredYodels);
+		final newYodelAdapter filteredYodelsAdapter = new newYodelAdapter(this, filteredYodelList);
+		
+		filteredListview.setAdapter(filteredYodelsAdapter);
+		
     }
     
     /**

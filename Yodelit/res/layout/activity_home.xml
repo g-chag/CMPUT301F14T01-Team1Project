@@ -42,18 +42,6 @@
         android:textSize="15sp"
         android:typeface="normal" />
 
-    <TextView
-        android:id="@+id/Header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/userSettings"
-        android:layout_centerHorizontal="true"
-        android:text="@string/yodels"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="45sp" />
-
     <Button
         android:id="@+id/userSettings"
         android:layout_width="wrap_content"
@@ -67,6 +55,45 @@
         android:textColor="@color/darkgrey"
         android:textSize="13sp"
         android:textStyle="italic"
+        android:typeface="normal" />
+
+    <TextView
+        android:id="@+id/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/yodels"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/white"
+        android:textSize="45sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/filterText"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/YodelListView"
+        android:layout_below="@+id/Header"
+        android:ems="10"
+        android:hint="Text to filter" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/filterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/filterText"
+        android:layout_alignBottom="@+id/filterText"
+        android:layout_alignRight="@+id/YodelListView"
+        android:background="@color/white"
+        android:onClick="filter"
+        android:padding="10dp"
+        android:text="@string/filter"
+        android:textColor="@color/darkgrey"
+        android:textSize="15sp"
         android:typeface="normal" />
 
 </RelativeLayout>
