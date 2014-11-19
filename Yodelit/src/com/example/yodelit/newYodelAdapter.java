@@ -67,7 +67,7 @@ public class newYodelAdapter extends BaseAdapter{
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
         TextView date = (TextView) vi.findViewById(R.id.dateText);
-        TextView total = (TextView) vi.findViewById(R.id.totalText);
+        final TextView total = (TextView) vi.findViewById(R.id.totalText);
         final TextView upcount = (TextView) vi.findViewById(R.id.upText);
         final TextView downcount = (TextView) vi.findViewById(R.id.downText);
         
@@ -78,9 +78,11 @@ public class newYodelAdapter extends BaseAdapter{
         	text.setText(yodel.getYodelText());
         	//http://stackoverflow.com/questions/3994315/integer-value-in-textview
         	int plus = yodel.getUpgoats();
-        	upcount.setText("" + plus);
+        	//upcount.setText("" + plus);
         	int minus = yodel.getDowngoats();
-        	downcount.setText("" + minus);
+        	//downcount.setText("" + minus);
+        	int totalNum = plus - minus;
+        	total.setText("" + totalNum);
         	user.setText(yodel.getAuthor());
         	
         }
@@ -95,7 +97,12 @@ public class newYodelAdapter extends BaseAdapter{
 				int hold = yodel.getUpgoats();
 				hold = hold + 1;
 				YodelitController.yodelList.getYodel(position).setUpgoats(hold);
-				upcount.setText("" + yodel.getUpgoats());
+				int plus = yodel.getUpgoats();
+	        	//upcount.setText("" + plus);
+	        	int minus = yodel.getDowngoats();
+	        	//downcount.setText("" + minus);
+	        	int totalNum = plus - minus;
+	        	total.setText("" + totalNum);
 
 			}
 		});
@@ -109,7 +116,12 @@ public class newYodelAdapter extends BaseAdapter{
 				int hold = yodel.getDowngoats();
 				hold = hold + 1;
 				YodelitController.yodelList.getYodel(position).setDowngoats(hold);
-		    	downcount.setText("" + yodel.getDowngoats());	
+				int plus = yodel.getUpgoats();
+	        	//upcount.setText("" + plus);
+	        	int minus = yodel.getDowngoats();
+	        	//downcount.setText("" + minus);
+	        	int totalNum = plus - minus;
+	        	total.setText("" + totalNum);	
 			}
 		});
 
