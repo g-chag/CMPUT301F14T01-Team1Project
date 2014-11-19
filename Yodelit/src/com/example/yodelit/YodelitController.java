@@ -43,6 +43,30 @@ public class YodelitController {
 		//Log.i("XXX", "Yodels " + yodelList.getYodels());
 		//Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
+	//----------------------------------------------------------
+	//WIP. Based on the elastic search lab, this should use the UI thread for updating.
+	class AddThread extends Thread {
+		private Yodel theYodel;
+
+		public AddThread(Yodel theYodel) {
+			this.theYodel = theYodel;
+		}
+
+		@Override
+		public void run() {
+			YodelitController.addYodel(theYodel);
+				
+			// Give some time to get updated info
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			//Need to run equivalent of the line below:
+			//runOnUiThread(yodelAdapter.notifyDataSetChanged());
+		}
+	}
+	//----------------------------------------------------------
 	
 	/**
 	* Set current user.

@@ -70,5 +70,4 @@ public class AddYodelActivity extends Activity {
 	public void cancel(View view){
 		finish();
 	}
-
 }
