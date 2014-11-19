@@ -44,7 +44,7 @@ public class YodelitController {
 		//Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
 	//----------------------------------------------------------
-	//WIP. Based on the elastic search lab, this should use the UI thread for updating.
+	//WIP. Based on the elastic search lab, this should use the UI thread properly when saving.
 	class AddThread extends Thread {
 		private Yodel theYodel;
 
@@ -66,6 +66,10 @@ public class YodelitController {
 			//runOnUiThread(yodelAdapter.notifyDataSetChanged());
 		}
 	}
+	//Call this when saving Yodels or Echos.
+	//
+	//Thread thread = new AddThread(newYodel);
+	//thread.start();
 	//----------------------------------------------------------
 	
 	/**
