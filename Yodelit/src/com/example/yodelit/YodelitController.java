@@ -8,8 +8,6 @@
 
 package com.example.yodelit;
 
-import android.util.Log;
-
 public class YodelitController {
 	
 	public static YodelList yodelList = null;
