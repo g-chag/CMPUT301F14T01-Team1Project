@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-  
+ 
     /**
  	* Sign in function. Checks for valid input.
  	*/
@@ -40,13 +40,20 @@ public class MainActivity extends Activity {
 		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
 		EditText userEditText = (EditText) findViewById(R.id.userNameEditText);
 		String username = userEditText.getText().toString();
-		if (username != ""){
+		if (submissionCheck(username)){
 			User user = new User(username);
 			YodelitController.setActiveUser(user);
 			Intent intent = new Intent(MainActivity.this, HomeActivity.class);
 			startActivity(intent);
 		} else {
-			throw new IllegalArgumentException("Please enter a proper user name");
+			Toast.makeText(this, "Please enter a username", Toast.LENGTH_SHORT).show();
 		}
+	}
+	
+	public boolean submissionCheck(String username){
+		if (username.isEmpty()){
+			return false;
+		}
+		return true;		
 	}
 }

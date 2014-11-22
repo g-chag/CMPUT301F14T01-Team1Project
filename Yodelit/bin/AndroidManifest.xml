@@ -26,10 +26,7 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home" >
         </activity>
-        <activity
-            android:name=".YodelActivity"
-            android:label="@string/title_activity_yodel" >
-        </activity>
+
         <activity
             android:name=".AddYodelActivity"
             android:label="@string/title_activity_add_yodel" >
