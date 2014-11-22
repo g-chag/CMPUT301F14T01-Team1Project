@@ -68,10 +68,8 @@ import android.widget.TextView;
         
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
-        //TextView date = (TextView) vi.findViewById(R.id.dateText);
-        //TextView total = (TextView) vi.findViewById(R.id.totalText);
-        final TextView upcount = (TextView) vi.findViewById(R.id.upText);
-        final TextView downcount = (TextView) vi.findViewById(R.id.downText);
+        final TextView total = (TextView) vi.findViewById(R.id.totalText);
+        
         
         Button upgoat = (Button) vi.findViewById(R.id.upB);
         Button downgoat = (Button) vi.findViewById(R.id.downB);
@@ -83,10 +81,8 @@ import android.widget.TextView;
         	//Need to set date
         	//date.setText(echo.getDate().toString());
         	//http://stackoverflow.com/questions/3994315/integer-value-in-textview
-        	int plus = echo.getUpgoats();
-        	upcount.setText("" + plus);
-        	int minus = echo.getDowngoats();
-        	downcount.setText("" + minus);
+        	total.setText("" + (echo.getUpgoats() - echo.getDowngoats()));
+
         }
         
         /**
@@ -96,10 +92,8 @@ import android.widget.TextView;
 			Echo echo = data.get(position);
 			@Override
 			public void onClick(View v) {
-				int hold = echo.getUpgoats();
-				hold = hold + 1;
-				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setUpgoats(hold);
-				upcount.setText("" + echo.getUpgoats());
+				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setUpgoats((echo.getUpgoats())+1);
+				total.setText("" + (echo.getUpgoats() - echo.getDowngoats()));
 			}
 		});
         
@@ -110,10 +104,8 @@ import android.widget.TextView;
 			Echo echo = data.get(position);
 			@Override
 			public void onClick(View v) {
-				int hold = echo.getDowngoats();
-				hold = hold + 1;
-				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setDowngoats(hold);
-				downcount.setText("" + echo.getDowngoats());
+				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setDowngoats((echo.getDowngoats())+1);
+				total.setText("" + (echo.getUpgoats() - echo.getDowngoats()));
 			}
 		});
         

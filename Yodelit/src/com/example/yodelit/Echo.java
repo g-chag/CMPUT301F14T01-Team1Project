@@ -9,6 +9,7 @@
 package com.example.yodelit;
 
 import java.sql.Date;
+import java.util.ArrayList;
 
 public class Echo {
 	public String text; //Text of the reply
@@ -18,6 +19,8 @@ public class Echo {
 	public Date date; //Date
 	public int upgoats; //Number of upgoats
 	public int downgoats; //Number of downgoats
+	public ArrayList<String> upgoatList = new ArrayList<String>(); //list of user id that has upvoted
+	public ArrayList<String> downgoatList = new ArrayList<String>(); //list of user if that has downvoted
 	
 	public Echo(String text){
 		this.text = text;
@@ -110,4 +113,20 @@ public class Echo {
 	public void setDowngoats(int downgoats) {
 		this.downgoats = downgoats;
 	}
+	
+	
+	public void addUserUpVote(){
+		this.upgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
+	}
+	public void addUserDownVote(){
+		this.downgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
+	}
+	
+	public ArrayList<String> getUsersUpVote(){
+		return this.upgoatList; //TODO: NEEDS TO BE user id number!!
+	}
+	public ArrayList<String> getUsersDownVote(){
+		return this.downgoatList;
+	}
+	
 }
