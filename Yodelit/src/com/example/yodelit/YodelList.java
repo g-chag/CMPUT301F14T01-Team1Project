@@ -11,8 +11,6 @@ package com.example.yodelit;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import android.util.Log;
-
 public class YodelList {
 	public ArrayList<Yodel> List;
 	protected transient ArrayList<Listener> listeners;

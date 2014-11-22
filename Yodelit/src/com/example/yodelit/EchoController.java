@@ -8,8 +8,6 @@
 
 package com.example.yodelit;
 
-import java.util.ArrayList;
-
 import android.util.Log;
 
 public class EchoController {

@@ -11,7 +11,7 @@ package com.example.yodelit;
 
 import java.util.ArrayList;
 
-import android.R.color;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +19,9 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class newYodelAdapter extends BaseAdapter{
+@SuppressLint("InflateParams") public class newYodelAdapter extends BaseAdapter{
 	Context context;
     ArrayList<Yodel> data;
     private LayoutInflater inflater = null;
@@ -66,10 +64,10 @@ public class newYodelAdapter extends BaseAdapter{
         vi.setSelected(true);
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
-        TextView date = (TextView) vi.findViewById(R.id.dateText);
+        //TextView date = (TextView) vi.findViewById(R.id.dateText);
         final TextView total = (TextView) vi.findViewById(R.id.totalText);
-        final TextView upcount = (TextView) vi.findViewById(R.id.upText);
-        final TextView downcount = (TextView) vi.findViewById(R.id.downText);
+        //final TextView upcount = (TextView) vi.findViewById(R.id.upText);
+        //final TextView downcount = (TextView) vi.findViewById(R.id.downText);
         
         Button upgoat = (Button) vi.findViewById(R.id.upB);
         Button downgoat = (Button) vi.findViewById(R.id.downB);

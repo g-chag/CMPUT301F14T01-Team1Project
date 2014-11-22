@@ -76,7 +76,7 @@
         android:layout_alignLeft="@+id/YodelListView"
         android:layout_below="@+id/Header"
         android:ems="10"
-        android:hint="Text to filter" >
+        android:hint="@string/search_for_a_yodel" >
 
         <requestFocus />
     </EditText>
@@ -91,7 +91,7 @@
         android:background="@color/white"
         android:onClick="filter"
         android:padding="10dp"
-        android:text="@string/filter"
+        android:text="@string/search"
         android:textColor="@color/darkgrey"
         android:textSize="15sp"
         android:typeface="normal" />

@@ -10,7 +10,7 @@ package com.example.yodelit;
 
 import java.util.ArrayList;
 
-import android.R.color;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +18,10 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 //FOUND AT http://stackoverflow.com/questions/15832335/android-custom-row-item-for-listview 11/08/14 
-public class newAdapter extends BaseAdapter{
+@SuppressLint("InflateParams") public class newAdapter extends BaseAdapter{
 	
     Context context;
     ArrayList<Echo> data;
@@ -69,8 +68,8 @@ public class newAdapter extends BaseAdapter{
         
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
-        TextView date = (TextView) vi.findViewById(R.id.dateText);
-        TextView total = (TextView) vi.findViewById(R.id.totalText);
+        //TextView date = (TextView) vi.findViewById(R.id.dateText);
+        //TextView total = (TextView) vi.findViewById(R.id.totalText);
         final TextView upcount = (TextView) vi.findViewById(R.id.upText);
         final TextView downcount = (TextView) vi.findViewById(R.id.downText);
         

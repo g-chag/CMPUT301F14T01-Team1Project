@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -98,7 +99,8 @@ public class HomeActivity extends Activity {
     }
     
     
-    public void filter(View view){
+    @SuppressWarnings("null")
+	@SuppressLint("DefaultLocale") public void filter(View view){
     	EditText filterText = (EditText) findViewById(R.id.filterText);
     	String filteree = filterText.getText().toString();
     	final ListView filteredListview =  (ListView) findViewById(R.id.YodelListView);

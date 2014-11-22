@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class User {
 	public String Uname;
-	private int UID;
+	//private int UID;
 	public ArrayList<Integer> YodelHist = new ArrayList<Integer>();
 	public ArrayList<Integer> YodelFavs = new ArrayList<Integer>();
 	

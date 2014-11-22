@@ -5,7 +5,6 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.util.Log;
@@ -17,7 +16,7 @@ import com.google.gson.reflect.TypeToken;
 public class ElasticSearchManager {
 	
 	
-	private static final String SEARCH_URL = ""; //= "http://cmput301.softwareprocess.es:8080/search";
+	//private static final String SEARCH_URL = ""; //= "http://cmput301.softwareprocess.es:8080/search";
 	private static final String RESOURCE_URL = ""; //= "http://cmput301.softwareprocess.es:8080/";
 	private static final String TAG = ""; //= "YodelSearch";
 	
@@ -34,6 +33,7 @@ public class ElasticSearchManager {
 		HttpClient httpClient = new DefaultHttpClient();
 		HttpGet httpGet = new HttpGet(RESOURCE_URL + id);
 
+		@SuppressWarnings("unused")
 		HttpResponse response;
 
 		try {
