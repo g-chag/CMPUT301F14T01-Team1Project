@@ -74,8 +74,6 @@ public class UserActivity extends Activity {
 			}
 		});
 		
-		
-	
 	}
 
 	/**
@@ -117,7 +115,7 @@ public class UserActivity extends Activity {
 		    @Override
 		    public void onClick(DialogInterface dialog, int which) {
 		    	final String name = input.getText().toString();
-				TextView displayUser = (TextView) findViewById(R.id.username);
+				TextView displayUser = (TextView) findViewById(R.id.usernameText);
 				displayUser.setText(name);
 		    }
 		});
@@ -127,7 +125,6 @@ public class UserActivity extends Activity {
 		        dialog.cancel();
 		    }
 		});
-		//final String name = input.getText().toString();
 		builder.show();
 		return;
 		

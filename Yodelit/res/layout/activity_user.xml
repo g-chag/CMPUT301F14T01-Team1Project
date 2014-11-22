@@ -29,7 +29,8 @@
         android:clickable="true"
         android:text="@string/change_username"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/white" />
+        android:textColor="@color/white" 
+        android:textSize="20sp"/>
 
     <ListView
         android:id="@+id/listView"
@@ -70,11 +71,11 @@
         android:typeface="normal" />
 
     <ImageView
-        android:contentDescription="@string/screaming_goat"
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Header"
+        android:contentDescription="@string/screaming_goat"
         android:scaleType="matrix"
         android:src="@drawable/iclauncher" />
 
@@ -88,7 +89,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:typeface="normal" />
+        android:typeface="normal" 
+        android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/usernameText"
@@ -97,7 +99,9 @@
         android:layout_alignBaseline="@+id/userText"
         android:layout_alignBottom="@+id/userText"
         android:layout_toRightOf="@+id/userText"
+        android:hint="@string/your_username"
         android:text="@string/text_view"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </RelativeLayout>

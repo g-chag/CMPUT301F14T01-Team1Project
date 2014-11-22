@@ -30,6 +30,7 @@
     <string name="yodel_it">YodelIt!</string>
     <string name="search">Search</string>
     <string name="search_for_a_yodel">Search for a Yodel</string>
+    <string name="your_username">Username</string>
     
     <string name="yodel_image"></string>
     <string name="username">Username</string>
