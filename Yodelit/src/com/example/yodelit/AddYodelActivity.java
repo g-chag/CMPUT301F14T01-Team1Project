@@ -23,13 +23,24 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-public class AddYodelActivity extends Activity {
+public class AddYodelActivity extends Activity implements OnClickListener {
 
+	//code below from: http://www.itcuties.com/android/pick-image-from-gallery/
+	private static final int LOAD_IMAGE_RESULTS = 1;
+	private static Button button;
+	private static ImageView image;
+	//code use ends
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_yodel);
+		
+		//code below from: http://www.itcuties.com/android/pick-image-from-gallery/
+		button = (Button)findViewById(R.id.addPhotoButton);
+		image = (ImageView)findViewById(R.id.photoView);
+		button.setOnClickListener(this);
+		//code use ends
 	}
 	
 	/**
@@ -73,56 +84,26 @@ public class AddYodelActivity extends Activity {
 	public void cancel(View view){
 		finish();
 	}
-	//code from: http://www.itcuties.com/android/pick-image-from-gallery/
-    // Image loading result to pass to startActivityForResult method.
-    private static int LOAD_IMAGE_RESULTS = 1;
-     
-    // GUI components
-    private Button button;  // The button
-    private ImageView image;// ImageView
-     
-    protected void onCreate1(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_yodel);
-         
-        // Find references to the GUI objects
-        button = (Button)findViewById(R.id.buttonLoadPicture);
-        image = (ImageView)findViewById(R.id.image);
-         
-        // Set button's onClick listener object.
-        button.setOnClickListener((OnClickListener) this);
-         
-    }
- 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-         
-        // Here we need to check if the activity that was triggers was the Image Gallery.
-        // If it is the requestCode will match the LOAD_IMAGE_RESULTS value.
-        // If the resultCode is RESULT_OK and there is some data we know that an image was picked.
-        if (requestCode == LOAD_IMAGE_RESULTS && resultCode == RESULT_OK && data != null) {
-            // Let's read picked image data - its URI
-            Uri pickedImage = data.getData();
-            // Let's read picked image path using content resolver
-            String[] filePath = { MediaStore.Images.Media.DATA };
+	
+	//code below from: http://www.itcuties.com/android/pick-image-from-gallery/
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (requestCode == LOAD_IMAGE_RESULTS && resultCode == RESULT_OK && data != null) {
+			Uri pickedImage = data.getData();
+			String[] filePath = { MediaStore.Images.Media.DATA };
             Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
             cursor.moveToFirst();
             String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-             
-            // Now we need to set the GUI ImageView data with data read from the picked file.
             image.setImageBitmap(BitmapFactory.decodeFile(imagePath));
-             
-            // At the end remember to close the cursor or you will end with the RuntimeException!
             cursor.close();
-        }
-    }
-     
-    public void onClick(View v) {
-        // Create the Intent for Image Gallery.
-        Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-         
-        // Start new activity with the LOAD_IMAGE_RESULTS to handle back the results when image is picked from the Image Gallery.
+		}
+	}
+	
+	@Override
+	public void onClick(View v) {
+		Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(i, LOAD_IMAGE_RESULTS);
-    }
+	}
+	//code use ends
 }

@@ -1,6 +1,5 @@
 package com.example.yodelit;
 
-import java.io.IOException;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
@@ -8,10 +7,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import com.example.yodelit.data.ElasticSearchHit;
 import android.util.Log;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 public class ElasticSearchManager {
 	
