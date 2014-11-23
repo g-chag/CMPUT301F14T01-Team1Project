@@ -20,8 +20,6 @@ public class Yodel {
 	public Date date;
 	public int upgoats; //Number of upgoats
 	public int downgoats; //Number of downgoats
-	public ArrayList<String> upgoatList = new ArrayList<String>(); //list of user id that has upvoted
-	public ArrayList<String> downgoatList = new ArrayList<String>(); //list of user if that has downvoted
 	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
 	
 	/**
@@ -142,17 +140,4 @@ public class Yodel {
 		return echoList;
 	}
 	
-	public void addUserUpVote(){
-		this.upgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
-	}
-	public void addUserDownVote(){
-		this.downgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
-	}
-	
-	public ArrayList<String> getUsersUpVote(){
-		return this.upgoatList; //TODO: NEEDS TO BE user id number!!
-	}
-	public ArrayList<String> getUsersDownVote(){
-		return this.downgoatList;
-	}
 }
