@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 @SuppressLint("InflateParams") public class newYodelAdapter extends BaseAdapter{
 	Context context;
@@ -65,7 +64,10 @@ import android.widget.Toast;
         vi.setSelected(true);
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
+        //TextView date = (TextView) vi.findViewById(R.id.dateText);
         final TextView total = (TextView) vi.findViewById(R.id.totalText);
+        //final TextView upcount = (TextView) vi.findViewById(R.id.upText);
+        //final TextView downcount = (TextView) vi.findViewById(R.id.downText);
         
         Button upgoat = (Button) vi.findViewById(R.id.upB);
         Button downgoat = (Button) vi.findViewById(R.id.downB);
@@ -73,8 +75,14 @@ import android.widget.Toast;
         	Yodel yodel = data.get(position);
         	text.setText(yodel.getYodelText());
         	//http://stackoverflow.com/questions/3994315/integer-value-in-textview
-        	total.setText("" + (yodel.getUpgoats() - yodel.getDowngoats()));
+        	int plus = yodel.getUpgoats();
+        	//upcount.setText("" + plus);
+        	int minus = yodel.getDowngoats();
+        	//downcount.setText("" + minus);
+        	int totalNum = plus - minus;
+        	total.setText("" + totalNum);
         	user.setText(yodel.getAuthor());
+        	
         }
         
         /**
@@ -82,18 +90,18 @@ import android.widget.Toast;
 	 	*/
         upgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
-			String activeUser = YodelitController.getActiveUser().getUname();
 			@Override
 			public void onClick(View v) {
-				if ( (yodel.getAuthor() != activeUser) && (yodel.getUsersUpVote().contains(activeUser) == false) ){
-					YodelitController.yodelList.getYodel(position).setUpgoats((yodel.getUpgoats())+1);
-					YodelitController.yodelList.getYodel(position).addUserUpVote();
-		        	total.setText("" + (yodel.getUpgoats() - yodel.getDowngoats()));	
-				} else if (yodel.getAuthor() == activeUser) {
-					Toast.makeText(context, "Cannot upgoat own Yodel!", Toast.LENGTH_SHORT).show();
-				} else if (yodel.getUsersUpVote().contains(activeUser) == true){
-					Toast.makeText(context, "Already voted!!", Toast.LENGTH_SHORT).show();
-				}
+				int hold = yodel.getUpgoats();
+				hold = hold + 1;
+				YodelitController.yodelList.getYodel(position).setUpgoats(hold);
+				int plus = yodel.getUpgoats();
+	        	//upcount.setText("" + plus);
+	        	int minus = yodel.getDowngoats();
+	        	//downcount.setText("" + minus);
+	        	int totalNum = plus - minus;
+	        	total.setText("" + totalNum);
+
 			}
 		});
         /**
@@ -101,18 +109,17 @@ import android.widget.Toast;
 	 	*/
         downgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
-			String activeUser = YodelitController.getActiveUser().getUname();
 			@Override
 			public void onClick(View v) {
-				if ( (yodel.getAuthor() != activeUser) && (yodel.getUsersDownVote().contains(activeUser) == false) ){
-					YodelitController.yodelList.getYodel(position).setDowngoats((yodel.getDowngoats())+1);
-					YodelitController.yodelList.getYodel(position).addUserDownVote();
-		        	total.setText("" + (yodel.getUpgoats() - yodel.getDowngoats()));	
-				} else if (yodel.getAuthor() == activeUser) {
-					Toast.makeText(context, "Cannot downgoat own Yodel!", Toast.LENGTH_SHORT).show();
-				} else if (yodel.getUsersDownVote().contains(activeUser) == true){
-					Toast.makeText(context, "Already voted!!", Toast.LENGTH_SHORT).show();
-				}
+				int hold = yodel.getDowngoats();
+				hold = hold + 1;
+				YodelitController.yodelList.getYodel(position).setDowngoats(hold);
+				int plus = yodel.getUpgoats();
+	        	//upcount.setText("" + plus);
+	        	int minus = yodel.getDowngoats();
+	        	//downcount.setText("" + minus);
+	        	int totalNum = plus - minus;
+	        	total.setText("" + totalNum);	
 			}
 		});
 
