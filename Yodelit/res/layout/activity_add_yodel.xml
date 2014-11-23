@@ -97,4 +97,18 @@
         android:layout_below="@+id/yodelText"
         android:src="@drawable/whitebar" />
 
+	<Button
+	    android:id="@+id/buttonLoadPicture"
+	    android:onClick="onClick"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/cancel"
+	    android:layout_centerHorizontal="true"
+	    android:background="@color/white"
+	    android:textColor="@color/darkgrey"
+        android:textSize="15sp"
+        android:typeface="normal"
+        android:padding="7dp"
+	    android:text="@string/add_photo" />
+
 </RelativeLayout>
