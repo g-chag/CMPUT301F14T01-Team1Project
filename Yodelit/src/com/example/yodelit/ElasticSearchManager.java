@@ -1,11 +1,15 @@
 package com.example.yodelit;
 
+import java.io.IOException;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+
+import com.example.yodelit.data.ElasticSearchHit;
 
 import android.util.Log;
 
@@ -38,8 +42,13 @@ public class ElasticSearchManager {
 
 		try {
 			response = httpClient.execute(httpGet);
-			/**Methods to be defined elsewhere**/
-			//SearchHit<Yodel> sr = parseYodelHit(response);
+			/**Methods defined in "data" directory.
+			 * 
+			 * Note: This method was originally designed for a string, but
+			 * since we are searching for Yodels by ID should we be reworking this?
+			 * **/
+			
+			//ElasticSearchHit<Yodel> sr = parseYodelHit(response);
 			//return sr.getSource();
 
 		} catch (Exception e) {
