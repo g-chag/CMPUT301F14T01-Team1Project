@@ -31,6 +31,9 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 	private static ImageView image;
 	//code use ends
 	
+	/**Interface for Elastic Search**/
+	private RubberClient rubberClient;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -42,6 +45,37 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		button.setOnClickListener(this);
 		//code use ends
 	}
+	
+	/**Thread that closes ElasticAdding after finished**/
+	private Runnable doFinishAdd = new Runnable() {
+		public void run() {
+			finish();
+		}
+	};
+	
+	/**Used for calling ElasticAdding**/
+	class AddThread extends Thread {
+		private Yodel yodel;
+
+		public AddThread(Yodel yodel) {
+			this.yodel = yodel;
+		}
+
+		@Override
+		public void run() {
+			rubberClient.addYodel(yodel);
+			
+			// Give some time to get updated info
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			runOnUiThread(doFinishAdd);
+		}
+	}
+	
 	
 	/**
 	 * Inflate the menu; this adds items to the action bar if it is present.
@@ -64,6 +98,13 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		if (submissionCheck(qString, addString)){
 			Yodel newYodel = new Yodel(qString, addString);
 			YodelitController.addYodel(newYodel);
+			
+			/**This code attempts to add to Elastic Search. 
+			 * It is currently crashing the APP when uncommented.**/
+			//Thread thread = new AddThread(newYodel);
+			//thread.start();
+			/**-------------------------------------------------------------------**/
+			
 			finish();
 			return;
 		} else {

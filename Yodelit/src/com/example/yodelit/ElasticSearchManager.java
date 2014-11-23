@@ -23,7 +23,6 @@ import com.example.yodelit.data.SimpleSearchCommand;
 
 public class ElasticSearchManager {
 	
-	//THESE URLS NEED TO CHANGE
 	private static final String SEARCH_URL = "http://cmput301.softwareprocess.es:8080/team1/_search";
 	private static final String RESOURCE_URL = "http://cmput301.softwareprocess.es:8080/team1/";
 	private static final String TAG = "YodelSearch";

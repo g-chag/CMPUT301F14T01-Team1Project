@@ -2,7 +2,7 @@ package com.example.yodelit;
 
 import java.util.List;
 
-public interface StretchyClient {
+public interface RubberClient {
 
 	public List<Yodel> searchYodels(String searchString, String field);
 	public Yodel getYodel(int id);
