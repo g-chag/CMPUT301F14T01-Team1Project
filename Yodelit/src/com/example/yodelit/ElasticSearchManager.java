@@ -33,6 +33,31 @@ public class ElasticSearchManager {
 		gson = new Gson();
 	}
 	
+	/**
+	 * Input: Old Yodel ID
+	 * Result: Yodel ID = Elastic Search ID for that Yodel
+	 */
+	public void setNewID(Yodel theYodel) {
+
+		//Takes in the old Yodel ID
+		HttpClient httpClient = new DefaultHttpClient();
+		HttpGet httpGet = new HttpGet(RESOURCE_URL + theYodel.getYid());
+
+		HttpResponse response;
+
+		try {
+			response = httpClient.execute(httpGet);		
+			ElasticSearchHit<Yodel> sr = parseYodelHit(response);
+			String elasticID = sr.get_id();
+			
+			//Converts string ID to integer
+			theYodel.setYid( Integer.parseInt(elasticID) );
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+	}
+	
 	public Yodel getYodel(int id) {
 
 		HttpClient httpClient = new DefaultHttpClient();
@@ -106,6 +131,9 @@ public class ElasticSearchManager {
 			HttpResponse response = httpClient.execute(addRequest);
 			String status = response.getStatusLine().toString();
 			Log.i(TAG, status);
+			
+			//Now that we've added the new Yodel, we can set it's ID to the new one
+			setNewID(yodel);
 
 		} catch (Exception e) {
 			e.printStackTrace();
