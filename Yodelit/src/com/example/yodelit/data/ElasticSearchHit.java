@@ -1,6 +1,6 @@
 package com.example.yodelit.data;
 
-/**This should probably be reworked based on Yodels.
+/**This probably needs some reworking, since it's not originally based on Yodels.
  */
 public class ElasticSearchHit<Yodel> {
 	private String _index;
