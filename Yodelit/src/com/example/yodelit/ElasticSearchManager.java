@@ -21,7 +21,7 @@ import com.example.yodelit.data.Hits;
 import com.example.yodelit.data.SearchResponse;
 import com.example.yodelit.data.SimpleSearchCommand;
 
-public class ElasticSearchManager {
+public class ElasticSearchManager implements RubberClient {
 	
 	private static final String SEARCH_URL = "http://cmput301.softwareprocess.es:8080/team1/_search";
 	private static final String RESOURCE_URL = "http://cmput301.softwareprocess.es:8080/team1/";
@@ -129,7 +129,7 @@ public class ElasticSearchManager {
 
 			HttpResponse response = httpClient.execute(addRequest);
 			String status = response.getStatusLine().toString();
-			Log.i(TAG, status);
+			Log.i(TAG + "addYodel", status);
 			
 			//Now that we've added the new Yodel, we can set it's ID to the new one
 			setNewID(yodel);

@@ -32,7 +32,7 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 	//code use ends
 	
 	/**Interface for Elastic Search**/
-	private ElasticSearchManager YodelManager;
+	private RubberClient YodelManager;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
