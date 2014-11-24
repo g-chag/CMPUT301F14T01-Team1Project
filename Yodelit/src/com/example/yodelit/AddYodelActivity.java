@@ -8,13 +8,19 @@
 
 package com.example.yodelit;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -134,14 +140,25 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == LOAD_IMAGE_RESULTS && resultCode == RESULT_OK && data != null) {
 			Uri pickedImage = data.getData();
-			String[] filePath = { MediaStore.Images.Media.DATA };
-            Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
-            cursor.moveToFirst();
-            String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-            image.setImageBitmap(BitmapFactory.decodeFile(imagePath));
+			String[] path = {MediaStore.Images.Media.DATA };
+			Cursor cursor = getContentResolver().query(pickedImage, path, null, null, null);
+			cursor.moveToFirst();
+			String imagePath = cursor.getString(cursor.getColumnIndex(path[0]));
+            //Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
+            //cursor.moveToFirst();
+            //String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
+			BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
+			//int height = 300; int width = 300;
+			//int heightRatio = (int)Math.ceil(bmpFactoryOptions.outHeight/(float)height);
+	       // int widthRatio = (int)Math.ceil(bmpFactoryOptions.outWidth/(float)width);
+	       // bmpFactoryOptions.inSampleSize = widthRatio; 
+	       // bmpFactoryOptions.inSampleSize = heightRatio;
+	        Bitmap bm = BitmapFactory.decodeFile(imagePath);
+            image.setImageBitmap(bm);
             cursor.close();
 		}
 	}
+
 	
 	@Override
 	public void onClick(View v) {
