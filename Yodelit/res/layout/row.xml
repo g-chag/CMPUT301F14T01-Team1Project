@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" 
+    android:layout_height="wrap_content"
     android:minHeight="100dip" >
 
     <TextView
@@ -10,6 +10,7 @@
         android:layout_height="75dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="false"
+        android:layout_toLeftOf="@+id/upB"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:text="@string/echo_slash_yodel"
@@ -19,8 +20,8 @@
         android:id="@+id/userText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/upText"
-        android:layout_alignBottom="@+id/upText"
+        android:layout_alignBaseline="@+id/totalText"
+        android:layout_alignBottom="@+id/totalText"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:focusable="false"
@@ -38,25 +39,11 @@
         android:text="@string/date" />
 
     <TextView
-        android:id="@+id/downText"
+        android:id="@+id/totalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/Header"
-        android:layout_marginRight="42dp"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:text="@string/zero"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-	
-    <TextView
-        android:id="@+id/upText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/downText"
-        android:layout_alignBottom="@+id/downText"
-        android:layout_marginRight="17dp"
-        android:layout_toLeftOf="@+id/downText"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:text="@string/zero"
@@ -68,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/Header"
-        android:layout_alignLeft="@+id/downText"
+        android:layout_alignParentRight="true"
         android:focusable="false"
         android:text="@string/d" />
 
@@ -77,20 +64,10 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/upText"
-        android:layout_alignLeft="@+id/upText"
+        android:layout_alignBaseline="@+id/downB"
+        android:layout_alignBottom="@+id/downB"
+        android:layout_toLeftOf="@+id/downB"
         android:focusable="false"
         android:text="@string/u" />
-
-    <TextView
-        android:id="@+id/totalText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/downB"
-        android:layout_toRightOf="@+id/downB"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:text="@string/zero"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>
