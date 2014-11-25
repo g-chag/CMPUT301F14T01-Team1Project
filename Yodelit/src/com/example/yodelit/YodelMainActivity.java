@@ -12,9 +12,11 @@ package com.example.yodelit;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -27,6 +29,8 @@ public class YodelMainActivity extends Activity {
 		setContentView(R.layout.activity_yodel_main);
         final ListView listview =  (ListView) findViewById(R.id.EchoListView);
         Button echobutton = (Button) findViewById(R.id.AddEchoButton);
+        ImageView imgView = (ImageView) findViewById(R.id.imageView);
+        
         //sets views, gets user id
         TextView yodelView = (TextView) findViewById(R.id.yodelView);
         TextView infoView = (TextView) findViewById(R.id.infoView);
@@ -35,6 +39,8 @@ public class YodelMainActivity extends Activity {
         final Yodel yodel = YodelitController.getYodelList().getYodel(yID); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
         yodelView.setText(yodel.getYodelText());
         infoView.setText(yodel.getInfoText());
+        Bitmap bm = yodel.getBitmap();
+        imgView.setImageBitmap(bm);
         
 		final newAdapter echoAdapter = new newAdapter(this, yodel.getEchoList());
 		
@@ -56,6 +62,7 @@ public class YodelMainActivity extends Activity {
 			setContentView(R.layout.activity_yodel_main);
 	        final ListView listview =  (ListView) findViewById(R.id.EchoListView);
 	        Button echobutton = (Button) findViewById(R.id.AddEchoButton);
+	        ImageView imgView = (ImageView) findViewById(R.id.imageView);
 	        
 	        TextView yodelView = (TextView) findViewById(R.id.yodelView);
 	        TextView infoView = (TextView) findViewById(R.id.infoView);
@@ -64,6 +71,8 @@ public class YodelMainActivity extends Activity {
 	        final Yodel yodel = YodelitController.getYodelList().getYodel(yID); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
 	        yodelView.setText(yodel.getYodelText());
 	        infoView.setText(yodel.getInfoText());
+	        Bitmap bm = yodel.getBitmap();
+	        imgView.setImageBitmap(bm);
 	        
 	        //Collection<Echo> echos = EchoController.getEchoList().getEchoes();
 			//final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
