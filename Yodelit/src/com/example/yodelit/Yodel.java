@@ -12,8 +12,6 @@ import java.sql.Date;
 import java.util.ArrayList;
 
 import android.graphics.Bitmap;
-import android.provider.MediaStore.Images;
-
 
 public class Yodel {
 	protected int yID;
