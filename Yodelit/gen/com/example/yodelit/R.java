@@ -38,9 +38,9 @@ public final class R {
         public static final int echosymbol=0x7f020003;
         public static final int finalapppic=0x7f020004;
         public static final int iclauncher=0x7f020005;
-        public static final int star=0x7f020006;
-        public static final int upgoat=0x7f020007;
-        public static final int whitebackground=0x7f020008;
+        public static final int smallbluebackground=0x7f020006;
+        public static final int star=0x7f020007;
+        public static final int upgoat=0x7f020008;
         public static final int whitebar=0x7f020009;
     }
     public static final class id {

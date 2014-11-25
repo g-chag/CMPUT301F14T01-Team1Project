@@ -112,13 +112,13 @@
 
 	    <ImageView
 	        android:id="@+id/photoView"
-	        android:layout_width="100dp"
-	        android:layout_height="125dp"
+	        android:layout_width="75dp"
+	        android:layout_height="75dp"
 	        android:layout_above="@+id/addPhotoButton"
 	        android:layout_centerHorizontal="true"
-	        android:layout_marginBottom="22dp"
-	        android:scaleType = "centerCrop"
+	        android:layout_marginBottom="18dp"
 	        android:contentDescription="@string/add_photo"
-	        android:src="@drawable/whitebackground" />
+	        android:scaleType="centerCrop"
+	        android:src="@drawable/smallbluebackground" />
 
 </RelativeLayout>

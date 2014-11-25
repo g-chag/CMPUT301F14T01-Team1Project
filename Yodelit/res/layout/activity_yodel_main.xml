@@ -56,7 +56,7 @@
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/add_photo"
         android:scaleType="centerCrop"
-        android:src="@drawable/whitebackground" />
+        android:src="@drawable/smallbluebackground" />
 
     <ListView
         android:id="@+id/EchoListView"
