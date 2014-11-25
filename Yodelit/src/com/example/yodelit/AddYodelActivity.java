@@ -8,10 +8,6 @@
 
 package com.example.yodelit;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,7 +16,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -35,6 +30,7 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 	private static final int LOAD_IMAGE_RESULTS = 1;
 	private static Button button;
 	private static ImageView image;
+	private static Bitmap bitmap = null;
 	//code use ends
 	
 	/**Interface for Elastic Search**/
@@ -105,12 +101,13 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		
 		if (submissionCheck(qString, addString)){
 			Yodel newYodel = new Yodel(qString, addString);
+			newYodel.setBitmap(bitmap);
 			YodelitController.addYodel(newYodel);
 			
 			/**This code attempts to add to Elastic Search. 
 			 * It is currently crashing the APP when uncommented.**/
-			Thread thread = new AddThread(newYodel);
-			thread.start();
+			//Thread thread = new AddThread(newYodel);
+			//thread.start();
 			/**-------------------------------------------------------------------**/
 			
 			finish();
@@ -147,14 +144,15 @@ public class AddYodelActivity extends Activity implements OnClickListener {
             //Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
             //cursor.moveToFirst();
             //String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-			BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
+			//BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
 			//int height = 300; int width = 300;
 			//int heightRatio = (int)Math.ceil(bmpFactoryOptions.outHeight/(float)height);
 	       // int widthRatio = (int)Math.ceil(bmpFactoryOptions.outWidth/(float)width);
 	       // bmpFactoryOptions.inSampleSize = widthRatio; 
 	       // bmpFactoryOptions.inSampleSize = heightRatio;
 	        Bitmap bm = BitmapFactory.decodeFile(imagePath);
-            image.setImageBitmap(bm);
+	        bitmap = Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.35), (int)(bm.getHeight()*0.35), true);
+	        image.setImageBitmap(bitmap);
             cursor.close();
 		}
 	}

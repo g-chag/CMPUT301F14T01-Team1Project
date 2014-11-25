@@ -11,6 +11,9 @@ package com.example.yodelit;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import android.graphics.Bitmap;
+import android.provider.MediaStore.Images;
+
 
 public class Yodel {
 	protected int yID;
@@ -23,6 +26,7 @@ public class Yodel {
 	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
 	public ArrayList<String> upgoatList = new ArrayList<String>(); //list of user id that has upvoted
 	public ArrayList<String> downgoatList = new ArrayList<String>(); //list of user if that has downvoted
+	public Bitmap bm;
 	
 	/**
 	* Creates and initializes a new Yodel.
@@ -154,6 +158,15 @@ public class Yodel {
 	}
 	public ArrayList<String> getUsersDownVote(){
 		return this.downgoatList;
+	}
+	
+	public Bitmap getBitmap(){
+		return bm;
+	}
+	
+	public void setBitmap(Bitmap bitmap)
+	{
+		this.bm = bitmap;
 	}
 	
 }
