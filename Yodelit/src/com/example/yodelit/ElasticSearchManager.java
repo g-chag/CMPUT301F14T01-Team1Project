@@ -104,6 +104,7 @@ public class ElasticSearchManager implements RubberClient {
 				if (hits.getHits() != null) {
 					for (ElasticSearchHit<Yodel> sesr : hits.getHits()) {
 						result.add(sesr.getSource());
+						//Log.i(TAG, result.add(sesr.getSource() ));
 					}
 				}
 			}

@@ -55,6 +55,10 @@ public class YodelList {
 		//Log.i("XXX", yodel + " " + List.size());
 		notifyeveryone();
 	}
+	
+	public boolean addAll(ArrayList<Yodel> yodels){
+		return List.addAll(yodels);
+	}
 
 	public Yodel getYodel(int index) {
 		return List.get(index);

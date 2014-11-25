@@ -11,6 +11,7 @@ package com.example.yodelit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -29,26 +30,46 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
-
+	private ElasticSearchManager YodelManager;
+	ArrayList<Yodel> yodelList;
+	private newYodelAdapter yodelsAdapter;
+	
+	
+	private Runnable doUpdateGUIList = new Runnable() {
+		public void run() {
+			yodelsAdapter.notifyDataSetChanged();
+		}
+	};
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         final ListView listview =  (ListView) findViewById(R.id.YodelListView);
 		Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
-		final ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
 		
-		final newYodelAdapter yodelsAdapter = new newYodelAdapter(this, yodelList);
+		yodelList = new ArrayList<Yodel>(yodels);
+		yodelsAdapter = new newYodelAdapter(this, yodelList);
 		listview.setAdapter(yodelsAdapter);
+		YodelManager = new ElasticSearchManager();
+		
+//		yodelList.clear();
+		Thread thread = new SearchThread("");
+		thread.start();
+//		Collection<Yodel> inputs = YodelitController.getYodelList().getYodels();
+//		yodelList.addAll(inputs);
+//		runOnUiThread(doUpdateGUIList);
 		
 		YodelitController.getYodelList().addListener(new Listener(){
-
 			@Override
 			public void update() {
 				yodelList.clear();
+				Thread thread = new SearchThread("");
+				thread.start();
 				Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
 				yodelList.addAll(yodels);
-				yodelsAdapter.notifyDataSetChanged();
+				runOnUiThread(doUpdateGUIList);
 			}
 		});
         
@@ -194,9 +215,24 @@ public class HomeActivity extends Activity {
 			builder.show();
 			
 	    }
-    	
-    	
-    	
     }
+    class SearchThread extends Thread {
+		// TODO: Implement search thread
+		private String search;
+		
+		public SearchThread(String s){
+			search = s;
+		}
+		
+		@Override
+		public void run(){
+			yodelList.clear();
+			ArrayList<Yodel> holding = (ArrayList<Yodel>) YodelManager.searchYodels(search, null);
+			YodelitController.addAllYodels(holding);
+			yodelList.addAll(holding);
+			runOnUiThread(doUpdateGUIList);
+		}
+		
+	}
 }
     

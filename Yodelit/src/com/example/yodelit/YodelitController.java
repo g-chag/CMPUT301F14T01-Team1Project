@@ -8,6 +8,8 @@
 
 package com.example.yodelit;
 
+import java.util.ArrayList;
+
 public class YodelitController {
 	
 	public static YodelList yodelList = null;
@@ -40,6 +42,12 @@ public class YodelitController {
 		temp.addYodel(yodel);
 		//Log.i("XXX", "Yodels " + yodelList.getYodels());
 		//Log.i("XXX", "After" + yodelList.getYodels().size());
+	}
+	
+	public static boolean addAllYodels(ArrayList<Yodel> list){
+		YodelList temp = getYodelList();
+		return temp.addAll(list);
+		
 	}
 	
 	/**
