@@ -102,6 +102,7 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		if (submissionCheck(qString, addString)){
 			Yodel newYodel = new Yodel(qString, addString);
 			newYodel.setBitmap(bitmap);
+			newYodel.setLocationGPS(this);
 			YodelitController.addYodel(newYodel);
 			
 			/**This code attempts to add to Elastic Search. 

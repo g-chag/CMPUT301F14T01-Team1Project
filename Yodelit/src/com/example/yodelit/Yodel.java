@@ -8,9 +8,11 @@
 
 package com.example.yodelit;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 
 public class Yodel {
@@ -19,6 +21,7 @@ public class Yodel {
 	public String info;
 	public String Author;
 	public Date date;
+	public ArrayList<String> Location = new ArrayList<String>();
 	public int upgoats; //Number of upgoats
 	public int downgoats; //Number of downgoats
 	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
@@ -37,6 +40,8 @@ public class Yodel {
 		//NEEDS TO SET DATE
 		this.upgoats = 0;
 		this.downgoats = 0;
+		this.Location.add("none");
+		this.Location.add("none");
 	}
 	
 	/**
@@ -122,6 +127,23 @@ public class Yodel {
 	public void setUpgoats(int upgoats) {
 		this.upgoats = upgoats;
 	}
+	
+	public void setLocationGPS(Context context) {
+		GeoLoc gl = new GeoLoc(context);
+		try {
+			Location = gl.findLocation();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			Location.add("Broken");
+			Location.add("Broken");
+		}
+		
+	}
+	public ArrayList<String> getLocation() {
+		return Location;
+	}
+	
+
 	
 	/**
 	*  Gets the Downgoats of the Yodel.
