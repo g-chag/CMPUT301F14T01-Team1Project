@@ -34,11 +34,11 @@ public class GeoLoc implements Serializable {
 		criteria.setPowerRequirement(Criteria.POWER_LOW);
 		String provider = locMan.getBestProvider(criteria, false);
 		*/
-		String provider = LocationManager.GPS_PROVIDER;
+		String provider = LocationManager.NETWORK_PROVIDER;
 		Location lastKnownLoc = locMan.getLastKnownLocation(provider);
 		if (lastKnownLoc != null){
 			double lat =  lastKnownLoc.getLatitude();
-			double  lon =  lastKnownLoc.getLatitude();
+			double  lon =  lastKnownLoc.getLongitude();
 			List<Address> addresses=null;
 			Geocoder geocoder = new Geocoder(currentContext, Locale.getDefault());
 			addresses = geocoder.getFromLocation(lat,lon,1);
