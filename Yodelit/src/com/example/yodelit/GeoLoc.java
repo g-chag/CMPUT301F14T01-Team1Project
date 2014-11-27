@@ -19,7 +19,7 @@ public class GeoLoc implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 5641804950085965912L;
-	public ArrayList<String> Location;
+	public ArrayList<String> Location = new ArrayList<String>();
 	public String coordinates;
 	public Context currentContext;
 	
@@ -30,9 +30,11 @@ public class GeoLoc implements Serializable {
 	
 	public ArrayList<String> findLocation() throws IOException{
 		LocationManager locMan = (LocationManager)currentContext.getSystemService(Context.LOCATION_SERVICE);
-		Criteria criteria = new Criteria();
+		/*Criteria criteria = new Criteria();
 		criteria.setPowerRequirement(Criteria.POWER_LOW);
 		String provider = locMan.getBestProvider(criteria, false);
+		*/
+		String provider = LocationManager.GPS_PROVIDER;
 		Location lastKnownLoc = locMan.getLastKnownLocation(provider);
 		if (lastKnownLoc != null){
 			double lat =  lastKnownLoc.getLatitude();
@@ -41,8 +43,15 @@ public class GeoLoc implements Serializable {
 			Geocoder geocoder = new Geocoder(currentContext, Locale.getDefault());
 			addresses = geocoder.getFromLocation(lat,lon,1);
 			if(addresses.size()>0){
-				Location.add(addresses.get(0).getLocality());
-				Location.add(addresses.get(0).getCountryName());
+				Address adress = addresses.get(0);
+				if (adress != null){
+					Location.add(adress.getLocality());
+					Location.add(adress.getCountryName());
+				}
+				else{
+					Location.add("None");
+					Location.add("None");
+				}
 			}
 			else{
 				Location.add("None");
