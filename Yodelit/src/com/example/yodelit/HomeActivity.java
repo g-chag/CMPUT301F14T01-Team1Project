@@ -32,6 +32,7 @@ public class HomeActivity extends Activity {
 	private ElasticSearchManager YodelManager;
 	ArrayList<Yodel> yodelList;
 	private newYodelAdapter yodelsAdapter;
+	Collection<Yodel> yodels;
 	
 	
 	private Runnable doUpdateGUIList = new Runnable() {
@@ -53,7 +54,7 @@ public class HomeActivity extends Activity {
 		listview.setAdapter(yodelsAdapter);
 		YodelManager = new ElasticSearchManager();
 		
-//		yodelList.clear();
+		yodelList.clear();
 		Thread thread = new SearchThread("");
 		thread.start();
 //		Collection<Yodel> inputs = YodelitController.getYodelList().getYodels();
@@ -112,6 +113,7 @@ public class HomeActivity extends Activity {
 		super.onResume();
 		// Refresh the list when visible
 		yodelList.clear();
+		//yodels.clear();
 		Thread thread = new SearchThread("");
 		thread.start();
 		//Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
