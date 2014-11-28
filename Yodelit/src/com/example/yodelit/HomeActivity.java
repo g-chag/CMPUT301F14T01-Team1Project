@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -61,17 +60,17 @@ public class HomeActivity extends Activity {
 //		yodelList.addAll(inputs);
 //		runOnUiThread(doUpdateGUIList);
 		
-		YodelitController.getYodelList().addListener(new Listener(){
-			@Override
-			public void update() {
-				yodelList.clear();
-				Thread thread = new SearchThread("");
-				thread.start();
-				Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
-				yodelList.addAll(yodels);
-				runOnUiThread(doUpdateGUIList);
-			}
-		});
+//		YodelitController.getYodelList().addListener(new Listener(){
+//			@Override
+//			public void update() {
+//				yodelList.clear();
+//				Thread thread = new SearchThread("");
+//				thread.start();
+//				Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+//				yodelList.addAll(yodels);
+//				runOnUiThread(doUpdateGUIList);
+//			}
+//		});
         
 		/**
 	 	* Opens Yodel with Echo listed.
@@ -109,6 +108,18 @@ public class HomeActivity extends Activity {
         return true;
     }
     
+	protected void onResume() {
+		super.onResume();
+		// Refresh the list when visible
+		yodelList.clear();
+		Thread thread = new SearchThread("");
+		thread.start();
+		//Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+		//yodelList.addAll(yodels);
+		runOnUiThread(doUpdateGUIList);	
+	}
+    
+    
     /**
  	* Pressing the Yodel A Question button will activate this function.
     * This is supposed to prompt an alert dialog with 2 edit texts.
@@ -121,7 +132,8 @@ public class HomeActivity extends Activity {
     
     
     @SuppressWarnings("null")
-	@SuppressLint("DefaultLocale") public void filter(View view){
+	@SuppressLint("DefaultLocale") 
+    public void filter(View view){
     	EditText filterText = (EditText) findViewById(R.id.filterText);
     	String filteree = filterText.getText().toString();
     	final ListView filteredListview =  (ListView) findViewById(R.id.YodelListView);

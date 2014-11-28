@@ -107,8 +107,8 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 			
 			/**This code attempts to add to Elastic Search. 
 			 * It is currently crashing the APP when uncommented.**/
-			//Thread thread = new AddThread(newYodel);
-			//thread.start();
+			Thread thread = new AddThread(newYodel);
+			thread.start();
 			/**-------------------------------------------------------------------**/
 			
 			finish();

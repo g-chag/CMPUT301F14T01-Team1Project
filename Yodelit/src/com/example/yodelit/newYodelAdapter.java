@@ -22,7 +22,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-@SuppressLint("InflateParams") public class newYodelAdapter extends BaseAdapter{
+@SuppressLint("InflateParams") 
+public class newYodelAdapter extends BaseAdapter{
 	Context context;
     ArrayList<Yodel> data;
     private LayoutInflater inflater = null;
