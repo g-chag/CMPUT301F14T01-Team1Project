@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,24 +90,36 @@ import android.widget.TextView;
         /**
 	 	* Attempts an upgoat.
 	 	*/
+        //TODO: Fix this so it upgoats properly.
         upgoat.setOnClickListener(new OnClickListener() {
 			Echo echo = data.get(position);
 			@Override
 			public void onClick(View v) {
-				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setUpgoats((echo.getUpgoats())+1);
-				total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
+				try {
+					YodelitController.yodelList.getYodel(position).getEchoList().get(position).setUpgoats((echo.getUpgoats())+1);
+					total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
+				}
+				catch (Exception e) {
+					Log.e("Debug","Upgoat failed.");
+				}
 			}
 		});
         
         /**
 	 	* Attempts a downgoat.
 	 	*/
+        //TODO: Fix this so it downgoats properly.
         downgoat.setOnClickListener(new OnClickListener() {
 			Echo echo = data.get(position);
 			@Override
 			public void onClick(View v) {
-				YodelitController.yodelList.getYodel(position).getEchoList().get(position).setDowngoats((echo.getDowngoats())+1);
-				total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
+				try {
+					YodelitController.yodelList.getYodel(position).getEchoList().get(position).setDowngoats((echo.getDowngoats())+1);
+					total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
+				}
+				catch (Exception e) {
+					Log.e("Debug","Downgoat failed.");
+				}
 			}
 		});
         

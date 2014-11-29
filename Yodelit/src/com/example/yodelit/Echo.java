@@ -11,6 +11,8 @@ package com.example.yodelit;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import android.util.Log;
+
 public class Echo {
 	public String text; //Text of the reply
 	public String Author; //Author/username id
@@ -115,9 +117,11 @@ public class Echo {
 	}
 	
 	public void addUserUpVote(){
+		Log.i("Gibberish", "I got here bro.");
 		this.upgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
 	}
 	public void addUserDownVote(){
+		Log.i("Gibberish", "I got here bro.");
 		this.downgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
 	}
 	

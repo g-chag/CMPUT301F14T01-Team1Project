@@ -61,6 +61,9 @@ public class YodelitController {
 	* Get current user..
  	*/
 	public static User getActiveUser(){
+		if (activeuser == null) {
+			throw new RuntimeException("Null user.");
+		}
 		return activeuser;
 	}
 
