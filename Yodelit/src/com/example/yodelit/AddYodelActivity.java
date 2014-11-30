@@ -8,12 +8,18 @@
 
 package com.example.yodelit;
 
+import java.io.BufferedInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.Menu;
@@ -144,11 +150,29 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		if (requestCode == LOAD_IMAGE_RESULTS && resultCode == RESULT_OK && data != null) {
-			Uri pickedImage = data.getData();
-			String[] path = {MediaStore.Images.Media.DATA };
-			Cursor cursor = getContentResolver().query(pickedImage, path, null, null, null);
-			cursor.moveToFirst();
-			String imagePath = cursor.getString(cursor.getColumnIndex(path[0]));
+			String url = data.getDataString();
+			if (url.startsWith("content://com.google.android.apps.photos.content"))
+			{
+				InputStream is = null;
+				try {
+					is = getContentResolver().openInputStream(Uri.parse(url));
+				} catch (FileNotFoundException e) {
+					e.printStackTrace();
+				}
+
+			    Bitmap temp = BitmapFactory.decodeStream(is);
+			    bitmap = Bitmap.createScaledBitmap(temp,(int)(temp.getWidth()*0.35), (int)(temp.getHeight()*0.35), true);
+			    if (checkSize(bitmap)){
+					Toast.makeText(this, "Image is too big", Toast.LENGTH_SHORT).show();
+				} else {
+					image.setImageBitmap(bitmap);
+				}
+			} else {
+				Uri pickedImage = data.getData();
+				String[] path = {MediaStore.Images.Media.DATA };
+				Cursor cursor = getContentResolver().query(pickedImage, path, null, null, null);
+				cursor.moveToFirst();
+				String imagePath = cursor.getString(cursor.getColumnIndex(path[0]));
             //Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
             //cursor.moveToFirst();
             //String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
@@ -158,12 +182,28 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 	       // int widthRatio = (int)Math.ceil(bmpFactoryOptions.outWidth/(float)width);
 	       // bmpFactoryOptions.inSampleSize = widthRatio; 
 	       // bmpFactoryOptions.inSampleSize = heightRatio;
-	        Bitmap bm = BitmapFactory.decodeFile(imagePath);
-	        bitmap = Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.35), (int)(bm.getHeight()*0.35), true);
-	        image.setImageBitmap(bitmap);
+				Bitmap bm = BitmapFactory.decodeFile(imagePath);
+				bitmap = Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.35), (int)(bm.getHeight()*0.35), true);
+				if (checkSize(bitmap)){
+					Toast.makeText(this, "Image is too big", Toast.LENGTH_SHORT).show();
+				} else {
+					image.setImageBitmap(bitmap);
+				}
             cursor.close();
+			}
 		}
 	}
+	
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1) public boolean checkSize(Bitmap bm){
+		int size;
+		size = bm.getByteCount();
+		if (size > 640000){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
 
 	
 	@Override
