@@ -19,10 +19,10 @@ public class HomeActivityTest extends ActivityInstrumentationTestCase2<HomeActiv
 	public void testPass(){
 		assertTrue(true);
 	}
-	/*public void testFail(){
+	public void testFail(){
 		throw new UnsupportedOperationException("Intentional Failure");
 	}
-	*/
+	
 	public void testYodels() {
 		try {
 			Yodel tempYodel = new Yodel("Question", "Clarification");
