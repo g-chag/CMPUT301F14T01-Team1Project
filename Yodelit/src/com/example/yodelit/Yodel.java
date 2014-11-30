@@ -192,5 +192,10 @@ public class Yodel {
 	{
 		this.bm = bitmap;
 	}
+
+	public void setLocation(YodelGeoExtra yge) {
+		yodelGeoExtra = yge;
+		
+	}
 	
 }

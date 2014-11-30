@@ -57,6 +57,11 @@ public class YodelitController {
 		activeuser = user;
 	}
 	
+	public static YodelGeoExtra getActiveLocation(){
+		return activeuser.getLocation();
+		
+	}
+	
 	/**
 	* Get current user..
  	*/
