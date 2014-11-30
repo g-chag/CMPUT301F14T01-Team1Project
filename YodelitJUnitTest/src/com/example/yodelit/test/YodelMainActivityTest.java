@@ -1,15 +1,11 @@
 package com.example.yodelit.test;
 
 import com.example.yodelit.Echo;
-import com.example.yodelit.MainActivity;
-import com.example.yodelit.R;
 import com.example.yodelit.User;
 import com.example.yodelit.Yodel;
 import com.example.yodelit.YodelitController;
 
 import android.test.ActivityInstrumentationTestCase2;
-import android.widget.Button;
-import android.widget.EditText;
 
 import com.example.yodelit.YodelMainActivity;
 

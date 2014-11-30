@@ -16,7 +16,10 @@ import android.util.Log;
 
 public class EchoList {
 	
+	// this line of code was considered a God class
+	// was not extracted into a new class, as it is only a line of code
 	private ArrayList<Echo> List;
+	
 	protected transient ArrayList<Listener> listeners;
 
 	public EchoList() {
@@ -36,6 +39,11 @@ public class EchoList {
 	/**
  	* Adds a list of Echos to an EchoList.
  	*/
+	
+	// this method up till and including addListener where considered
+	// God classes
+	// were not extracted as they are similar in functionality to the
+	// other methods
 	public ArrayList<Echo> addAll(EchoList echos){
 		return this.addAll(echos);
 	}

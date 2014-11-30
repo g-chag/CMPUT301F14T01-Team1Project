@@ -12,9 +12,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class YodelList {
+	
+	// this line of code was considered a God class
+	// was not extracted as it is only a line of code
 	public ArrayList<Yodel> List;
+	
 	protected transient ArrayList<Listener> listeners;
 
+	// this method up till and including addListener were
+	// considered God classes
+	// were not extracted as they make up the bulk of the class
 	public YodelList() {
 		List = new ArrayList<Yodel>();
 		listeners = new ArrayList<Listener>();

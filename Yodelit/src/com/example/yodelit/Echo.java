@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import android.util.Log;
 
 public class Echo {
+	private EchoVotes echoVotes = new EchoVotes();
 	public String text; //Text of the reply
 	public String Author; //Author/username id
 	protected int YID; //ID of the Yodel echo is responding to
@@ -21,8 +22,11 @@ public class Echo {
 	public Date date; //Date
 	public int upgoats; //Number of upgoats
 	public int downgoats; //Number of downgoats
+	
+	// this was considered a God class
+	// it was not moved, as it is applied in this class
+	// extracting this would generate an error in the code
 	public ArrayList<String> upgoatList = new ArrayList<String>(); //list of user id that has upvoted
-	public ArrayList<String> downgoatList = new ArrayList<String>(); //list of user if that has downvoted
 	
 	public Echo(String text){
 		this.text = text;
@@ -120,16 +124,11 @@ public class Echo {
 		Log.i("Gibberish", "I got here bro.");
 		this.upgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
 	}
-	public void addUserDownVote(){
-		Log.i("Gibberish", "I got here bro.");
-		this.downgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
-	}
-	
 	public ArrayList<String> getUsersUpVote(){
 		return this.upgoatList; //TODO: NEEDS TO BE user id number!!
 	}
 	public ArrayList<String> getUsersDownVote(){
-		return this.downgoatList;
+		return this.echoVotes.getDowngoatList();
 	}
 	
 }

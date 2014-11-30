@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -86,7 +85,7 @@ public class newYodelAdapter extends BaseAdapter{
         upgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
 			User theUser = YodelitController.getActiveUser();
-			String activeUser = tryName(theUser);
+			String activeUser = theUser.tryName();
 			@Override
 			public void onClick(View v) {
 				if ( (yodel.getAuthor() != activeUser) && (yodel.getUsersUpVote().contains(activeUser) == false) ){
@@ -107,7 +106,7 @@ public class newYodelAdapter extends BaseAdapter{
         downgoat.setOnClickListener(new OnClickListener() {
 			Yodel yodel = data.get(position);
 			User theUser = YodelitController.getActiveUser();
-			String activeUser = tryName(theUser);
+			String activeUser = theUser.tryName();
 			@Override
 			public void onClick(View v) {
 				if ( (yodel.getAuthor() != activeUser) && (yodel.getUsersDownVote().contains(activeUser) == false) ){
@@ -124,16 +123,5 @@ public class newYodelAdapter extends BaseAdapter{
 
         return vi;
         
-    }
-    //TODO: This method shouldn't be necessary. Need to fix app so it doesn't throw errors.
-    public String tryName(User tempUser) {
-    	String tempUserString;
-    	try {
-    		tempUserString = tempUser.getUname();
-    	}
-    	catch (Exception e) {
-    		tempUserString = " ";
-    	}
-    	return tempUserString;
     }
 }

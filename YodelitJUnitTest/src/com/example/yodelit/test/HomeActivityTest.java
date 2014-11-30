@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.example.yodelit.HomeActivity;
 import com.example.yodelit.R;

@@ -26,6 +26,10 @@ public class ElasticSearchManager implements RubberClient {
 	private static final String SEARCH_URL = "http://cmput301.softwareprocess.es:8080/team1/_search";
 	private static final String RESOURCE_URL = "http://cmput301.softwareprocess.es:8080/team1/";
 	private static final String TAG = "YodelSearch";
+	
+	// this variable was considered a God class
+	// was not extracted as it is only a line of code
+	// and is used in the class
 	private Gson gson;
 	
 	public ElasticSearchManager() {
@@ -186,6 +190,11 @@ public class ElasticSearchManager implements RubberClient {
 		return searchRequest;
 	}
 	
+	// the next two methods were considered to be God classes
+	// they were not extracted, as their functionality is the same as
+	// the other methods in ElasticSearchManager.java
+	// additionally, we would like to keep everything regarding Elastic Search
+	// in one file
 	private ElasticSearchHit<Yodel> parseYodelHit(HttpResponse response) {
 		
 		try {

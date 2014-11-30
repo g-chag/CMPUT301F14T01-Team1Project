@@ -61,4 +61,20 @@ public class User {
 		YodelFavs = yodelFavs;
 	}
 	
+	// this method was found to be a bad smell in newYodelAdapter.java
+	// it was suggested to move the method over to User.java
+	// this change was accepted as the method deals with attempting to ensure
+	// that a username is valid, and since it deals with the user, is better
+	// suited to be in file with other user information
+	public String tryName() {
+		String tempUserString;
+		try {
+			tempUserString = getUname();
+		}
+		catch (Exception e) {
+			tempUserString = " ";
+		}
+		return tempUserString;
+	}
+	
 }

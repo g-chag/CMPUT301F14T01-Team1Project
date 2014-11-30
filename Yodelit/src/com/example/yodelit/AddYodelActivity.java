@@ -90,6 +90,13 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		return true;
 	}
 	
+	// the next two methods were considered to be God classes
+	// because they are a sizable amount of code, they were extracted
+	// into a new class
+	// however, when that was done, quite a few error where encountered
+	// where adding a newYodel and bitmap needed to be reinitialized
+	// as we did not want to initialize variables in multiple places
+	// we put in the code back in AddYodelActivity.java
 	/**
 	 * 	Gets into from screen. Adds newly created Yodel to controller.
 	 */

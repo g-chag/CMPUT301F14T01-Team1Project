@@ -2,7 +2,6 @@ package com.example.yodelit.test;
 
 import com.example.yodelit.AddYodelActivity;
 import com.example.yodelit.R;
-import com.example.yodelit.YodelMainActivity;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;

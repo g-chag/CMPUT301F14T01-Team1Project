@@ -8,7 +8,6 @@
 
 package com.example.yodelit;
 
-import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -16,16 +15,24 @@ import android.content.Context;
 import android.graphics.Bitmap;
 
 public class Yodel {
+	private YodelGeoExtra yodelGeoExtra = new YodelGeoExtra();
 	protected int yID;
 	public String question;
+	
+	// these variables were considered God classes
+	// they were not extracted as the amount of code is very little
+	// additionally, these lines of code are used in this class
 	public String info;
 	public String Author;
 	public Date date;
-	public ArrayList<String> Location = new ArrayList<String>();
 	public int upgoats; //Number of upgoats
 	public int downgoats; //Number of downgoats
-	public ArrayList<Echo> echoList = new ArrayList<Echo>();	
+	public ArrayList<Echo> echoList = new ArrayList<Echo>();
+	
+	// this method was considered a God class
+	// it was not extracted as it is only one line of code
 	public ArrayList<String> upgoatList = new ArrayList<String>(); //list of user id that has upvoted
+	
 	public ArrayList<String> downgoatList = new ArrayList<String>(); //list of user if that has downvoted
 	public Bitmap bm;
 	
@@ -40,8 +47,8 @@ public class Yodel {
 		//NEEDS TO SET DATE
 		this.upgoats = 0;
 		this.downgoats = 0;
-		this.Location.add("none");
-		this.Location.add("none");
+		this.yodelGeoExtra.getLocation().add("none");
+		this.yodelGeoExtra.getLocation().add("none");
 	}
 	
 	/**
@@ -89,6 +96,10 @@ public class Yodel {
 	/**
 	*  Sets the Yodels author.
  	*/
+	// this was also considered a God class
+	// it was not extracted as it serves a similar functionality as
+	// the other methods in the class
+	// additionally, the code amount is extremely small to extract
 	public void setAuthor(String author) {
 		Author = author;
 	}
@@ -129,18 +140,11 @@ public class Yodel {
 	}
 	
 	public void setLocationGPS(Context context) {
-		GeoLoc gl = new GeoLoc(context);
-		try {
-			Location = gl.findLocation();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			Location.add("Broken");
-			Location.add("Broken");
-		}
+		yodelGeoExtra.setLocationGPS(context);
 		
 	}
 	public ArrayList<String> getLocation() {
-		return Location;
+		return yodelGeoExtra.getLocation();
 	}
 	
 
