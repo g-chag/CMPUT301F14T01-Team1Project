@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
 		String username = userEditText.getText().toString();
 		if (submissionCheck(username)){
 			User user = new User(username);
+			user.setLocationGPS(this);
 			YodelitController.setActiveUser(user);
 			Intent intent = new Intent(MainActivity.this, HomeActivity.class);
 			startActivity(intent);

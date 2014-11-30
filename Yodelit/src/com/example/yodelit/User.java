@@ -10,11 +10,15 @@ package com.example.yodelit;
 
 import java.util.ArrayList;
 
+import android.content.Context;
+
 public class User {
 	public String Uname;
 	//private int UID;
 	public ArrayList<Integer> YodelHist = new ArrayList<Integer>();
 	public ArrayList<Integer> YodelFavs = new ArrayList<Integer>();
+	public ArrayList<Echo> echoList = new ArrayList<Echo>();
+	public YodelGeoExtra yodelGeoExtra = new YodelGeoExtra();
 	
 	public User(String username){
 		this.Uname = username;
@@ -61,6 +65,11 @@ public class User {
 		YodelFavs = yodelFavs;
 	}
 	
+	
+	public void setLocationGPS(Context context) {
+		yodelGeoExtra.setLocationGPS(context);
+	}
+	
 	// this method was found to be a bad smell in newYodelAdapter.java
 	// it was suggested to move the method over to User.java
 	// this change was accepted as the method deals with attempting to ensure
@@ -75,6 +84,9 @@ public class User {
 			tempUserString = " ";
 		}
 		return tempUserString;
+	}
+	public YodelGeoExtra getLocation() {
+		return yodelGeoExtra;
 	}
 	
 }
