@@ -10,17 +10,15 @@
 
     <color name="blue">#09A7F1</color>
     <color name="white">#FFFFFF</color>
-    <color name="darkgrey">#505050</color> 	
+    <color name="darkgrey">#505050</color>
     <color name="grey">#BFBFBF</color>
 
     <string name="title_activity_add_echo">AddEchoActivity</string>
     <string name="title_activity_user">UserActivity</string>
-   
     <string name="echo">Echo</string>
     <string name="cancel">Cancel</string>
     <string name="my_echo_to_your_yodel">My Echo To Your Yodel!</string>
     <string name="echo_symbol"></string>
-    
     <string name="user_profile">User Profile</string>
     <string name="yodels">Yodels</string>
     <string name="yodel">Yodel</string>
@@ -32,24 +30,24 @@
     <string name="search_for_a_yodel">Search for a Yodel</string>
     <string name="your_username">Username</string>
     <string name="add_photo">Add Photo</string>
-    
     <string name="yodel_image"></string>
     <string name="username">Username</string>
     <string name="start_yodeling">Start Yodeling!</string>
-    
     <string name="text_view"></string>
-
     <string name="favourites">Favourites</string>
     <string name="change_username">Change Username?</string>
     <string name="favourites_colon">Favourites: </string>
     <string name="screaming_goat"></string>
     <string name="username_colon">Username: </string>
-
     <string name="echo_slash_yodel">Echo/Yodel</string>
     <string name="user">User                 </string>
     <string name="date">Date                    </string>
     <string name="zero">0</string>
     <string name="d">D</string>
     <string name="u">U</string>
-        
+    <string name="title_activity_location">LocationActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="locationText">Location:</string>
+    <string name="activeLocation">City, Country</string>
+
 </resources>

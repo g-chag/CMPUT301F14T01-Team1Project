@@ -35,9 +35,14 @@ public class UserActivity extends Activity {
 		
 		TextView displayUser = (TextView) findViewById(R.id.usernameText);
 		TextView changeUsername = (TextView) findViewById(R.id.changeUser);
+		TextView displayLoc = (TextView) findViewById(R.id.activeLocationTextView);
 		User user = YodelitController.getActiveUser();
+		YodelGeoExtra yge = user.getLocation();
+		ArrayList<String> loc = yge.getLocation();
+		String locString = loc.get(0)+", "+loc.get(1);
 		String name = user.getUname();
 		displayUser.setText(name);
+		displayLoc.setText(locString);
 		
 		ArrayList<String> list = new ArrayList<String>();
 		final ArrayList<Integer> favlist = user.getYodelFavs();

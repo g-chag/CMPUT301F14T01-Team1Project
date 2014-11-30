@@ -104,4 +104,23 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
+    <TextView
+        android:id="@+id/locationTextTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/textFav"
+        android:layout_alignTop="@+id/textFav"
+        android:text="@string/locationText"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/activeLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/locationTextTextView"
+        android:layout_alignBottom="@+id/locationTextTextView"
+        android:layout_toRightOf="@+id/textFav"
+        android:text="@string/activeLocation" />
+
 </RelativeLayout>
