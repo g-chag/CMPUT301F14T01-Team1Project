@@ -18,6 +18,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -117,27 +118,30 @@ public class HomeActivity extends Activity {
     @SuppressWarnings("null")
 	@SuppressLint("DefaultLocale") 
     public void filter(View view){
-    	EditText filterText = (EditText) findViewById(R.id.filterText);
-    	String filteree = filterText.getText().toString();
-    	final ListView filteredListview =  (ListView) findViewById(R.id.YodelListView);
-		Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
-		Collection<Yodel> filteredYodels = null; 
-		
-		Iterator<Yodel> i = yodels.iterator();
-		
-		while (i.hasNext()){
-			Yodel yodel = i.next();
-			String yodelText = yodel.getYodelText();
-			if (yodelText.toLowerCase().contains(filteree.toLowerCase())){
-				filteredYodels.add(yodel);
+    	try {
+	    	EditText filterText = (EditText) findViewById(R.id.filterText);
+	    	String filteree = filterText.getText().toString();
+	    	final ListView filteredListview =  (ListView) findViewById(R.id.YodelListView);
+			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+			Collection<Yodel> filteredYodels = null; 
+			
+			Iterator<Yodel> i = yodels.iterator();
+			
+			while (i.hasNext()){
+				Yodel yodel = i.next();
+				String yodelText = yodel.getYodelText();
+				if (yodelText.toLowerCase().contains(filteree.toLowerCase())){
+					filteredYodels.add(yodel);
+				}
 			}
-		}
-		
-		final ArrayList<Yodel> filteredYodelList = new ArrayList<Yodel>(filteredYodels);
-		final newYodelAdapter filteredYodelsAdapter = new newYodelAdapter(this, filteredYodelList);
-		
-		filteredListview.setAdapter(filteredYodelsAdapter);
-		
+			
+			final ArrayList<Yodel> filteredYodelList = new ArrayList<Yodel>(filteredYodels);
+			final newYodelAdapter filteredYodelsAdapter = new newYodelAdapter(this, filteredYodelList);
+			
+			filteredListview.setAdapter(filteredYodelsAdapter);
+    	} catch (Exception e) {
+    		Log.i("Error:",e.toString());
+    	}
     }
     
     /**
@@ -221,11 +225,16 @@ public class HomeActivity extends Activity {
 		
 		@Override
 		public void run(){
-			yodelList.clear();
-			ArrayList<Yodel> holding = (ArrayList<Yodel>) YodelManager.searchYodels(search, null);
-			YodelitController.addAllYodels(holding);
-			yodelList.addAll(holding);
-			runOnUiThread(doUpdateGUIList);
+			try {
+				yodelList.clear();
+				ArrayList<Yodel> holding = (ArrayList<Yodel>) YodelManager.searchYodels(search, null);
+				YodelitController.addAllYodels(holding);
+				yodelList.addAll(holding);
+				runOnUiThread(doUpdateGUIList);
+			}
+			catch (Exception e) {
+				Log.i("Error:",e.toString());
+			}
 		}
 		
 	}
