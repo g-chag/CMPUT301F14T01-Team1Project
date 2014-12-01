@@ -49,5 +49,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="locationText">Location:</string>
     <string name="activeLocation">City, Country</string>
+    <string name="change_Loc">Change Location?</string>
 
 </resources>

@@ -9,6 +9,7 @@
 package com.example.yodelit;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import android.content.Context;
 
@@ -87,6 +88,35 @@ public class User {
 	}
 	public YodelGeoExtra getLocation() {
 		return yodelGeoExtra;
+	}
+	public void setLocation(String location) {
+		String[] temp = location.split(",");
+		if (temp.length< 1){
+			ArrayList<String> empty = new ArrayList<String>();
+			empty.add("None");
+			empty.add("None");
+			yodelGeoExtra.setLocation(empty);
+		}
+		else if (temp.length < 2){
+			if (temp[0].equals("")){
+				ArrayList<String> empty = new ArrayList<String>();
+				empty.add("None");
+				empty.add("None");
+				yodelGeoExtra.setLocation(empty);
+			}else{
+				ArrayList<String> country = new ArrayList<String>();
+				country.add("None");
+				country.add(temp[0]);
+				yodelGeoExtra.setLocation(country);
+			}
+		}
+		else{
+			ArrayList<String> both = new ArrayList<String>();
+			both.add(temp[0]);
+			both.add(temp[1]);
+			yodelGeoExtra.setLocation(both);
+		}
+		
 	}
 	
 }

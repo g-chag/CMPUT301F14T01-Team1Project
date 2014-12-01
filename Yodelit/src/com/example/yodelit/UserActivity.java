@@ -36,6 +36,7 @@ public class UserActivity extends Activity {
 		TextView displayUser = (TextView) findViewById(R.id.usernameText);
 		TextView changeUsername = (TextView) findViewById(R.id.changeUser);
 		TextView displayLoc = (TextView) findViewById(R.id.activeLocationTextView);
+		TextView changeLoc = (TextView) findViewById(R.id.changeLocText);
 		User user = YodelitController.getActiveUser();
 		YodelGeoExtra yge = user.getLocation();
 		ArrayList<String> loc = yge.getLocation();
@@ -64,6 +65,13 @@ public class UserActivity extends Activity {
 		changeUsername.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				changeUser();	
+			}
+
+		});
+		
+		changeLoc.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				changeLocation();	
 			}
 		});
 		
@@ -177,6 +185,37 @@ public class UserActivity extends Activity {
 				YodelitController.setActiveUser(usr);
 				
 				displayUser.setText(name);
+		    }
+		});
+		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		        dialog.cancel();
+		    }
+		});
+		builder.show();
+		return;
+		
+	}
+	
+	public void changeLocation() {
+		//For getting input from user in a dialogue box: http://stackoverflow.com/questions/10903754/input-text-dialog-android 11/06/14
+
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Enter a City,Country/ Country/Leave blank");
+
+		final EditText input = new EditText(this);
+		builder.setView(input);
+
+		// Set up the buttons
+		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() { 
+		    @Override
+		    public void onClick(DialogInterface dialog, int which) {
+		    	final String location = input.getText().toString();
+				TextView displayLoc = (TextView) findViewById(R.id.activeLocationTextView);
+				User usr = YodelitController.getActiveUser();
+				usr.setLocation(location);
+				displayLoc.setText(location);
 		    }
 		});
 		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
