@@ -55,7 +55,7 @@ public class HomeActivity extends Activity {
 		
 		yodelList.clear();
 		Thread thread = new SearchThread("");
-		thread.start();
+		//thread.start();
         
 		/**
 	 	* Opens Yodel with Echo listed.
