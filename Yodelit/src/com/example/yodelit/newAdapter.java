@@ -89,7 +89,7 @@ import android.widget.Toast;
         	text.setText(echo.getText());
         	user.setText(echo.getAuthor());
         	date.setText(echo.getDate());
-        	total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
+        	total.setText("" + (echo.getUpgoats()-echo.getDowngoats()) );
         }
         
         /**

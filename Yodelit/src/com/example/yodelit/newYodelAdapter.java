@@ -102,12 +102,6 @@ public class newYodelAdapter extends BaseAdapter{
 					YodelitController.yodelList.getYodel(position).setUpgoats((yodel.getUpgoats())+1);
 					YodelitController.yodelList.getYodel(position).addUserUpVote();
 		        	total.setText("" + (yodel.getUpgoats() - yodel.getDowngoats()));	
-		        	
-		        	Thread thread = new DeleteThread(yodel.getYid());
-					thread.start();
-					
-					thread = new AddThread(yodel);
-					thread.start();
 
 				} else if (yodel.getAuthor() == activeUser) {
 					Toast.makeText(context, "Cannot upgoat own Yodel!", Toast.LENGTH_SHORT).show();
@@ -132,12 +126,7 @@ public class newYodelAdapter extends BaseAdapter{
 					YodelitController.yodelList.getYodel(position).setDowngoats((yodel.getDowngoats())+1);
 					YodelitController.yodelList.getYodel(position).addUserDownVote();
 		        	total.setText("" + (yodel.getUpgoats() - yodel.getDowngoats()));	
-		        	
-		        	Thread thread = new DeleteThread(yodel.getYid());
-					thread.start();
-					
-					thread = new AddThread(yodel);
-					thread.start();
+
 		        	
 				} else if (yodel.getAuthor() == theUser.getUname()) {
 					Toast.makeText(context, "Cannot downgoat own Yodel!", Toast.LENGTH_SHORT).show();
