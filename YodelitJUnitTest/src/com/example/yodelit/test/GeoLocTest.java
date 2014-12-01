@@ -5,6 +5,7 @@ import junit.framework.TestCase;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.example.yodelit.UserActivity;
 import com.example.yodelit.YodelGeoExtra;
 import com.example.yodelit.GeoLoc;
 
@@ -13,7 +14,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class GeoLocTest extends ActivityInstrumentationTestCase2<YodelGeoExtra> {
+public class GeoLocTest extends ActivityInstrumentationTestCase2<UserActivity> {
 
 	//what to do if the test passes
 	public void testPass(){

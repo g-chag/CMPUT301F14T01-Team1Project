@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import android.test.ActivityInstrumentationTestCase2;
 import android.util.Log;
 
+import com.example.yodelit.AddEchoActivity;
 import com.example.yodelit.EchoVotes;
 import com.example.yodelit.YodelitController;
 
 import junit.framework.TestCase;
 
-public class EchoVotesTest extends ActivityInstrumentationTestCase2<EchoVotes>  {
+public class EchoVotesTest extends ActivityInstrumentationTestCase2<AddEchoActivity>  {
 
 	//what to do if the test passes
 	public void testPass(){
