@@ -35,7 +35,7 @@ public class UserActivity extends Activity {
 		
 		TextView displayUser = (TextView) findViewById(R.id.usernameText);
 		TextView changeUsername = (TextView) findViewById(R.id.changeUser);
-		TextView displayLoc = (TextView) findViewById(R.id.yodelLocationTextView);
+		TextView displayLoc = (TextView) findViewById(R.id.activeLocationTextView);
 		User user = YodelitController.getActiveUser();
 		YodelGeoExtra yge = user.getLocation();
 		ArrayList<String> loc = yge.getLocation();
@@ -88,6 +88,57 @@ public class UserActivity extends Activity {
 		getMenuInflater().inflate(R.menu.user, menu);
 		return true;
 	}
+	
+	@Override
+	public void onResume(){
+		super.onResume();
+		TextView displayUser = (TextView) findViewById(R.id.usernameText);
+		TextView changeUsername = (TextView) findViewById(R.id.changeUser);
+		TextView displayLoc = (TextView) findViewById(R.id.activeLocationTextView);
+		User user = YodelitController.getActiveUser();
+		YodelGeoExtra yge = user.getLocation();
+		ArrayList<String> loc = yge.getLocation();
+		String locString = loc.get(0)+", "+loc.get(1);
+		String name = user.getUname();
+		displayUser.setText(name);
+		displayLoc.setText(locString);
+		
+		ArrayList<String> list = new ArrayList<String>();
+		final ArrayList<Integer> favlist = user.getYodelFavs();
+		
+		/**
+	 	* Set the Yodels here into the favorites list.
+	 	*/
+		for (int x = 0; x < favlist.size(); x++){
+			list.add(YodelitController.getYodelList().getYodel(favlist.get(x)).getYodelText()); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
+		}
+    	
+		ListView favView = (ListView) findViewById(R.id.listView);
+		ArrayAdapter<String> favAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+		favView.setAdapter(favAdapter); 
+		
+		/**
+	 	* Changing username.
+	 	*/
+		changeUsername.setOnClickListener(new OnClickListener() {
+			public void onClick(View v) {
+				changeUser();	
+			}
+		});
+		
+		/**
+	 	* Can view Echos of favourite Yodels by clicking on the list.
+	 	*/
+		favView.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Intent intent = new Intent(UserActivity.this, YodelMainActivity.class);
+				intent.putExtra("YID", favlist.get(position));
+		    	startActivity(intent);
+
+			}
+		});
+		
+	}
 
 	/**
 	*  Handle action bar item clicks here. The action bar will
@@ -121,6 +172,10 @@ public class UserActivity extends Activity {
 		    public void onClick(DialogInterface dialog, int which) {
 		    	final String name = input.getText().toString();
 				TextView displayUser = (TextView) findViewById(R.id.usernameText);
+				User usr = YodelitController.getActiveUser();
+				usr.setUname(name);
+				YodelitController.setActiveUser(usr);
+				
 				displayUser.setText(name);
 		    }
 		});
