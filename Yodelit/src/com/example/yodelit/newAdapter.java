@@ -24,6 +24,7 @@ import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 //FOUND AT http://stackoverflow.com/questions/15832335/android-custom-row-item-for-listview 11/08/14 
 @SuppressLint("InflateParams") public class newAdapter extends BaseAdapter{
@@ -97,17 +98,20 @@ import android.widget.TextView;
         //TODO: Fix this so it upgoats properly.
         upgoat.setOnClickListener(new OnClickListener() {
 			Echo echo = data.get(position);
+			User theUser = YodelitController.getActiveUser();
+			String activeUser = theUser.tryName();
 			@Override
 			public void onClick(View v) {
 				try {
-					YodelitController.yodelList.getYodel(position).getEchoList().get(position).setUpgoats((echo.getUpgoats())+1);
-					total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
-					
-		        	Thread thread = new DeleteThread(echo.getYID());
-					thread.start();
-					Yodel yodel = YodelitController.getYodelList().getYodel(echo.getYID());
-					thread = new AddThread(yodel);
-					thread.start();
+						int id = echo.getYID();
+						YodelitController.getYodelList().getYodel(id).getEchoList().get(position).setUpgoats(echo.getUpgoats() + 1);
+						total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())));
+						
+			        	Thread thread = new DeleteThread(echo.getYID());
+						thread.start();
+						Yodel yodel = YodelitController.getYodelList().getYodel(echo.getYID());
+						thread = new AddThread(yodel);
+						thread.start();
 				}
 				catch (Exception e) {
 					Log.e("Debug","Upgoat failed.");
@@ -121,18 +125,28 @@ import android.widget.TextView;
         //TODO: Fix this so it downgoats properly.
         downgoat.setOnClickListener(new OnClickListener() {
 			Echo echo = data.get(position);
+			User theUser = YodelitController.getActiveUser();
+			String activeUser = theUser.tryName();
 			@Override
 			public void onClick(View v) {
 				try {
-					YodelitController.yodelList.getYodel(position).getEchoList().get(position).setDowngoats((echo.getDowngoats())+1);
-					total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
+					int id = echo.getYID();
+					YodelitController.getYodelList().getYodel(id).getEchoList().get(position).setDowngoats(echo.getDowngoats() + 1);
+					total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())));
+					
+		        	Thread thread = new DeleteThread(echo.getYID());
+					thread.start();
+					
+					Yodel yodel = YodelitController.getYodelList().getYodel(echo.getYID());
+					
+					thread = new AddThread(yodel);
+					thread.start();
 				}
 				catch (Exception e) {
 					Log.e("Debug","Downgoat failed.");
 				}
 			}
 		});
-        
         
         return vi;
     }

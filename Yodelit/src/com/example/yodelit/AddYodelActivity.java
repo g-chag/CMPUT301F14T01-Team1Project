@@ -188,7 +188,8 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 	}
 	
 	/**Checks to make sure that image size to be less than 64kB**/
-	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1) public boolean checkSize(Bitmap bm){
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1)
+	public boolean checkSize(Bitmap bm){
 		int size;
 		size = bm.getByteCount();
 		if (size > 640000){
