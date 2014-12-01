@@ -8,6 +8,12 @@
 
 package com.example.yodelit;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import com.example.yodelit.AddYodelActivity.AddThread;
+import com.example.yodelit.HomeActivity.DeleteThread;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,13 +21,21 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
+
 public class AddEchoActivity extends Activity {
 
+	
+	/**Interface for Elastic Search**/
+	private RubberClient YodelManager;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_echo);
+		YodelManager = new ElasticSearchManager();
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -44,6 +58,13 @@ public class AddEchoActivity extends Activity {
 			Echo newEcho = new Echo(rString);
 			Yodel yodel = YodelitController.getYodelList().getYodel(yID);
 			yodel.addEcho(newEcho);
+			
+			Thread thread = new DeleteThread(yID);
+			thread.start();
+			
+			thread = new AddThread(yodel);
+			thread.start();
+			
 			finish();
 			return;
 		} else {
@@ -65,6 +86,52 @@ public class AddEchoActivity extends Activity {
 	public void cancel(View view){
 		finish();
 	}
+	
+    class DeleteThread extends Thread {
+		public int yID;
+
+		public DeleteThread(int movieId) {
+			this.yID = yID;
+		}
+
+		@Override
+		public void run() {
+			YodelManager.deleteYodel(yID);
+			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+			ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
+			// Remove movie from local list
+			for (int i = 0; i < yodelList.size(); i++) {
+				Yodel y = yodelList.get(i);
+				if (y.getYid()== yID) {
+					yodelList.remove(y);
+					break;
+				}
+			}
+		}
+	}
+    
+    
+    /**Used for calling ElasticAdding**/
+	class AddThread extends Thread {
+		private Yodel yodel;
+
+		public AddThread(Yodel yodel) {
+			this.yodel = yodel;
+		}
+
+		@Override
+		public void run() {
+			YodelManager.addYodel(yodel);
+			
+			// Give some time to get updated info
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 }
+
 

@@ -54,8 +54,8 @@ public class HomeActivity extends Activity {
 		listview.setAdapter(yodelsAdapter);
 		YodelManager = new ElasticSearchManager();
 		
-		yodelList.clear();
-		Thread thread = new SearchThread("");
+		//yodelList.clear();
+		//Thread thread = new SearchThread("");
 		//thread.start();
         
 		/**
@@ -215,9 +215,10 @@ public class HomeActivity extends Activity {
 			
 	    }
     }
+    
     class SearchThread extends Thread {
 		// TODO: Implement search thread
-		private String search;
+		public String search;
 		
 		public SearchThread(String s){
 			search = s;
@@ -236,7 +237,29 @@ public class HomeActivity extends Activity {
 				Log.i("Error:",e.toString());
 			}
 		}
-		
+	}
+    
+    class DeleteThread extends Thread {
+		public int yID;
+
+		public DeleteThread(int movieId) {
+			this.yID = yID;
+		}
+		@Override
+		public void run() {
+			YodelManager.deleteYodel(yID);
+
+			// Remove movie from local list
+			for (int i = 0; i < yodelList.size(); i++) {
+				Yodel y = yodelList.get(i);
+
+				if (y.getYid()== yID) {
+					yodelList.remove(y);
+					break;
+				}
+			}
+			runOnUiThread(doUpdateGUIList);
+		}
 	}
 }
     

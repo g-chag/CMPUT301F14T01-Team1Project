@@ -137,7 +137,7 @@ public class ElasticSearchManager implements RubberClient {
 			Log.i(TAG + "addYodel", status);
 			
 			//Now that we've added the new Yodel, we can set it's ID to the new one
-			setNewID(yodel);
+			//setNewID(yodel);
 
 		} catch (Exception e) {
 			e.printStackTrace();

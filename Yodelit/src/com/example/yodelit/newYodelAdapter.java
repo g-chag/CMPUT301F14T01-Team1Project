@@ -92,6 +92,9 @@ public class newYodelAdapter extends BaseAdapter{
 					YodelitController.yodelList.getYodel(position).setUpgoats((yodel.getUpgoats())+1);
 					YodelitController.yodelList.getYodel(position).addUserUpVote();
 		        	total.setText("" + (yodel.getUpgoats() - yodel.getDowngoats()));	
+		        	
+		        	
+		        	
 				} else if (yodel.getAuthor() == activeUser) {
 					Toast.makeText(context, "Cannot upgoat own Yodel!", Toast.LENGTH_SHORT).show();
 				} else if (yodel.getUsersUpVote().contains(activeUser) == true){
