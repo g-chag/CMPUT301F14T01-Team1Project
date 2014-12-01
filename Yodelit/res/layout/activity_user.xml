@@ -123,4 +123,15 @@
         android:layout_toRightOf="@+id/textFav"
         android:text="@string/activeLocation" />
 
+    <TextView
+        android:id="@+id/changeLocText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/activeLocationTextView"
+        android:layout_alignBottom="@+id/activeLocationTextView"
+        android:layout_toRightOf="@+id/activeLocationTextView"
+        android:clickable="true"
+        android:text="@string/change_Loc"
+        android:textColor="@color/white" />
+
 </RelativeLayout>
