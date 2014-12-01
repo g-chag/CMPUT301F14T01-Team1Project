@@ -72,8 +72,13 @@ public class YodelList {
 	}
 
 	/**Retrives Yodels from the list based on index values**/
-	public Yodel getYodel(int index) {
-		return List.get(index);
+	public Yodel getYodel(int index){
+		for (int i = 0; i < List.size(); i++){
+			if (List.get(i).getYid() == index){
+				return List.get(i);
+			}
+		}
+		return null;
 	}
 
 	// -----------------------------//

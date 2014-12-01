@@ -37,7 +37,7 @@ public class YodelMainActivity extends Activity {
         TextView yodelView = (TextView) findViewById(R.id.yodelView);
         TextView infoView = (TextView) findViewById(R.id.infoView);
         TextView userLoc = (TextView) findViewById(R.id.yodelLocationTextView);
-        final int yID = getIntent().getIntExtra("YID", -1);
+        final int yID = getIntent().getIntExtra("YID", 0);
         
         final Yodel yodel = YodelitController.getYodelList().getYodel(yID); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
         yodelView.setText(yodel.getYodelText());
