@@ -144,7 +144,15 @@ public class Yodel {
 		
 	}
 	public ArrayList<String> getLocation() {
+		if (yodelGeoExtra == null){
+			ArrayList<String> list = new ArrayList<String>();
+		    list.add("None");
+		    list.add("None");
+		    return list;
+		}else{
+			
 		return yodelGeoExtra.getLocation();
+		}
 	}
 	
 

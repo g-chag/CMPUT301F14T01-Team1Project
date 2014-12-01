@@ -35,7 +35,7 @@ public class UserActivity extends Activity {
 		
 		TextView displayUser = (TextView) findViewById(R.id.usernameText);
 		TextView changeUsername = (TextView) findViewById(R.id.changeUser);
-		TextView displayLoc = (TextView) findViewById(R.id.activeLocationTextView);
+		TextView displayLoc = (TextView) findViewById(R.id.yodelLocationTextView);
 		User user = YodelitController.getActiveUser();
 		YodelGeoExtra yge = user.getLocation();
 		ArrayList<String> loc = yge.getLocation();

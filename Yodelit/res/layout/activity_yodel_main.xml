@@ -71,4 +71,23 @@
         android:focusable="true" >
     </ListView>
 
+    <TextView
+        android:id="@+id/yodelLocationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/yodelTextTextView"
+        android:layout_alignBottom="@+id/yodelTextTextView"
+        android:layout_toRightOf="@+id/yodelTextTextView"
+        android:text="@string/activeLocation" />
+
+    <TextView
+        android:id="@+id/yodelTextTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/AddEchoButton"
+        android:layout_alignLeft="@+id/EchoListView"
+        android:text="@string/locationText"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
 </RelativeLayout>

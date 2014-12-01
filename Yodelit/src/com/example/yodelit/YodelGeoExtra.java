@@ -20,6 +20,10 @@ public class YodelGeoExtra {
 
 	/**Gets the location from user device**/
 	public ArrayList<String> getLocation() {
+		if (Location == null){
+			Location.add("None");
+			Location.add("None");
+		}
 		return Location;
 	}
 
@@ -34,8 +38,8 @@ public class YodelGeoExtra {
 		try {
 			Location = gl.findLocation();
 		} catch (IOException e) {
-			Location.add("Broken");
-			Location.add("Broken");
+			Location.add("None");
+			Location.add("None");
 		}
 	}
 }

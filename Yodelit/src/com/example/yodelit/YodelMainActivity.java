@@ -9,6 +9,8 @@
 
 package com.example.yodelit;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -34,11 +36,15 @@ public class YodelMainActivity extends Activity {
         //sets views, gets user id
         TextView yodelView = (TextView) findViewById(R.id.yodelView);
         TextView infoView = (TextView) findViewById(R.id.infoView);
+        TextView userLoc = (TextView) findViewById(R.id.yodelLocationTextView);
         final int yID = getIntent().getIntExtra("YID", -1);
         
         final Yodel yodel = YodelitController.getYodelList().getYodel(yID); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
         yodelView.setText(yodel.getYodelText());
         infoView.setText(yodel.getInfoText());
+        ArrayList<String> locArray = yodel.getLocation();
+        String locString = locArray.get(0)+", "+locArray.get(1);
+        userLoc.setText(locString);
         Bitmap bm = yodel.getBitmap();
         imgView.setImageBitmap(bm);
         
@@ -63,8 +69,11 @@ public class YodelMainActivity extends Activity {
 	        Button echobutton = (Button) findViewById(R.id.AddEchoButton);
 	        ImageView imgView = (ImageView) findViewById(R.id.imageView);
 	        
+	        
 	        TextView yodelView = (TextView) findViewById(R.id.yodelView);
 	        TextView infoView = (TextView) findViewById(R.id.infoView);
+	        TextView userLoc = (TextView) findViewById(R.id.yodelLocationTextView);
+	        
 	        final int yID = getIntent().getIntExtra("YID", -1);
 	        
 	        final Yodel yodel = YodelitController.getYodelList().getYodel(yID); //#### MIGHT NEED TO BE CHANGED FOR SEARCH METHOD
@@ -72,6 +81,9 @@ public class YodelMainActivity extends Activity {
 	        infoView.setText(yodel.getInfoText());
 	        Bitmap bm = yodel.getBitmap();
 	        imgView.setImageBitmap(bm);
+	        ArrayList<String> locArray = yodel.getLocation();
+	        String locString = locArray.get(0)+", "+locArray.get(1);
+	        userLoc.setText(locString);
 	        
 	        final newAdapter echoAdapter = new newAdapter(this, yodel.getEchoList());
 			listview.setAdapter(echoAdapter);
