@@ -44,7 +44,6 @@ public class YodelMainActivity extends Activity {
         
 		final newAdapter echoAdapter = new newAdapter(this, yodel.getEchoList());
 		
-		
 		listview.setAdapter(echoAdapter);
 
 		echobutton.setOnClickListener(new View.OnClickListener() {
@@ -52,13 +51,13 @@ public class YodelMainActivity extends Activity {
             	posting(v, yID);
             	echoAdapter.notifyDataSetChanged();
             }
-            });            
-		
+        });            
     }
+	
+	/**Sets view objects required for echo**/
 	@Override
 	public void onResume(){
 		super.onResume();
-			//Yodel viewYodel = YodelitController.getViewYodel();
 			setContentView(R.layout.activity_yodel_main);
 	        final ListView listview =  (ListView) findViewById(R.id.EchoListView);
 	        Button echobutton = (Button) findViewById(R.id.AddEchoButton);
@@ -74,8 +73,6 @@ public class YodelMainActivity extends Activity {
 	        Bitmap bm = yodel.getBitmap();
 	        imgView.setImageBitmap(bm);
 	        
-	        //Collection<Echo> echos = EchoController.getEchoList().getEchoes();
-			//final ArrayList<Echo> echoList = new ArrayList<Echo>(echos);
 	        final newAdapter echoAdapter = new newAdapter(this, yodel.getEchoList());
 			listview.setAdapter(echoAdapter);
 
@@ -84,10 +81,8 @@ public class YodelMainActivity extends Activity {
 	            	posting(v, yID);
 	            	echoAdapter.notifyDataSetChanged();
 	            }
-	            });
+	        });
 	    }
-	
-	
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -96,6 +91,7 @@ public class YodelMainActivity extends Activity {
 		return true;
 	}
 
+	/**Shows a new activity to which Echoes can be posted**/
 	public void posting(View view, int id){
     	// Pressing Echo. Brings up a new activity to add a Echo/reply to a Yodel
     	Intent intent = new Intent(YodelMainActivity.this, AddEchoActivity.class);
