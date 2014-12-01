@@ -22,14 +22,15 @@ public class YodelList {
 	// this method up till and including addListener were
 	// considered God classes
 	// were not extracted as they make up the bulk of the class
+	/**Creates a new list and listener**/
 	public YodelList() {
 		List = new ArrayList<Yodel>();
 		listeners = new ArrayList<Listener>();
-
 	}
 
 	// ------Listener methods------//
 
+	/**Returns listeners**/
 	private ArrayList<Listener> getListeners() {
 		if (listeners == null) {
 			listeners = new ArrayList<Listener>();
@@ -37,6 +38,7 @@ public class YodelList {
 		return listeners;
 	}
 
+	/**Updates listeners**/
 	private void notifyeveryone() {
 		for (Listener listener : listeners) {
 			listener.update();
@@ -44,10 +46,12 @@ public class YodelList {
 
 	}
 
+	/**Adds listeners**/
 	public void addListener(Listener l) {
 		getListeners().add(l);
 	}
 
+	/**Removes listeners**/
 	public void removeListener(Listener l) {
 		getListeners().remove(l);
 	}
@@ -56,36 +60,35 @@ public class YodelList {
 
 	// ------YodelList Methods-------//
 
+	/**Adds Yodels to the list and updates listeners**/
 	public void addYodel(Yodel yodel) {
-		//Log.i("XXX", yodel.toString() + " " + List.size());
 		List.add(yodel);
-		//Log.i("XXX", yodel + " " + List.size());
 		notifyeveryone();
 	}
 	
+	/**Adds all Yodels to the list and updates listeners**/
 	public boolean addAll(ArrayList<Yodel> yodels){
 		return List.addAll(yodels);
 	}
 
+	/**Retrives Yodels from the list based on index values**/
 	public Yodel getYodel(int index) {
 		return List.get(index);
-
 	}
 
 	// -----------------------------//
 
+	/**Returns list of Yodels**/
 	public Collection<Yodel> getYodels() {
-		//Log.i("XXX", "List " + List);
 		if (List == null) {
-			//Log.i("XXX", "Empty " + List.size());
 			List = new ArrayList<Yodel>();
 			return List;
 		}
-		//Log.i("XXX", "Null" + List.size());
 		return List;
 
 	}
 
+	/**Creates a new list of Yodels and updates the listener**/
 	public void clear() {
 		List = new ArrayList<Yodel>();
 		notifyeveryone();

@@ -18,14 +18,17 @@ import java.io.IOException;
 public class YodelGeoExtra {
 	private ArrayList<String> Location = new ArrayList<String>();
 
+	/**Gets the location from user device**/
 	public ArrayList<String> getLocation() {
 		return Location;
 	}
 
+	/**Sets the location from user device**/
 	public void setLocation(ArrayList<String> Location) {
 		this.Location = Location;
 	}
 
+	/**Sets the location of the user based on GPS**/
 	public void setLocationGPS(Context context) {
 		GeoLoc gl = new GeoLoc(context);
 		try {

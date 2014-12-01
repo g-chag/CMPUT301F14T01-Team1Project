@@ -170,29 +170,51 @@ public class Yodel {
 		return echoList;
 	}
 	
+	/**
+	*  Adds UpGoats to the Yodel.
+ 	*/
 	public void addUserUpVote(){
 		this.upgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
 	}
+	
+	/**
+	*  Adds DownGoats to the Yodel.
+ 	*/
 	public void addUserDownVote(){
 		this.downgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
 	}
 	
+	/**
+	*  Gets number of UpGoats.
+ 	*/
 	public ArrayList<String> getUsersUpVote(){
 		return this.upgoatList; //TODO: NEEDS TO BE user id number!!
 	}
+	
+	/**
+	*  Gets number of DownGoats.
+ 	*/
 	public ArrayList<String> getUsersDownVote(){
 		return this.downgoatList;
 	}
 	
+	/**
+	*  Returns Bitmap value.
+ 	*/
 	public Bitmap getBitmap(){
 		return bm;
 	}
 	
+	/**
+	*  Sets Bitmap value.
+ 	*/
 	public void setBitmap(Bitmap bitmap)
 	{
 		this.bm = bitmap;
 	}
 
+	/**Sets user location.
+ 	*/
 	public void setLocation(YodelGeoExtra yge) {
 		yodelGeoExtra = yge;
 		

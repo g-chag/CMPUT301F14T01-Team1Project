@@ -57,11 +57,13 @@ public class EchoVotes {
 	// create the EchoVotes class in the first place
 	// additionally, this code is used in this class and is in a class
 	// with items of a similar functionality
+	/**Adds user downvotes**/
 	public void addUserDownVote() {
 		Log.i("Gibberish", "I got here bro.");
 		this.downgoatList.add(YodelitController.getActiveUser().getUname());
 	}
 	
+	/**Adds user upvotes**/
 	public void addUserUpVote(){
 		Log.i("Gibberish", "I got here bro.");
 		this.upgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!

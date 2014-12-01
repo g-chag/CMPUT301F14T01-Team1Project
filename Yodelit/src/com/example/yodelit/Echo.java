@@ -120,13 +120,18 @@ public class Echo {
 		this.downgoats = downgoats;
 	}
 	
+	/**Adds an upvote to the echo**/
 	public void addUserUpVote(){
 		Log.i("Gibberish", "I got here bro.");
 		this.upgoatList.add(YodelitController.getActiveUser().getUname()); //TODO: NEEDS TO BE user id number!!
 	}
+	
+	/**Returns the upvotes from what was provided by the user**/
 	public ArrayList<String> getUsersUpVote(){
 		return this.upgoatList; //TODO: NEEDS TO BE user id number!!
 	}
+	
+	/**Returns the downvotes from what was provided by the user**/
 	public ArrayList<String> getUsersDownVote(){
 		return this.echoVotes.getDowngoatList();
 	}

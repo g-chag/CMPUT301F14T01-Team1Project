@@ -36,7 +36,6 @@ public class MainActivity extends Activity {
  	* Sign in function. Checks for valid input.
  	*/
 	public void login(View view) {
-		//Toast.makeText(this, "Archive", Toast.LENGTH_SHORT).show();
 		EditText userEditText = (EditText) findViewById(R.id.userNameEditText);
 		String username = userEditText.getText().toString();
 		if (submissionCheck(username)){
@@ -50,6 +49,7 @@ public class MainActivity extends Activity {
 		}
 	}
 	
+	/**Checks to see if the username is an empty string or not**/
 	public boolean submissionCheck(String username){
 		if (username.isEmpty()){
 			return false;

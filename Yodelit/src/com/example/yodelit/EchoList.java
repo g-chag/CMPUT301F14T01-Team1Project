@@ -28,22 +28,13 @@ public class EchoList {
 
 	}
 
-//	public ArrayList<Echo> toArray() {
-//		if (this != null){
-//			return this.toArray();}
-//		else {
-//			return new ArrayList<Echo>;
-//		}
-//	}
-	
-	/**
- 	* Adds a list of Echos to an EchoList.
- 	*/
-	
 	// this method up till and including addListener where considered
 	// God classes
 	// were not extracted as they are similar in functionality to the
 	// other methods
+	/**
+ 	* Adds a list of Echos to an EchoList.
+ 	*/
 	public ArrayList<Echo> addAll(EchoList echos){
 		return this.addAll(echos);
 	}

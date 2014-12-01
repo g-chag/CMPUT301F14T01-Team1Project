@@ -46,6 +46,7 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_yodel);
 		
+		/**Creates the button and image view for adding a photo**/
 		//code below from: http://www.itcuties.com/android/pick-image-from-gallery/
 		button = (Button)findViewById(R.id.addPhotoButton);
 		image = (ImageView)findViewById(R.id.photoView);
@@ -145,6 +146,7 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		finish();
 	}
 	
+	/**Sizes images chosen from gallery to load onto image view**/
 	//code below from: http://www.itcuties.com/android/pick-image-from-gallery/
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -173,15 +175,6 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 				Cursor cursor = getContentResolver().query(pickedImage, path, null, null, null);
 				cursor.moveToFirst();
 				String imagePath = cursor.getString(cursor.getColumnIndex(path[0]));
-            //Cursor cursor = getContentResolver().query(pickedImage, filePath, null, null, null);
-            //cursor.moveToFirst();
-            //String imagePath = cursor.getString(cursor.getColumnIndex(filePath[0]));
-			//BitmapFactory.Options bmpFactoryOptions = new BitmapFactory.Options();
-			//int height = 300; int width = 300;
-			//int heightRatio = (int)Math.ceil(bmpFactoryOptions.outHeight/(float)height);
-	       // int widthRatio = (int)Math.ceil(bmpFactoryOptions.outWidth/(float)width);
-	       // bmpFactoryOptions.inSampleSize = widthRatio; 
-	       // bmpFactoryOptions.inSampleSize = heightRatio;
 				Bitmap bm = BitmapFactory.decodeFile(imagePath);
 				bitmap = Bitmap.createScaledBitmap(bm,(int)(bm.getWidth()*0.35), (int)(bm.getHeight()*0.35), true);
 				if (checkSize(bitmap)){
@@ -194,6 +187,7 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		}
 	}
 	
+	/**Checks to make sure that image size to be less than 64kB**/
 	@TargetApi(Build.VERSION_CODES.HONEYCOMB_MR1) public boolean checkSize(Bitmap bm){
 		int size;
 		size = bm.getByteCount();
@@ -204,8 +198,7 @@ public class AddYodelActivity extends Activity implements OnClickListener {
 		}
 	}
 	
-
-	
+	/**Allows for gallery to be loaded on the click of the button**/
 	@Override
 	public void onClick(View v) {
 		Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);

@@ -69,10 +69,7 @@ import android.widget.TextView;
         
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
-        //TextView date = (TextView) vi.findViewById(R.id.dateText);
         final TextView total = (TextView) vi.findViewById(R.id.totalText);
-        //final TextView upcount = (TextView) vi.findViewById(R.id.upText);
-        //final TextView downcount = (TextView) vi.findViewById(R.id.downText);
         
         Button upgoat = (Button) vi.findViewById(R.id.upB);
         Button downgoat = (Button) vi.findViewById(R.id.downB);
@@ -81,9 +78,6 @@ import android.widget.TextView;
         	Echo echo = data.get(position);
         	text.setText(echo.getText());
         	user.setText(echo.getAuthor());
-        	//Need to set date
-        	//date.setText(echo.getDate().toString());
-        	//http://stackoverflow.com/questions/3994315/integer-value-in-textview
         	total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
         }
         

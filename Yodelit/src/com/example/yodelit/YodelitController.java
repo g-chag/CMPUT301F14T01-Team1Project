@@ -35,19 +35,17 @@ public class YodelitController {
  	*/
 	public static void addYodel(Yodel yodel){
 		YodelList temp = getYodelList();
-		//set yodel id (len of yodels + 1)
 		int index = temp.getYodels().size();
 		yodel.setYid(index);
-		//Log.i("XXX", "Yodel List " + temp + (temp == null));
 		temp.addYodel(yodel);
-		//Log.i("XXX", "Yodels " + yodelList.getYodels());
-		//Log.i("XXX", "After" + yodelList.getYodels().size());
 	}
 	
+	/**
+	* Adds all of the Yodels.
+ 	*/
 	public static boolean addAllYodels(ArrayList<Yodel> list){
 		YodelList temp = getYodelList();
-		return temp.addAll(list);
-		
+		return temp.addAll(list);	
 	}
 	
 	/**

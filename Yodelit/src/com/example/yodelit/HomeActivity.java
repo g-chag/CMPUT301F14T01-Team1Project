@@ -56,21 +56,6 @@ public class HomeActivity extends Activity {
 		yodelList.clear();
 		Thread thread = new SearchThread("");
 		thread.start();
-//		Collection<Yodel> inputs = YodelitController.getYodelList().getYodels();
-//		yodelList.addAll(inputs);
-//		runOnUiThread(doUpdateGUIList);
-		
-//		YodelitController.getYodelList().addListener(new Listener(){
-//			@Override
-//			public void update() {
-//				yodelList.clear();
-//				Thread thread = new SearchThread("");
-//				thread.start();
-//				Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
-//				yodelList.addAll(yodels);
-//				runOnUiThread(doUpdateGUIList);
-//			}
-//		});
         
 		/**
 	 	* Opens Yodel with Echo listed.
@@ -112,11 +97,8 @@ public class HomeActivity extends Activity {
 		super.onResume();
 		// Refresh the list when visible
 		yodelList.clear();
-		//yodels.clear();
 		Thread thread = new SearchThread("");
 		thread.start();
-		//Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
-		//yodelList.addAll(yodels);
 		runOnUiThread(doUpdateGUIList);	
 	}
     

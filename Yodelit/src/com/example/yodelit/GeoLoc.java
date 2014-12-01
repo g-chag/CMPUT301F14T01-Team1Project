@@ -33,15 +33,12 @@ public class GeoLoc implements Serializable {
 		currentContext = activityContext;
 	}
 	
+	/**Gets location based on the last known values of latitude and longitude**/
 	// this was method was considered a God class
 	// this method was not extracted into another class, as it basically makes
 	// up the entire GeoLoc class
 	public ArrayList<String> findLocation() throws IOException{
 		LocationManager locMan = (LocationManager)currentContext.getSystemService(Context.LOCATION_SERVICE);
-		/*Criteria criteria = new Criteria();
-		criteria.setPowerRequirement(Criteria.POWER_LOW);
-		String provider = locMan.getBestProvider(criteria, false);
-		*/
 		String provider = LocationManager.NETWORK_PROVIDER;
 		Location lastKnownLoc = locMan.getLastKnownLocation(provider);
 		if (lastKnownLoc != null){
