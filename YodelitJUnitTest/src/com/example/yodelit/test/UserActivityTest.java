@@ -37,6 +37,16 @@ public class UserActivityTest extends ActivityInstrumentationTestCase2<UserActiv
 				changeText.performClick();
 			}
 		});
-		
 	}
+	
+	public void testChangeLocation() {
+		User user = new User("tester");
+		user.setLocation("Edmonton, Canada");
+		UserActivity myAct = getActivity();
+		TextView changeLoc = (TextView) myAct.findViewById(R.id.changeLocText);
+		changeLoc.setText("London, England");
+		assertNotSame(user.getLocation(), changeLoc.getText());
+	}
+	
+	
 }

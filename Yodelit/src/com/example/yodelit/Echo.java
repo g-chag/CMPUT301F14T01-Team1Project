@@ -10,6 +10,7 @@ package com.example.yodelit;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import android.util.Log;
 
@@ -17,9 +18,9 @@ public class Echo {
 	private EchoVotes echoVotes = new EchoVotes();
 	public String text; //Text of the reply
 	public String Author; //Author/username id
-	protected int YID; //ID of the Yodel echo is responding to
+	protected static int YID; //ID of the Yodel echo is responding to
 	protected int EID; //ID of the Echo
-	public Date date; //Date
+	public String date; //Date
 	public int upgoats; //Number of upgoats
 	public int downgoats; //Number of downgoats
 	
@@ -31,7 +32,9 @@ public class Echo {
 	public Echo(String text){
 		this.text = text;
 		this.Author = YodelitController.activeuser.getUname();
-		//NEEDS TO SET DATE
+		//setting date from http://stackoverflow.com/questions/2654025/how-to-get-year-month-day-hours-minutes-seconds-and-milliseconds-of-the-curer/
+		Calendar now = Calendar.getInstance();
+		this.date = now.get(Calendar.DAY_OF_MONTH) + "/"+ now.get(Calendar.MONTH) +"/"+ now.get(Calendar.YEAR);
 		this.upgoats = 0;
 		this.downgoats = 0;
 	}
@@ -68,8 +71,8 @@ public class Echo {
 	/**
 	 * Sets the ID of the Yodel to which the Echo is attached to.
 	 */
-	public void setYID(int yID) {
-		this.YID = yID;
+	public static void setYID(int newyID) {
+		YID = newyID;
 	}
 	/**
 	 * Returns the Echo's ID.
@@ -86,13 +89,13 @@ public class Echo {
 	/**
 	 * Returns the Echo's date.
 	 */
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	/**
 	 * Sets the Echo's date.
 	 */
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	/**

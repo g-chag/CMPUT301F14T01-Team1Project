@@ -9,6 +9,10 @@
 package com.example.yodelit;
 
 import java.util.ArrayList;
+import java.util.Collection;
+
+import com.example.yodelit.newYodelAdapter.AddThread;
+import com.example.yodelit.newYodelAdapter.DeleteThread;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -27,6 +31,8 @@ import android.widget.TextView;
     Context context;
     ArrayList<Echo> data;
     private LayoutInflater inflater = null;
+	/**Interface for Elastic Search**/
+	private RubberClient YodelManager;
 
     public newAdapter(Context context, ArrayList<Echo> arrayList) {
         // TODO Auto-generated constructor stub
@@ -69,15 +75,19 @@ import android.widget.TextView;
         
         TextView text = (TextView) vi.findViewById(R.id.Header);
         TextView user = (TextView) vi.findViewById(R.id.userText);
+        TextView date = (TextView) vi.findViewById(R.id.dateText);
         final TextView total = (TextView) vi.findViewById(R.id.totalText);
         
         Button upgoat = (Button) vi.findViewById(R.id.upB);
         Button downgoat = (Button) vi.findViewById(R.id.downB);
         
+        YodelManager = new ElasticSearchManager();
+
         if (data != null){
         	Echo echo = data.get(position);
         	text.setText(echo.getText());
         	user.setText(echo.getAuthor());
+        	date.setText(echo.getDate());
         	total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
         }
         
@@ -92,6 +102,12 @@ import android.widget.TextView;
 				try {
 					YodelitController.yodelList.getYodel(position).getEchoList().get(position).setUpgoats((echo.getUpgoats())+1);
 					total.setText("" + ((echo.getUpgoats()-echo.getDowngoats())+1));
+					
+		        	Thread thread = new DeleteThread(echo.getYID());
+					thread.start();
+					Yodel yodel = YodelitController.getYodelList().getYodel(echo.getYID());
+					thread = new AddThread(yodel);
+					thread.start();
 				}
 				catch (Exception e) {
 					Log.e("Debug","Upgoat failed.");
@@ -120,5 +136,49 @@ import android.widget.TextView;
         
         return vi;
     }
+    class DeleteThread extends Thread {
+		public int yID;
+
+		public DeleteThread(int movieId) {
+			this.yID = yID;
+		}
+
+		@Override
+		public void run() {
+			YodelManager.deleteYodel(yID);
+			Collection<Yodel> yodels = YodelitController.getYodelList().getYodels();
+			ArrayList<Yodel> yodelList = new ArrayList<Yodel>(yodels);
+			// Remove movie from local list
+			for (int i = 0; i < yodelList.size(); i++) {
+				Yodel y = yodelList.get(i);
+				if (y.getYid()== yID) {
+					yodelList.remove(y);
+					break;
+				}
+			}
+		}
+	}
+    
+    
+    /**Used for calling ElasticAdding**/
+	class AddThread extends Thread {
+		private Yodel yodel;
+
+		public AddThread(Yodel yodel) {
+			this.yodel = yodel;
+		}
+
+		@Override
+		public void run() {
+			YodelManager.addYodel(yodel);
+			
+			// Give some time to get updated info
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 }

@@ -56,6 +56,7 @@ public class AddEchoActivity extends Activity {
 		
 		if (submissionCheck(rString)){
 			Echo newEcho = new Echo(rString);
+			Echo.setYID(yID);
 			Yodel yodel = YodelitController.getYodelList().getYodel(yID);
 			yodel.addEcho(newEcho);
 			

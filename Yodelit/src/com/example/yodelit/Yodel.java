@@ -10,6 +10,7 @@ package com.example.yodelit;
 
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -24,7 +25,7 @@ public class Yodel {
 	// additionally, these lines of code are used in this class
 	public String info;
 	public String Author;
-	public Date date;
+	public String date;
 	public int upgoats; //Number of upgoats
 	public int downgoats; //Number of downgoats
 	public ArrayList<Echo> echoList = new ArrayList<Echo>();
@@ -47,6 +48,8 @@ public class Yodel {
 		//NEEDS TO SET DATE
 		this.upgoats = 0;
 		this.downgoats = 0;
+		Calendar now = Calendar.getInstance();
+		this.date = now.get(Calendar.DAY_OF_MONTH) + "/"+ now.get(Calendar.MONTH) +"/"+ now.get(Calendar.YEAR);
 		this.yodelGeoExtra.getLocation().add("none");
 		this.yodelGeoExtra.getLocation().add("none");
 	}
@@ -107,14 +110,14 @@ public class Yodel {
 	/**
 	*  Gets the Yodels date.
  	*/
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 	
 	/**
 	*  Sets the Yodels date.
  	*/
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 	
