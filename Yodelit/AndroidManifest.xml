@@ -45,11 +45,7 @@
         </activity>
         <activity
             android:name=".UserActivity"
-            android:label="@string/title_activity_user"
-            android:parentActivityName=".HomeActivity" tools:ignore="UnusedAttribute">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.yodelit.HomeActivity" />
+            android:label="@string/title_activity_user" >
         </activity>
     </application>
 
